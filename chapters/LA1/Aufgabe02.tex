@@ -1,0 +1,447 @@
+\chapter{Aufgabe 2}
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2007
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2007}
+
+\subsection{Aufgabe}
+Gegeben sei eine lineare Abbildung \( \varphi: \R^4 \to \R^3 \), die bezüglich der \( \R^4 \)-Standardbasis und der \( \R^3 \)-Standardbasis die Abbildungsmatrix
+\begin{equation*}
+	A \coloneqq \begin{pmatrix}
+		1 & 0 & 2 & -1 \\
+		2 & 3 & -1 & 1 \\
+		-2 & 0 & -5 & 3 \\
+	\end{pmatrix}
+\end{equation*}
+habe. Bestimmen Sie eine geordnete Basis \( B \) des \( \R^4 \) und eine geordnete Basis \( C \) des \( \R^3 \) derart, dass \( \varphi \) bezüglich \( B \) und \( C \) die folgende Abbildungsmatrix besitzt:
+\begin{equation*}
+	A' = \begin{pmatrix}
+		1 & 0 & 0 & 0 \\
+		0 & 1 & 0 & 0 \\
+		0 & 0 & 1 & 0
+	\end{pmatrix}\text{.}
+\end{equation*}
+
+\subsection{Ansatz}
+Bestimme zuerst eine neue Basis des \( \R^3 \) aus der Abbildungsmatrix. Bestimme anschließend eine Basis des \( \R^4 \) derart, dass die Abbildungsmatrix \( A' \) entsteht (bestimme den vierten Vektor durch \( A * x = 0 \)).
+
+\subsection{Lösung}
+Es ist 
+\begin{equation*}
+	\text{Bild}(\varphi) = \left [ \underbrace{\begin{pmatrix}
+		1 \\ 2 \\ -2
+	\end{pmatrix}, \begin{pmatrix}
+		0 \\ 3 \\ 0
+	\end{pmatrix}, \begin{pmatrix}
+		2 \\ -1 \\ -5
+	\end{pmatrix}}_{\text{lin. unabh.}}, \begin{pmatrix}
+		-1 \\ 1 \\ 3
+	\end{pmatrix} \right ] = \R^3\text{,}
+\end{equation*}
+also wählen wir als neue \( \R^3 \)-Basis
+\begin{equation*}
+	C \coloneqq \left \{ \begin{pmatrix}
+		1 \\ 2 \\ -2
+	\end{pmatrix}, \begin{pmatrix}
+		0 \\ 3 \\ 0
+	\end{pmatrix}, \begin{pmatrix}
+		2 \\ -1 \\ -5
+	\end{pmatrix} \right \}\text{.}
+\end{equation*}
+Für die neue \( \R^4 \)-Basis \( B \coloneqq \{ b_1, b_2, b_3, b_4 \} \) muss gelten:
+\begin{align*}
+	\varphi(b_i) = c_i\text{, also } Ab_i = c_i\text{, also z.B. } b_i = e_i &\quad \text{für } i = 1,2,3 \\
+	\varphi(b_i) = 0\text{, also } Ab_i = 0 &\quad \text{für } i = 4  
+\end{align*}
+Wir bestimmen \( b_4 \) indem wir auf das LGS \( A*x = 0 \) den Gauß-Algorithmus anwenden und erhalten
+\begin{equation*}
+	b_4 = \begin{pmatrix}
+	-1 \\ \tfrac{2}{3} \\ 1 \\ 1
+\end{pmatrix}
+\end{equation*}
+als mögliche Wahl für \( b_4 \).
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2007
+%----------------------------------------------------------------------------------------
+\section{Herbst 2007}
+
+\subsection{Aufgabe}
+Es seien \( K \) ein Körper, \( V, W \) zwei \( K \)-Vektorräume und \( \varphi: V \to W \) eine lineare Abbildung. Weiter seien \( v_1, \dots, v_p \in V \) gegeben und \( w_i \coloneqq \varphi(v_i) \) (\( 1 \leq i \leq p \)) ihre Bildvektoren in \( W \).
+\begin{enumerate}
+	\item Zeigen Sie: Wenn \( w_1, \dots, w_p \) linear unabhängig sind, dann auch \( v_1, \dots, v_p \).
+	\item Zeigen Sie: Ist \( \varphi \) injektiv und sind \( v_1, \dots, v_p \) linear unabhängig, dann auch \( w_1, \dots, w_p \).
+	\item Gilt die Implikation in 2. auch, wenn \( \varphi \) nicht als injektiv vorausgesetzt wird? Beweis oder Gegenbeispiel. 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Zeige, dass für \( a_1, \dots, a_p \in K \) aus \( \sum_i a_iv_i = 0 \) folgt, dass alle \( a_i = 0 \). Nutze hierfür die Linearität von \( \varphi \).
+	\item Betrachte \( \varphi \left( \sum_i a_iv_i \right) \) und nutze die Injektivität.
+	\item Betrachte \( \text{Kern}(\varphi) \) unter der Annahme, dass \( \varphi \) nicht injektiv ist (mit \( p \coloneqq 1 \)).
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Zu zeigen (\( a_1, \dots, a_p \in K \)):
+	\begin{equation*}
+	 	\sum_ia_iv_i = 0 \Rightarrow a_1 = \cdots = a_p = 0\text{.}
+	 \end{equation*} 
+	 Es gilt:
+	 \begin{equation*}
+	 	0 = \varphi(0) = \varphi \left( \sum_ia_iv_i \right) = \sum_ia_i\varphi(v_i) = \sum_ia_iw_i
+	 \end{equation*}
+	 Daraus folgt, dass \( a_1 = \cdots = a_p = 0 \), da die \( w_i \) linear unabhängig sind.
+
+	 \item Wenn \( \sum_ia_iw_i = 0 \), so gilt:
+	 \begin{equation*}
+	 	\sum_ia_iw_i = \varphi \left( a_iv_i \right) = 0 = \varphi(0)\text{.}
+	 \end{equation*}
+	 Da \( \varphi \) hier Injektiv sein muss, ist \( \sum_ia_iv_i = 0 \). Also sind alle \( a_i \) Null und somit \( w_1, \dots, w_p \) linear unabhängig.
+
+	 \item Setze \( p = 1 \) und wähle \( 0 \neq v_1 \in \text{Kern}(\varphi) \) (Annahme: \( \varphi \) nicht injektiv). Somit ist \( \{ v_1 \} \) linear unabhängig, aber \( \varphi(v_1) = 0 \) nicht. Also benötigt man die Injektivität von \( \varphi \) für die Implikation in 2.
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2010
+%----------------------------------------------------------------------------------------
+\section{Herbst 2010}
+
+\subsection{Aufgabe}
+Es seien \( K \) ein Körper, \( V \) ein \( K \)-Vektorraum und \( U_1, U_2, U_3 \) Untervektorräume von \( V \). Zeigen Sie:
+\begin{enumerate}
+	\item \( V = U_1 \cup U_2 \Leftrightarrow V = U_1 \wedge V = U_2 \) 
+	\item \( U_1 \subseteq U_3 \Leftrightarrow U_1 + (U_2 \cap U_3) = (U_1 + U_2) \cap U_3 \)
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Zeige die Richtungen einzeln:
+	\begin{enumerate}
+	 	\item \( \Leftarrow \): ziemlich trivial
+	 	\item \( \Rightarrow \): nehme an, dass \( V \neq U_1 \) und zeige, dass dann \( V = U_2 \) gelten muss.
+	 \end{enumerate} 
+
+	 \item Zeige die Richtungen einzeln:
+	 \begin{enumerate}
+	 	\item \( \Leftarrow \): ziemlich trivial
+	 	\item \( \Rightarrow \): Zeige zuerst \( U_1 + (U_2 \cap U_3) \subseteq (U_1 + U_2) \cap U_3 \) und dann \( (U_1 + U_2) \cap U_3 \subseteq U_1 + (U_2 \cap U_3) \).
+	 \end{enumerate}
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Es werden beide Richtungen einzeln gezeigt.
+	\begin{enumerate}
+		\item \( \Leftarrow \): Ist \( V = U_1 \) oder \( V = U_2 \), so ist \( U_1 \cup U_2 \subseteq V \subseteq U_1 \cup U_2 \), also \( V = U_1 \cup U_2 \).
+		\item \( \Rightarrow \): Sei \( V = U_1 \cup U_2 \). Annahme: \( V \neq U_1 \) (sonst fertig). Zu zeigen: \( V = U_2 \). \\*
+		Wir zeigen, dass \( \forall b \in V : b \in U_2 \). \\*
+		Nach Annahme: \( \exists a \in (V \setminus U_1) = (U_1 \cup U_2) \setminus U_1 = U_2 \setminus (U_1 \cap U_2) \subseteq U_2 \).
+		\begin{enumerate}
+			\item 1. Fall: \( b \in U_1 \). Dann ist \( a+b \not \in U_1 \), sonst wäre \( a+b \in U_1 \) und damit \( a \in U_1 \) (ausgeschlossen) -- also muss \( b \in U_2 \) sein.
+			\item 2. Fall: \( b \not \in U_1 \). Dann ist \( b \in U_2 \) nach Voraussetzung. 
+		\end{enumerate}
+		Da \( b \in V \) beliebig war und in \( U_2 \) liegt, ist \( V \subseteq U_2 \) und somit \( V = U_2 \). \\*
+		Insgesamt erhält man: \( V = U_1 \wedge V = U_2 \).
+	\end{enumerate}
+
+	\item Es werden beide Richtungen einzeln gezeigt.
+	\begin{enumerate}
+		\item \( \Leftarrow \): Es gilt \( U_1 + (U_2 \cap U_3) = (U_1 + U_2) \cap U_3 \). Es gilt:
+		\begin{equation*}
+		 	U_1 \subseteq U_1 + (U_2 \cap U_3) = (U_1 + U_2) \cap U_3 \subseteq U_3
+		 \end{equation*} 
+		 \item \( \Rightarrow \): Es gilt \( U_1 \subseteq U_3 \). Dann gilt:
+		 \begin{equation*}
+		 	U_1 + (U_2 \cap U_3) \subseteq U_1 + U_2 \quad \wedge \quad U_1 + (U_2 \cap U_3) \subseteq U_3 + U_3 = U_3
+		 \end{equation*}
+		 Also \( U_1 + (U_2 \cap U_3) \subseteq (U_1 + U_2) \cap U_3 \). \\*
+		 Ist nun \( x \in (U_1 + U_2) \cap U_3 \), so ist \( u_1 + u_2 = x \in U_3 \) (\( u_1 \in U_1, u_2 \in U_2 \)), also \( u_2 = x - u_1 \in U_3 + U_1 \subseteq U_3 \), also \( x = u_1 + u_2 \in U_1 + (U_2 \cap U_3) \) und somit
+		 \begin{equation*}
+		 	(U_1 + U_2) \cap U_3 \subseteq U_1 + (U_2 \cap U_3)\text{.}
+		 \end{equation*}
+		 Man erhält insgesamt also die Gleichheit.
+	\end{enumerate}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2013
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2013}
+
+\subsection{Aufgabe}
+Gegeben sei das lineare Gleichungssystem
+\begin{equation}
+	\label{lgs1}
+	\systeme{x_1 + x_2 + x_3 = 1, x_1 + 3x_2 - x_3 = 0, x_1 + 2x_3 = 0, x_1 + 2x_2 = 2}
+\end{equation}
+\begin{enumerate}
+	\item Bestimmen Sie die Lösungsmenge von ~\ref{eq:lgs1} über dem Körper \( \R \).
+	\item Bestimmen Sie die Lösungsmenge von ~\ref{eq:lgs1} über dem Körper \( \Z/3\Z \).
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Bestimmen der Lösungsmenge durch Umformen.
+	\item Minimiere das LGS und forme unter Beachtung der Besonderheiten in Quotientenräumen um. 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Wir schreiben die dritte Zeile als erste Zeile und ziehen sie von den anderen Zeilen ab. Zieht man die zweite Zeile dreimal von der dritten Zeile ab, so erhält man
+	\begin{equation*}
+	 	0 = -3\text{.}
+	 \end{equation*} 
+	 Also hat das LGS über \( \R \) keine Lösungen.
+
+	 \item Wir schreiben erneut die dritte Zeile als erste und ziehen sie von allen anderen Gleichungen ab. Danach lässt sich das LGS wie folgt schreiben:
+	 \begin{equation}
+	 	\label{lgs2}
+	 	\systeme{x_1 + 2x_3 = 0, x_2 + 2x_3 = 1, 0x_2 + 0x_3 = 0, 2x_2 + x_3 = 2}
+	 \end{equation}
+	 Entfernt man die dritte Zeile (sie ist offensichtlich überflüssig)  und addiert die zweite zur letzten, so erhält man:
+	 \begin{equation}
+	 	\label{lgs3}
+	 	\systeme{x_1 + 2x_3 = 0, x_2 + 2x_3 = 1, 0x_2 + 0x_3 = 0}
+	 \end{equation}
+	 Wir setzen \( t \coloneqq x_3 \) und erhalten somit als Lösungsmenge
+	 \begin{equation*}
+	 	\mathbb{L} = \left \{ \begin{pmatrix}
+	 		0 \\ 1 \\ 0
+	 	\end{pmatrix} + s \begin{pmatrix}
+	 		1 \\ 1 \\ 1
+	 	\end{pmatrix} \mid s \in \Z/3\Z \right \} = \left \{ \begin{pmatrix}
+	 		0 \\ 1 \\ 0
+	 	\end{pmatrix}, \begin{pmatrix}
+	 		2 \\ 0 \\ 2
+	 	\end{pmatrix}, \begin{pmatrix}
+	 		1 \\ 2 \\ 1
+	 	\end{pmatrix} \right \}\text{.}
+	 \end{equation*}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2013
+%----------------------------------------------------------------------------------------
+\section{Herbst 2013}
+
+\subsection{Aufgabe}
+Gegeben seien die folgenden Untervektorräume von \( \R^4 \):
+\begin{equation*}
+	U = \langle \begin{pmatrix}
+		1 \\ 2 \\ 3 \\ 4
+	\end{pmatrix}, \begin{pmatrix}
+		0 \\ 1 \\ 0 \\ 2
+	\end{pmatrix}, \begin{pmatrix}
+		1 \\ 1 \\ 1 \\ 2
+	\end{pmatrix} \rangle \qquad W = \langle \begin{pmatrix}
+		2 \\ -1 \\ 1 \\ -1
+	\end{pmatrix}, \begin{pmatrix}
+		1 \\ 2 \\ 3 \\ 2
+	\end{pmatrix}, \begin{pmatrix}
+		1 \\ 1 \\ 2 \\ 1
+	\end{pmatrix} \rangle
+\end{equation*}
+Bestimmen Sie für jeden der Vektorräume \( U, W, U \cap W, U + W \) eine Basis und seine Dimension.
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item \( U, W \): Schreibe die Basisvektoren als Zeilen in eine Matrix und wende den Gauß-Algorithmus an.
+	\item \( U \cap W \): Betrachte die Basisvektoren von \( U \) und \( W \) und bestimme, welche in beiden Untervektorräumen liegen.
+	\item \( U + W \): Wende die Dimensionsformel an und bestimme aus den Basisvektoren von \( U \) und \( W \) eine Basis. 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item \( U \): Wir schreiben die Basisvektoren von \( U \) als Zeilen einer Matrix und formen mit dem Gauß-Algorithmus um:
+	\begin{equation*}
+	 	\begin{pmatrix}
+	 		1 & 2 & 3 & 4 \\
+	 		0 & 1 & 0 & 2 \\
+	 		1 & 1 & 1 & 2
+	 	\end{pmatrix} \leadsto \begin{pmatrix}
+	 		1 & 0 & 0 & 0 \\
+	 		0 & 1 & 0 & 2 \\
+	 		0 & 0 & 1 & 0
+	 	\end{pmatrix} \leadsto \left | \left \{ \begin{pmatrix}
+	 	1 \\ 0 \\ 0 \\ 0
+	 \end{pmatrix}, \begin{pmatrix}
+	 	0 \\ 1 \\ 0 \\ 2
+	 \end{pmatrix}, \begin{pmatrix}
+	 	0 \\ 0 \\ 1 \\ 0
+	 \end{pmatrix} \right \} \right | = U, \text{dim}(U) = 3
+	 \end{equation*}
+
+	 \item \( W \): Wir gehen wie bei \( U \) vor:
+	 \begin{equation*}
+	 	\begin{pmatrix}
+	 		2 & -1 & 1 & -1 \\
+	 		1 & 2 & 3 & 2 \\
+	 		1 & 1 & 2 & 1
+	 	\end{pmatrix} \leadsto \begin{pmatrix}
+	 		1 & 0 & 1 & 0 \\
+	 		0 & 1 & 1 & 1 \\
+	 		0 & 0 & 0 & 0 
+	 	\end{pmatrix} \leadsto \left | \left \{ \begin{pmatrix}
+	 	1 \\ 0 \\ 1 \\ 0
+	 \end{pmatrix}, \begin{pmatrix}
+	 	0 \\ 1 \\ 1 \\ 1
+	 \end{pmatrix} \right \} \right | = W, \text{dim}(W) = 2
+	 \end{equation*}
+	 
+	 \item \( U \cap W \): Der zweite Basisvektor von \( W \) liegt nicht in \( U \), da die vierte Komponente eines Vektors in \( U \) stehts das doppelte der zweiten Komponente ist. Der erste Basisvektor von \( W \) ist die Summe des ersten und dritten Basisvektors von \( U \), also liegt er in \( U \cap W \).
+
+	 \item \( U + W \): Es ist \( \text{dim}(U+W) = \text{dim}(U) + \text{dim}(W) - \text{dim}(U \cap W) \), also \( \text{dim}(U + W) = 4 \), also ist die \( \R^4 \)-Standardbasis eine Basis von \( U + W \).
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2014
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2014}
+
+\subsection{Aufgabe}
+Seien \( K \) ein Körper, \( V, W \) endlichdimensionale \( K \)-Vektorräume, \( \varphi: V \to W \) ein \( K \)-Vektorraumhomomorphismus und \( U \) ein Untervektorraum von \( W \).
+\begin{enumerate}
+	\item Formulieren Sie die Dimensionsformel für \( \varphi \).
+	\item Zeigen Sie: Die Urbildmenge \( \varphi^{-1}(U) = \{ v \in V \mid \varphi(v) \in U \} \) ist ein Untervektorraum von \( V \).
+	\item Zeigen Sie: Ist \( \varphi \) surjektiv, so gilt: \( \text{dim}(\varphi^{-1}(U)) = \text{dim}(U) + \text{dim}(\text{Kern}(\varphi)) \).
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Klar.
+	\item Weise die für das Untervektorraumkriterium nötigen Eigenschaften nach \\* (nicht leer, \( v_1 + \lambda v_2 \in U \)).
+	\item Betrachte die Einschränkung \( \varphi |_{\varphi^{-1}(U)} \) und verwende die Dimensionsformel. 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Es gilt: 
+	\begin{equation*}
+	 	\text{dim}(V) = \text{Rang}(\varphi) + \text{dim}(\text{Kern}(\varphi))
+	 \end{equation*} 
+
+	 \item Wir weisen die Eigenschaften einzeln nach:
+	 \begin{enumerate}
+	 	\item \emph{nicht leer}: \( U \) ist ein Untervektorraum, also \( 0 \in U \). \( \varphi \) ist ein Homomorphismus, also \( \varphi(0) = 0 \). Damit ist \( 0 \in \varphi^{-1}(0) \subseteq \varphi^{-1}(U) \) und \( \varphi^{-1}(U) \neq \varnothing \). 
+	 	\item \emph{Abgeschlossenheit Linearität}: Es seien \( v_1, v_2 \in \varphi^{-1}(U), \lambda \in K \). Dann gilt:
+	 	\begin{equation*}
+	 		\varphi(v_1 + \lambda v_2) = \varphi(v_1) + \lambda \varphi(v_2) \in U\text{, also } v_1 + \lambda v_2 \in \varphi^{-1}(U)
+	 	\end{equation*}
+	 \end{enumerate}
+ 	Also ist \( \varphi^{-1}(U) \) ein Untervektorraum.
+
+ 	\item Wir betrachten die Einschränkung \( \varphi |_{\varphi^{-1}(U)}: \varphi^{-1}(U) \to W \) von \( \varphi \) auf \( \varphi^{-1}(U) \). Es ist \( 0 \in U \), also ist \( \text{Kern}(\varphi) = \varphi^{-1}(0) \subseteq \varphi^{-1}(U) \), also ist \( \text{Kern}(\varphi) = \text{Kern}(\varphi |_{\varphi^{-1}(U)}) \). Die Dimensionsformel besagt also:
+ 	\begin{align*}
+ 		\text{dim}(\varphi^{-1(U)}) &= \text{Rang}(\varphi |_{\varphi^{-1}(U)}) + \text{dim}(\text{Kern}(\varphi |_{\varphi^{-1}(U)})) \\
+ 		 &= \text{dim}(\text{Bild}(\varphi |_{\varphi^{-1}(U)})) + \text{dim}(\text{Kern}(\varphi)) \\
+ 		 &= \text{dim}(U) + \text{dim}(\text{Kern}(\varphi))
+ 	\end{align*}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2014
+%----------------------------------------------------------------------------------------
+\section{Herbst 2014}
+
+\begin{remark}
+	Diese Aufgabe ist identisch mit der Aufgabe im Frühjahr 2015. \\*
+	Diese taucht deswegen nachfolgend nicht auf.
+\end{remark}
+
+\subsection{Aufgabe}
+Es seien \( V \) ein Vektorraum über einem Körper \( K \), \( 2 \leq n \in \N \) und \( v_1, \dots, v_n \) linear abhängige Vektoren in \( V \), von denen je \( n-1 \) linear unabhängig sind.
+\begin{enumerate}
+	\item Weisen Sie nach, dass es \( \alpha_1, \dots, \alpha_n \in K \) mit \( \alpha_i \neq 0 \) (\( i = 1, \dots, n \)) gibt, sodass \( \sum_{i=1}^n\alpha_iv_i = 0 \).
+	\item Es seien \( \alpha_1, \dots, \alpha_n \in K \setminus \{ 0 \} \) wie oben und \( \beta_1, \dots, \beta_n \in K \) mit \( \sum_{i=1}^n\beta_iv_i = 0 \). \\*
+		Zeigen Sie, dass \( \exists \lambda \in K \ \forall i \in \{ 1, \dots, n \}: \beta_i = \lambda \alpha_i  \). 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Konstruiere einen der Vektoren aus den anderen und anulliere diese gegenseitig. Zeige \( \alpha_i \neq 0 \) durch Widerspruch.
+	\item Stelle \( v_1 \) als Linearkombination der anderen Vektoren dar (unter Ausnutzung der Ergebnisse der ersten Teilaufgabe). Verwende das in \( 0 = \sum_{i=1}^n\beta_iv_i \) und ermittle so \( \lambda \).
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item \( \exists j \in \{1,\dots,n\}, \lambda_i \in K\setminus\{j\} : v_j = \sum_{i=1, i\neq j}^n\lambda_iv_i \), da \( v_1, \dots, v_n \) linear abhängig sind. \\*
+		Setzt man nun \( \forall i \in \{1, \dots, n\} \setminus \{j\}: \alpha_i \coloneqq \lambda_i \) und \( \alpha_j = -1 \), so erhält man \( 0 = \sum_{i=1}^n\alpha_iv_i \). \\*
+		Nun ist noch zu zeigen, dass alle \( \alpha_i \neq 0 \). Nehmen wir an, dass ein \( \alpha_l = 0 \) (\( l \in \{1, \dots, n\} \)), so folgt wegen der linearen Unabhängigkeit der \( n-1 \) Vektoren \( \{ v_1, \dots, v_n \} \setminus \{ v_l \} \) auch \( \alpha_i = 0 \) für alle \( i \in \{1, \dots, n\} \setminus \{ l \} \). Widerspruch zu \( \alpha_j = -1 \).
+
+	\item Nach 1. gilt 
+	\begin{align*}
+		v_1 &= \sum_{i=2}^n \frac{-\alpha_i}{\alpha_1}v_i\text{, also: } \\
+		0 &= \sum_{i=1}^n\beta_iv_i = \beta_1 * \left(\sum_{i=2}^n \frac{-\alpha_i}{\alpha_1}v_i\right) + \sum_{i=2}^n\beta_iv_i = \sum_{i=2}^n \left(\beta_i - \alpha_i \frac{\beta_1}{\alpha_1}\right)v_i
+	\end{align*}
+	Da \( v_2, \dots, v_n \) linear unabhängig sind, filt \( \beta_i = \tfrac{\beta_1}{\alpha_1}\alpha_i \) (\( i \in \{ 2, \dots, n \} \)) und somit \( \lambda = \tfrac{\beta_1}{\alpha_1} \).
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2015
+%----------------------------------------------------------------------------------------
+\section{Herbst 2015}
+
+\subsection{Aufgabe}
+Es seien \( V \) ein Vektorraum und \( \varphi \) ein Endomorphismus von \( V \). Zeigen Sie:
+\begin{enumerate}
+	\item Die folgenden Aussagen sind äquivalent:
+	\begin{enumerate}
+	 	\item \( \text{Kern}(\varphi) \cap \text{Bild}(\varphi) = \{ 0 \} \) 
+	 	\item \( \forall x \in V, \varphi^2(x) = 0: \varphi(x) = 0 \)
+	 \end{enumerate} 
+
+	 \item Gilt außerdem \( \text{dim}(V) < \infty \), so ist zu den beiden Aussagen äquivalent: \\*
+	 	\( V = \text{Kern}(\varphi) \oplus \text{Bild}(\varphi) \)
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Zeige die beiden Richtungen einzeln.
+	\begin{enumerate}
+	 	\item (a) \( \Rightarrow \) (b): Betrachte ein \( x \in V \) mit \( \varphi^2(x) = 0 \).
+	 	\item (b) \( \Rightarrow \) (a): Zeige \( \text{Kern}(\varphi) \cap \text{Bild}(\varphi) \subseteq \{ 0 \} \) und \( \{ 0 \} \subseteq \text{Kern}(\varphi) \cap \text{Bild}(\varphi) \) getrennt.
+	 \end{enumerate} 
+
+	 \item Zeige (i) \( \Rightarrow \) (iii) und (i) \( \Rightarrow \) (iii) und nutze Dimensionssatz und die Ergebnisse aus der ersten Teilaufgabe.
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Wir zeigen die beiden Richtungen einzeln:
+	\begin{enumerate}
+	 	\item (a) \( \Rightarrow \) (b): Es sei \( x \in V \) mit \( \varphi^2(x) = 0 \). Damit ist \( \varphi(x) \in \text{Kern}(\varphi) \) und \( \varphi(x) \in \text{Bild}(\varphi) \). Somit ist \( \varphi(x) = 0 \).
+	 	\item (b) \( \Rightarrow \) (a): \( \supseteq \) klar. \( \subseteq \): Es sei \( y \in \text{Kern}(\varphi) \cap \text{Bild}(\varphi) \). Dann ist \( \varphi(y) = 0 \) und \( \exists x \in V: y = \varphi(x) \). Daraus folgt \( \varphi^2(x) = \varphi(y) = 0 \), also \( \varphi(x) = 0 \) und somit \( y = 0 \).
+	 \end{enumerate} 
+
+	 \item Wir zeigen (i) \( \Rightarrow \) (iii) und (iii) \( \Rightarrow \) (i):
+	 \begin{enumerate}
+	 	\item (i) \( \Rightarrow \) (iii): Wir müssen nur \( V = \text{Kern}(\varphi) + \text{Bild}(\varphi) \) zeigen, denn zusammen mit (i) ist die Summe direkt. \\*
+	 		Offensichtlich ist \( V \supset \text{Kern}(\varphi) + \text{Bild}(\varphi) \). Wegen
+	 		\begin{align*}
+	 		 	\text{dim}(\text{Kern}(\varphi) + \text{Bild}(\varphi)) &= \text{dim}(\text{Kern}(\varphi)) + \text{dim}(\text{Bild}(\varphi)) - \text{dim}(\text{Kern}(\varphi) \cap \text{Bild}(\varphi)) \\
+	 		 	 &= \text{dim}(\text{Kern}(\varphi)) + \text{dim}(\text{Bild}(\varphi)) \\
+	 		 	 &= \text{dim}(V)
+	 		 \end{align*} 
+	 		 folgt \( V = \text{Kern}(\varphi) + \text{Bild}(\varphi) \).
+
+	 	\item (iii) \( \Rightarrow \) (i): Da die Summe direkt ist folgt automatisch \( \text{Kern}(\varphi) \cap \text{Bild}(\varphi) = \{ 0 \} \).
+	 \end{enumerate}
+\end{enumerate}
+
+\newpage

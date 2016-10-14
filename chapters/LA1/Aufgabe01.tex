@@ -1,0 +1,676 @@
+\chapter{Aufgabe 1}
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2007
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2007}
+
+\subsection{Aufgabe}
+Es sei \( G, * \) eine Gruppe, in der für jedes Element \( x \in G \) genau ein Element \( y \in G \) existiert, sodass \( y*y = x \) gilt. Dadurch wird eine Abbildung
+\begin{equation*}
+	\varphi: G \to G, x \mapsto y
+\end{equation*}
+definiert. Zeigen Sie:
+\begin{enumerate}
+	\item Die Abbildung \( \varphi \) ist bijektiv.
+	\item Wenn \( G \) abelsch ist, dann ist \( \varphi \) ein Gruppenhomomorphismus von \( G \) nach \( G \).
+	\item Wenn \( \varphi \) ein Gruppenhomomorphismus von \( G \) nach \( G \) ist, dann ist \( G \) abelsch. 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Zeige Injektivität und Surjektivität für beliebige Elemente aus \( G \).
+	\item Zeige, dass \( \varphi(x_1*x_2) = \varphi(x_1)*\varphi(x_2) \) und nutze aus, dass \( \varphi(x)*\varphi(x) = x \).
+	\item Nutze Injektivität und Homomorphie von \( \varphi \) aus, um zu zeigen, dass \( \varphi(x_1*x_2) = \varphi(x_2 * x_1) \).
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Injektivität und Surjektivität werden getrennt nachgewiesen:
+	\begin{enumerate}
+	 	\item \emph{Injektivität}: Für \( x_1, x_2 \in G \) mit \( \varphi(x_1) = \varphi(x_2) \) gilt:
+	 	\begin{equation*}
+	 	 	x_1 = \varphi(x_1)*\varphi(x_1) = \varphi(x_2) * \varphi(x_2) = x_2\text{.}
+	 	 \end{equation*} 
+	 	 \item \emph{Surjektivität}: Für \( y \in G \) und \( x \coloneqq y*y \) folgt \( y = \varphi(x) \) aus der Definition von \( \varphi \).
+	 \end{enumerate} 
+	 Also ist \( \varphi \) bijektiv.
+
+	 \item Es ist:
+	 \begin{equation*}
+	 	\varphi(x_1) * \varphi(x_2) * \varphi(x_1) * \varphi(x_2) = \varphi(x_1) * \varphi(x_1) * \varphi(x_2) * \varphi(x_2) = x_1 * x_2 = \varphi(x_1 * x_2) * \varphi(x_1 * x_2)\text{,}
+	 \end{equation*}
+	 womit \( \varphi \) homomorph ist.
+
+	 \item Nun gilt \( \forall x_1, x_2 \in G : \varphi(x_1 * x_2) = \varphi(x_1) * \varphi(x_2) \). Daraus folgt:
+	 \begin{align*}
+	 	\varphi(x_1) * \varphi(x_1 * x_2) * \varphi(x_2) &= \varphi(x_1) * \varphi(x_1) * \varphi(x_2) * \varphi(x_2) \\
+	 	 &= x_1 * x_2 \\
+	 	 &= \varphi(x_1 * x_2) * \varphi(x_1 * x_2) \\
+	 	 &= \varphi(x_1) * \varphi(x_2 * x_1) * \varphi(x_2)
+	 \end{align*}
+	 Also ist \( \varphi(x_1 * x_2) = \varphi(x_2 * x_1) \). \\* Aufgrund der Injektivität von \( \varphi \) ist \( x_1 * x_2 = x_2 * x_1 \) und \( G \) abelsch.
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2007
+%----------------------------------------------------------------------------------------
+\section{Herbst 2007}
+
+\subsection{Aufgabe}
+Es seien \( (G, \star) \) eine Gruppe mit neutralem Element \( e_G \) und \( (H, *) \) eine weitere Gruppe.
+\begin{enumerate}
+	\item Geben Sie die Definition eines Gruppenhomomorphismus \( \varphi: G \to H \) an unt beweisen Sie, dass für solche einen Gruppenhomomorphismus \( \varphi(e_G) \) das neutrale Element von \( H \) ist.
+	\item Nun besitze \( G \) die Eigenschaft, dass für alle \( g \in G \) eine ungerade natürliche Zahl existiert mit \( g^n = e_G \). \\* Zeigen Sie, dass es keinen surjektiven Gruppenhomomorphismus \( \varphi: G \to \{ 1, -1 \} \) gibt. 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Gebe die Definition an. Betrachte \( \varphi(e_G) = \varphi(e_G \star e_g) = \varphi(e_G) * \varphi(e_G) \) und erweitere geschickt (nutze aus, dass \( \varphi(e_G)^{-1} * \varphi(e_G) = e_H \)).
+	\item Wähle \( g \in G, n \) ungerade mit \( g^n = e_G \) und zeige, dass \( \varphi \) nicht surjektiv sein kann.
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Ein Gruppenhomomorphismus von \( G \) nach \( H \) ist \( \varphi: G \to H \) mit
+	\begin{equation*}
+	 	\forall g_1, g_2 \in G: \varphi(g_1 \star g_2) = \varphi(g_1) * \varphi(g_2)\text{.}
+	 \end{equation*} 
+	 Es ist \( \varphi(e_G) = \varphi(e_G \star e_G) = \varphi(e_G) * \varphi(e_G) \) und damit
+	 \begin{equation*}
+	 	e_H = \varphi(e_G)^{-1} * \varphi(e_G) = \varphi(e_G)^{-1} * (\varphi(e_G) * \varphi(e_G)) = \varphi(e_G)\text{.}
+	 \end{equation*}
+
+	 \item Sei \( \varphi: G \to \{ 1, -1 \} \) ein Gruppenhomomorphismus, \( g \in G \) und \( n \) eine ungerade Zahl mit \( g^n = e_G \) (welches nach Vorraussetzung existiert). Dann gilt:
+	 \begin{equation*}
+	 	1 = e_H = \varphi(e_G) = \varphi(g^n) = \varphi(g)^n\text{.}
+	 \end{equation*}
+	 Also muss \( \varphi(g) = 1 \) sein, da \( (-1)^n = -1 \). Damit ist \( \varphi \) konstant \( 1 \) und damit nicht surjektiv.
+\end{enumerate}
+
+\newpage
+
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2010
+%----------------------------------------------------------------------------------------
+\section{Herbst 2010}
+
+\subsection{Aufgabe}
+Es seien \( n \in \N \), \( M = \{ 1,\dots,n \} \subset \N \), \( S_n \) die Gruppe der Permutationen von \( M \). Zeigen Sie:
+\begin{enumerate}
+	\item \( \forall a \in M : H_a \coloneqq \{ \sigma \in S_n \mid \sigma(a) = a \} \) ist Untergruppe von \( S_n \).
+	\item \( \forall a \in M \), \( b,c \in M\setminus \{ a \} \ \exists \tau \in H_a: \tau(b) = c \).
+	\item Wenn \( \tau \in S_n \) eine Permutation mit \( \tau(1) = a \) ist, dann gilt:
+	\begin{equation*}
+		H_a = \{ \tau\sigma\tau^{-1} \mid \sigma \in H_1 \}
+	\end{equation*}
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Zeige, dass \( H_a \) die für das Untergruppenkriterium nötigen Eigenschaften erfüllt.
+	\item Definiere eine Abbildung mit den nötigen Eigenschaften und zeige, dass es sich um eine Permutation handelt, die in \( H_a \) liegt.
+	\item Untersuche das Verhalten von \( \tau \) und \( \tau^{-1} \) und argumentiere, warum \( \sigma \in H_1 \) ``ausreicht''.
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Mit dem Untergruppenkriterium:
+	\begin{enumerate}
+	 	\item \emph{Nicht leer}: \( \text{Id}_M(a) = a \), also \( \text{Id}_M \in H_a \neq \varnothing \).
+	 	\item \emph{Abgeschlossenheit Inversion}: Ist \( \sigma \in H_a \), so ist \( \sigma^{-1} = a \), also \( \sigma^{-1} \in H_a \).
+	 	\item \emph{Abgeschlossenheit Verknüpfung}: Sind \( \sigma, \tau \in H_a \), so ist \( \sigma \tau(a) = \sigma(a) = a \), also \( \sigma \tau \in H_a \). 
+	 \end{enumerate} 
+	 Also ist \( H_a \) eine Untergruppe von \( S_n \).
+
+	 \item Definiere \( \tau: M \to M \) als
+	 \begin{equation*}
+	 	m \mapsto \begin{cases}
+	 		m \text{, falls } m \neq b \wedge m \neq c \\
+	 		c \text{, falls } m = b \\
+	 		b \text{, falls } m = c 
+	 	\end{cases}
+	 \end{equation*}
+	 Es ist \( \tau \tau = \text{Id}_M \), also \( \tau \in S_n \). \( \tau \in H_a \), da \( a \mapsto a \) wegen \( a \neq c \wedge a \neq b \).
+
+	 \item Gegeben sei \( \tau \in S_n \) mit \( \tau(1) = a \) (also \( \tau^{-1}(a) = 1 \)). Ist \( \rho \in H_a \) beliebig, so gilt:
+	 \begin{align*}
+	 	\rho = \tau \underbrace{\tau^{-1} \rho \tau}_{\mathclap{\coloneqq \sigma \in H_1 \text{, da } \tau^{-1} \rho \tau(1) = \tau^{-1} \rho(a) = \tau^{-1}(a) = 1}} = \tau \sigma \tau^{-1} \in H_1 &\text{, also } H_a \subseteq \{ \tau \sigma \tau^{-1} \mid \sigma \in H_1 \} \\
+	 	\forall \sigma \in H_1 : \tau \sigma \tau^{-1}(a) = \tau \sigma(1) = \tau(1) = a &\text{, also } \{ \tau \sigma \tau^{-1} \mid \sigma \in H_1 \} \subseteq H_a
+	 \end{align*}
+	 \begin{remark}
+	 	Ich nehme an, dass eine Argumentation über die Auswirkungen der einzelnen Permutationen auch reichen würde (à la ``\( \tau^{-1} \) verschiebt \( a \) auf \( 1 \), \( \sigma \) lässt \( a \) bei \( 1 \), \( \tau \) verschiebt \( a \) zurück, die restlichen Elemente werden beliebig permutiert'')
+	 \end{remark}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2013
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2013}
+
+\subsection{Aufgabe}
+Gegeben sei die Menge
+\begin{equation*}
+	N \coloneqq \left \{ \begin{pmatrix}
+		1 & x & z \\
+		0 & 1 & y \\
+		0 & 0 & 1
+	\end{pmatrix} \mid x,y,z \in \R \right \}\text{.}
+\end{equation*}
+\begin{enumerate}
+	\item Zeigen Sie, dass \( N \) eine Untergruppe der allgemeinen linearen Gruppe \( \text{GL}_3(\R) \) ist. Ist \( N \) kommutativ?
+	\item Bestimmen Sie alle \( Z \in N \) mit der Eigenschaft
+	\begin{equation*}
+	 	\forall A \in N: Z*A = A*Z\text{.}
+	 \end{equation*} 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Zeige, dass \( N \) die für das Untergruppenkriterium nötigen Eigenschaften erfüllt (nicht leer, Abgeschlossenheit für Inversion und Multiplikation). Suche ein Gegenbeispiel für Kommutativität oder folgere, dass \( N \) nicht kommutativ ist, aus dem zweiten Aufgabenteil.
+	\item Untersuche \( Z*A = A*Z \) für \( A, Z \in N \) (\( Z \) fest, \( A \) beliebig) und bestimme, welche Eigenschaften \( A \) haben muss, damit die Gleichung erfüllt ist.
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Wir weisen die Eigenschaften getrennt nach.
+	\begin{enumerate}
+	 	\item \emph{nicht leer}: \( I_3 \in N \neq \varnothing \). 
+	 	\item \emph{Abgeschlossenheit Mult.}: \( \begin{pmatrix}
+	 		1 & x & z \\
+	 		0 & 1 & y \\
+	 		0 & 0 & 1
+	 	\end{pmatrix} \begin{pmatrix}
+	 		1 & a & c \\
+	 		0 & 1 & b \\
+	 		0 & 0 & 1
+	 	\end{pmatrix} = \begin{pmatrix}
+	 		1 & a+x & c+bx+z \\
+	 		0 & 1 & y+b \\
+	 		0 & 0 & 1
+	 	\end{pmatrix} \in N \)
+
+	 	\item \emph{Abgeschlossenheit Inversion}: \( \begin{pmatrix}
+	 		1 & x & z \\
+	 		0 & 1 & y \\
+	 		0 & 0 & 1 
+	 	\end{pmatrix}^{-1} = \begin{pmatrix}
+	 		1 & -x & -z+xy \\
+	 		0 & 1 & -y \\
+	 		0 & 0 & 1
+	 	\end{pmatrix} \in N \)
+	 \end{enumerate} 
+
+	 \item Sei \( A = \begin{pmatrix}
+	 	1 & a & c \\
+	 	0 & 1 & b \\
+	 	0 & 0 & 1
+	 \end{pmatrix}, Z = \begin{pmatrix}
+	 	1 & x & z \\
+	 	0 & 1 & y \\
+	 	0 & 0 & 1
+	 \end{pmatrix} \in N \) beliebig (\( Z \) fest). Es ist
+	 \begin{equation*}
+	 	ZA = \begin{pmatrix}
+	 		1 & a+x & c+bx+z \\
+	 		0 & 1 & b+y \\
+	 		0 & 0 & 1
+	 	\end{pmatrix} \quad AZ = \begin{pmatrix}
+	 		1 & a+x & c+ay+z \\
+	 		0 & 1 & b+y \\
+	 		0 & 0 & 1
+	 	\end{pmatrix}\text{.}
+	 \end{equation*}
+	 Damit \( AZ=ZA \) gilt, muss \( ax+by \) gelten. Das ist genau für die \( Z \in N \) der Fall, bei denen \( x=y=0 \).
+\end{enumerate}
+
+\newpage
+
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2013
+%----------------------------------------------------------------------------------------
+\section{Herbst 2013}
+
+\subsection{Aufgabe}
+
+Sei \( n \in \N \), \( M = \{ 1,\dots,n \} \subset \N \), \( d: M \times M \to \R \) eine Abbildung mit:
+\begin{equation*}
+	\forall x,y \in M: d(x,y) = 0 \Leftrightarrow x = y\text{.}
+\end{equation*}
+Es bezeichne \( S_n \) die Gruppe aller Permutationen von \( M \) und
+\begin{equation*}
+	G \coloneqq \{ \sigma: M \to M \mid \forall x,y \in M: d(x,y) = d(\sigma(x), \sigma(y)) \}\text{.}
+\end{equation*}
+Zeigen Sie:
+\begin{enumerate}
+	\item Jedes \( \sigma \in G \) ist injektiv.
+	\item \( G \) ist eine Untergruppe von \( S_n \). 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Zeige, dass \( \sigma(x) = \sigma(y) \Rightarrow x=y \) gilt. 
+	\item Zeige, dass \( G \) die für das Untergruppenkriterium nötigen Eigenschaften erfüllt.
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Für \( x,y \in M \), \( \sigma \in G \): 
+	\begin{equation*}
+	 	\sigma(x) = \sigma(y) \Rightarrow d(\sigma(x), \sigma(y)) = 0 \Rightarrow d(x,y) = 0 \Rightarrow x = y
+	 \end{equation*}
+	 Also ist \( \sigma \) injektiv.
+
+	\item Mit dem Untergruppenkriterium:
+	\begin{enumerate}
+		\item \emph{Nicht leer}: \( \text{Id}_M \in G \), also ist \( G \) nicht leer.
+		\item \emph{Abgeschlossenheit}: \( \forall \sigma, \tau \in G \):
+		\begin{align*}
+			\forall x,y \in M: d((\sigma \circ \tau^{-1})(x), (\sigma \circ \tau^{-1})(y)) &= d(\sigma(\tau^{-1}(x)), \sigma(\tau^{-1}(y))) \\
+			 &\stackrel{\sigma \in G}{=} d(\tau^{-1}(x), \tau^{-1}(y)) \\
+			 &\stackrel{\tau \in G}{=} d(\tau(\tau^{-1}(x)), \tau(\tau^{-1}(y))) \\
+			 &= d(x,y)
+		\end{align*}
+		Also liegt auch \( \sigma \circ \tau^{-1} \) in \( G \)
+	\end{enumerate}
+	Also ist \( G \) eine Untergruppe von \( S_n \).
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2014
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2014}\index{Frühjahr 2014}
+
+\subsection{Aufgabe}
+\begin{enumerate}
+\item Zeigen Sie, dass auf \( M = \{ (a,b,c) \mid a,b,c \in \Q \} \) die folgende Verknüpfung \( \ast \) eine Gruppenstruktur definiert:
+\begin{equation*}
+  (a,b,c) \ast (x,y,z) \coloneqq (a+x, b+y, c+z+ay)
+\end{equation*}
+
+\item Entscheiden Sie, ob die so definierte Gruppe \( (M, \ast) \) kommutativ ist.
+
+\item Weisen Sie nach, dass die Abbildung
+\begin{equation*}
+  \varphi: (M, \ast) \to (\text{GL}_3(\Q),*), \varphi((a,b,c)) = \begin{pmatrix}
+    1 & a & c \\
+    0 & 1 & b \\
+    0 & 0 & 1
+  \end{pmatrix} 
+\end{equation*}
+ein Gruppenhomomorphismus ist.
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Zeigen, dass \( M \neq \varnothing \) und Gruppenkriterien nachweisen (Assoziativität von \( \ast \), Existenz neutrales Element, Existenz inverse Elemente)
+	\item Überprüfen, ob \( (a,b,c) \ast (x,y,z) = (x,y,z) \ast (a,b,c) \). Ggf. Gegenbeispiel finden.
+	\item Zeigen, dass \( \varphi((a,b,c) \ast (x,y,z)) = \varphi((a,b,c)) * \varphi((x,y,z)) \)
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Offensichtlich ist \( M \) nicht leer.
+		\\*
+		Es gilt:
+		\begin{align*}
+			((a,b,c) \ast (u,v,w)) \ast (x,y,z) &= (a+u+x, b+v+y, c+w+av+z+ay+uy) \\
+			(a,b,c) \ast ((u,v,w) \ast (x,y,z)) &= (a+u+x, b+v+y, c+w+av+z+ay+uy)
+		\end{align*}
+		Damit ist die Assoziativität gezeigt.
+		\\
+		Das neutrale Element ist \( (0,0,0) \), denn
+		\begin{align*}
+			(a,b,c) \ast (0,0,0) &= (a + 0, b + 0, c + 0 + a*0) = (a,b,c) \\
+			(0,0,0) \ast (a,b,c) &= (0 + a, 0 + b, 0 + c + 0*b) = (a,b,c)
+		\end{align*}
+		Das zu \( (a,b,c) \) inverse Element ist \( (-a, -b, ab-c) \), denn
+		\begin{equation*}
+			(a,b,c) \ast (-a, -b, ab-c) = (a - a, b - b, c + ab - c - ab) = (0,0,0)
+		\end{equation*}
+		Also ist \( M, \ast \) eine Gruppe.
+
+	\item \( M, \ast \) ist nicht kommutativ, denn z.B.:
+		\begin{equation*}
+			(1,0,0) \ast (0,1,0) = (1,1,1) \neq (1,1,0) = (0,1,0) \ast (1,0,0)
+		\end{equation*}
+	\item Zu zeigen: \( \varphi((a,b,c) \ast (x,y,z)) = \varphi((a,b,c)) * \varphi((x,y,z)) \):
+	\begin{align*}
+		\varphi((a,b,c) \ast (x,y,z)) = \varphi((a+x, b+y, c+z+ay)) &= \begin{pmatrix}
+			1 & a+x & c+z+ay \\
+			0 & 1 & b+y \\
+			0 & 0 & 1
+		\end{pmatrix} \\
+		\varphi((a,b,c)) * \varphi((x,y,z)) = \begin{pmatrix}
+			1 & a & c \\
+			0 & 1 & b \\
+			0 & 0 & 1
+		\end{pmatrix} * \begin{pmatrix}
+			1 & x & z \\
+			0 & 1 & y \\
+			0 & 0 & 1
+		\end{pmatrix} &= \begin{pmatrix}
+			1 & x+a & z+ay+c \\
+			0 & 1 & y+b \\
+			0 & 0 & 1
+		\end{pmatrix}
+	\end{align*}
+\end{enumerate}
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2014
+%----------------------------------------------------------------------------------------
+\section{Herbst 2014}
+
+\subsection{Aufgabe}
+Gegeben sei die Teilmenge
+\begin{equation*}
+	G = \left \{ \left( 
+	\begin{array}{cc|c}
+		\multicolumn{2}{c|}{\multirow{2}{*}{\( A \)}} & a \\
+		\multicolumn{2}{c|}{} & b \\
+		\hline 
+		0 & 0 & 1
+	\end{array}
+	 \right) \mid A \in \text{GL}_2(\Q), a,b \in \Q \right \}
+\end{equation*}
+der Gruppe \( \text{GL}_3(\Q) \) aller invertierbaren Matrizen in \( \Q^{3 \times 3} \) sowie die Abbildung
+\begin{equation*}
+	f: G \to \text{GL}_2(\Q), \left( 
+	\begin{array}{cc|c}
+		\multicolumn{2}{c|}{\multirow{2}{*}{\( A \)}} & a \\
+		\multicolumn{2}{c|}{} & b \\
+		\hline 
+		0 & 0 & 1
+	\end{array}
+	 \right) \mapsto A\text{.}
+\end{equation*}
+Zeigen Sie: 
+\begin{enumerate}
+	\item Die Menge \( G \) ist eine Untergruppe von \( \text{GL}_3(\Q) \).
+	\item Die Abbildung \( f: G \to \text{GL}_2(\Q) \) ist ein Gruppenhomomorphismus.
+	\item \( \text{Kern}(f) \) ist isomorph zu \( \Q^2 \) mit komponentenweiser Addition. 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Zeige, dass \( G \) die nötigen Eigenschaften des Untergruppenkriteriums erfüllt (nicht leer, Abgeschlossenheit bezüglich Inversion und Verknüpfung).
+	\item Zeige, dass \( \forall g,h \in G: f(g*h) = f(g)*f(h) \) gilt.
+	\item Bestimme \( \text{Kern}(f) \) und untersuche, ob es \( i: \text{Kern}(f) \to \Q^2 \) derart gibt, dass \( i \) ein Gruppenisomorphismus ist (also ein surjektiver, injektiver Gruppenhomomorphismus).
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Wir weisen die für das Untergruppenkriterium nötigen Eigenschaften nach:
+	\begin{enumerate}
+	 	\item \emph{nicht leer}: \( G \neq \varnothing \), da \( I_3 \in G \).
+	 	\item \emph{Abgeschlossenheit Verknüpfung}: Es gilt:
+	 	\begin{equation*}
+	 		\underbrace{\left( 
+				\begin{array}{cc|c}
+					\multicolumn{2}{c|}{\multirow{2}{*}{\( A \)}} & a \\
+					\multicolumn{2}{c|}{} & b \\
+					\hline 
+					0 & 0 & 1
+				\end{array}
+			 \right)}_{\coloneqq g} * \underbrace{\left( 
+				\begin{array}{cc|c}
+					\multicolumn{2}{c|}{\multirow{2}{*}{\( C \)}} & c \\
+					\multicolumn{2}{c|}{} & d \\
+					\hline 
+					0 & 0 & 1
+				\end{array}
+			 \right)}_{\coloneqq h} = \left( 
+				\begin{array}{cc|c}
+					\multicolumn{2}{c|}{\multirow{2}{*}{\( A * C \)}} & e \\
+					\multicolumn{2}{c|}{} & f \\
+					\hline 
+					0 & 0 & 1
+				\end{array}
+			 \right) \in G \text{, da } \begin{pmatrix}
+			 	e \\f
+			 \end{pmatrix} = A * \begin{pmatrix}
+			 	c \\d
+			 \end{pmatrix} + \begin{pmatrix}
+			 	a \\ b
+			 \end{pmatrix} \in \Q^2 \text{.}
+	 	 \end{equation*} 
+
+	 	 \item \emph{Abgeschlossenheit Inversion}: \( g,h \in G \) wie oben mit \( g*h = I_3 \). Das ist der Fall, wenn:
+	 	 \begin{align*}
+	 	 	A*C = I_2 \quad &\wedge \quad \begin{pmatrix}
+	 	 		e \\ f
+	 	 	\end{pmatrix} = \begin{pmatrix}
+	 	 		0 \\ 0
+	 	 	\end{pmatrix}\text{, also :}  \\
+	 	 	C = A^{-1} \in \text{GL}_2(\Q) \quad &\wedge \quad \begin{pmatrix}
+	 	 		c \\ d
+	 	 	\end{pmatrix} = -A^{-1} * \begin{pmatrix}
+	 	 		a \\ b
+	 	 	\end{pmatrix} \in \Q^2
+	 	 \end{align*}
+	 	 Also ist \( g^{-1} = h \in G \) und \( G \) somit eine Untergruppe von \( \text{GL}_3(\Q) \).
+	 \end{enumerate} 
+
+	 \item Zu zeigen: \( \forall g,h \in G : f(g*h) = f(g) * f(h) \). Für \( g,h \) wie oben:
+	 \begin{equation*}
+	 	f(g*h) = A*C = f(g) * f(h)\text{.}
+	 \end{equation*}
+
+	 \newpage
+
+	 \item Es ist
+	 \begin{equation*}
+	 	\text{Kern}(f) = \{ g \in G | f(g) = I_2 \} = \left \{ \left( 
+				\begin{array}{cc|c}
+					\multicolumn{2}{c|}{\multirow{2}{*}{\( I_2 \)}} & a \\
+					\multicolumn{2}{c|}{} & b \\
+					\hline 
+					0 & 0 & 1
+				\end{array}
+			 \right) \mid a,b \in \Q \right \}\text{.}
+	 \end{equation*}
+	 Die Abbildung
+	 \begin{equation*}
+	 	i: \text{Kern}(f) \to \Q^2, \quad \left( 
+				\begin{array}{cc|c}
+					\multicolumn{2}{c|}{\multirow{2}{*}{\( I_2 \)}} & a \\
+					\multicolumn{2}{c|}{} & b \\
+					\hline 
+					0 & 0 & 1
+				\end{array}
+			 \right) \mapsto (a,b)
+	 \end{equation*}
+	 ist ein Gruppenhomomorphismus (mit \( A = B = I_2, g, h \) wie oben):
+	 \begin{equation*}
+	 	i(g*h) = (a+c, b+d) = i(g) + i(h)
+	 \end{equation*}
+	 Außerdem ist \( i \) isomorph:
+	 \begin{align*}
+	 	\text{Kern}(i) = \{ g \in \text{Kern}(f) \mid i(g) = (0,0) \} = \left \{ \left( 
+				\begin{array}{cc|c}
+					\multicolumn{2}{c|}{\multirow{2}{*}{\( I_2 \)}} & 0 \\
+					\multicolumn{2}{c|}{} & 0 \\
+					\hline 
+					0 & 0 & 1
+				\end{array}
+			 \right) \right \} &\quad \text{ (Injektivität)} \\
+		\forall (x,y) \in \Q^2: i\left(\underbrace{\left( 
+				\begin{array}{cc|c}
+					\multicolumn{2}{c|}{\multirow{2}{*}{\( I_2 \)}} & x \\
+					\multicolumn{2}{c|}{} & y \\
+					\hline 
+					0 & 0 & 1
+				\end{array}
+			 \right)}_{\in \text{Kern}(f)}\right) = (x,y) &\quad \text{(Surjektivität)}
+	 \end{align*}
+\end{enumerate}
+
+\newpage
+
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2015
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2015}
+
+\subsection{Aufgabe}
+
+Gegeben sei die Teilmenge
+\begin{equation*}
+	G \coloneqq \left\{ \begin{pmatrix}
+		1 & 0 & 0 \\
+		a & 1 & 0 \\
+		c & b & 1
+	\end{pmatrix} \mid a,b,c \in \Z \right\}
+\end{equation*}
+der \( 3 \times 3 \)-Matrizen mit ganzzahligen Einträgen.
+\begin{enumerate}
+	\item Zeigen Sie, dass \( G \) zusammen mit der Matrixmultiplikation eine Gruppe ist.
+	\item Ist \( G \) abelsch? Begründen Sie Ihre Antwort!
+	\item Bestimmen Sie alle \( X \in G \) mit \( \forall M \in G: X*M = M*X \).
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Handelt es sich um eine Gruppe, so ist sie Untergruppe von \( \text{GL}_3(\R) \). Also kann der Nachweis über das Untergruppenkriterium (\( G \neq \varnothing \wedge \forall g_1, g_2 \in G: g_1 * g_2^{-1} \in G \)) erfolgen.
+	\item Zeigen, dass \( \begin{pmatrix}
+		1 & 0 & 0 \\
+		a & 1 & 0 \\
+		c & b & 1
+	\end{pmatrix} * \begin{pmatrix}
+		1 & 0 & 0 \\
+		x & 1 & 0 \\
+		z & y & 1 
+	\end{pmatrix}  = \begin{pmatrix}
+		1 & 0 & 0 \\
+		x & 1 & 0 \\
+		z & y & 1 
+	\end{pmatrix} * \begin{pmatrix}
+		1 & 0 & 0 \\
+		a & 1 & 0 \\
+		c & b & 1
+	\end{pmatrix} \) oder Gegenbeispiel angeben
+	\item Beliebige, feste Matrix \( X \) betrachten und bestimmen, unter welchen Bedingungen \( M * X = X * M \) für beliebige \( M \in G \) gilt.
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Ist \( (G, *) \) eine Gruppe, so ist sie Untergruppe von \( \text{GL}_3(\R) \). Mit dem Untergruppenkriterium:
+	\begin{enumerate}
+	 	\item \( G \neq \varnothing \), denn z.B. \( \begin{pmatrix}
+	 		1 & 0 & 0 \\
+	 		0 & 1 & 0 \\
+	 		0 & 0 & 1
+	 	\end{pmatrix} \in G \).
+	 	\item Ist \( A = \begin{pmatrix}
+	 		1 & 0 & 0 \\
+	 		a & 1 & 0 \\
+	 		c & b & 1 
+	 	\end{pmatrix}, B = \begin{pmatrix}
+	 		1 & 0 & 0 \\
+	 		x & 1 & 0 \\
+	 		z & y & 1
+	 	\end{pmatrix} \), so ist
+	 	\begin{align*}
+	 		A * B^{-1} = \begin{pmatrix}
+	 			1 & 0 & 0 \\
+	 			a & 1 & 0 \\
+	 			c & b & 1
+	 		\end{pmatrix} * \begin{pmatrix}
+	 			1 & 0 & 0 \\
+	 			-x & 1 & 0 \\
+	 			xy-z & -y & 1
+	 		\end{pmatrix} = \begin{pmatrix}
+	 			1 & 0 & 0 \\
+	 			a-x & 1 & 0 \\
+	 			c-bx+xy-z & b-y & 1
+	 		\end{pmatrix} \in G
+	 	\end{align*}
+	 \end{enumerate}
+	 Also ist \( (G, *) \) eine Gruppe.
+
+	 \item \( (G, *) \) ist nicht abelsch, denn \( \begin{pmatrix}
+	 	1 & 0 & 0 \\
+	 	1 & 1 & 0 \\
+	 	0 & 0 & 1 \\
+	 \end{pmatrix} * \begin{pmatrix}
+	 	1 & 0 & 0 \\
+	 	0 & 1 & 0 \\
+	 	0 & 1 & 1
+	 \end{pmatrix} \neq \begin{pmatrix}
+	 	1 & 0 & 0 \\
+	 	0 & 1 & 0 \\
+	 	0 & 1 & 1
+	 \end{pmatrix} * \begin{pmatrix}
+	 	1 & 0 & 0 \\
+	 	1 & 1 & 0 \\
+	 	0 & 0 & 1 \\
+	 \end{pmatrix}  \).
+
+	 \item \( X = \begin{pmatrix}
+	 	1 & 0 & 0 \\
+	 	x & 1 & 0 \\
+	 	z & y & 1 
+	 \end{pmatrix} \ M = \begin{pmatrix}
+	 	1 & 0 & 0 \\
+	 	a & 1 & 0 \\
+	 	c & b & 1
+	 \end{pmatrix} \ XM = \begin{pmatrix}
+	 	1 & 0 & 0 \\
+	 	x+a & 1 & 0 \\
+	 	z + ya + c & y+b & 1
+	 \end{pmatrix} \ MX = \begin{pmatrix}
+	 	1 & 0 & 0 \\
+	 	a+x & 1 & 0 \\
+	 	c+bx+z & b+y & 1
+	 \end{pmatrix} \) \\*
+	 \ \\ Damit \( MX=XM \) gilt, muss \( ya=bx \) gelten. Das ist genau für die \( X \in G \) der Fall, bei denen \( x=y=0 \).
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2015
+%----------------------------------------------------------------------------------------
+\section{Herbst 2015}
+
+\subsection{Aufgabe}
+Es sei \( (G, \circ) \) eine Gruppe mit neutralem Element \( e \) und \( M = \{ x \in G \mid x \circ x = e \} \). Zeigen Sie:
+\begin{enumerate}
+	\item Ist \( G \) kommutativ, so ist \( M \) eine Untergruppe von \( G \).
+	\item Ist \( n \geq 3 \) und \( G \) die symmetrische Gruppe \( S_n \), so ist \( M \) keine Untergruppe mehr.
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Über Untergruppenkriterium zeigen (nicht leer, abgeschlossen bei Inversíon und Verknüpfung)
+	\item Über die Darstellung von Permutationen durch Transpositionen (wie stellt man mit Transpositionen einen Dreierzyklus dar?) 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Wir zeigen die für das Untergruppenkriterium nötigen Eigenschaften:
+	\begin{enumerate}
+	 	\item \emph{Nicht leer}: \( e \circ e = e \), also \( e \in M \).
+	 	\item \emph{Abgeschlossenheit Inversion}: Ist \( x \in M \), so ist \( x \circ x = e \), also \( x = x^{-1} \in M \).
+	 	\item \emph{Abgeschlossenheit Verknüpfung}: Für \( x,y \in M \) gilt \( x \circ x = y \circ y = e \), also gilt (mit Kommutativität):
+	 	\begin{equation*}
+	 		x \circ y \circ x \circ y = x \circ x \circ y \circ y = e \circ e = e\text{,}
+	 	\end{equation*}
+	 	womit die Abgeschlossenheit gezeigt ist.
+	 \end{enumerate} 
+	 Also ist \( M \) eine Untergruppe von \( G \).
+
+	 \item Jede Permutation kann als Produkt von Transpositionen geschrieben werden. Diese liegen in \( M \), aber z.B. ein Dreierzyklus nicht. Also ist \( M \) keine Untergruppe.
+\end{enumerate}
+
+\newpage

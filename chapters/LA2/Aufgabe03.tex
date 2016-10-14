@@ -1,0 +1,572 @@
+\chapter{Aufgabe 3}
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2007
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2007}
+
+\subsection{Aufgabe}
+Es seien \( V \) ein endlichdimensionaler euklidischer Vektorraum und \( \Phi \in \text{End}(V) \) selbstadjungiert.
+\\*
+Zeigen Sie, dass es einen selbstadjungierten Endomorphismus \( \Psi \in \text{End}(V) \) gibt, sodass
+\begin{equation*}
+	\Psi^3 = \Phi\text{.}
+\end{equation*}
+
+\subsection{Ansatz}
+\( \Phi \) ist selbstadjungiert, also existiert eine Orthonormalbasis aus \( \Phi \)-Eigenvektoren. Betrachte die Abbildungsmatrix von \( \Phi \) bzgl. dieser Basis.
+
+\subsection{Lösung}
+\( \Phi \) ist selbstadjungiert, also existiert eine Orthonormalbasis \( B = \{ b_1, \dots, b_n \} \) aus \( \Phi \)-Eigenvektoren. Bezüglich \( B \) hat \( \Phi \) dann eine Abbildungsmatrix der Gestalt
+\begin{equation*}
+	A = \left( \begin{smallmatrix}
+		\lambda_1 & & \\
+		 & \ddots & \\
+		 & & \lambda_n
+	\end{smallmatrix} \right)\text{,}
+\end{equation*}
+wobei \( n = \dim(V) \) und \( \lambda_1, \dots, \lambda_n \in \R \) die Eigenwerte von \( \Phi \) sind. Wir setzen \( \mu_i = \sqrt[3]{\lambda_i} \) (\( 1 \leq i \leq n \)) und definieren \( \Psi: V \to V \) durch die lineare Fortsetzung der auf B definierten Bilder:
+\begin{equation*}
+	\Psi(b_i) = \mu_ib_i \quad (1 \leq i \leq n)\text{.}
+\end{equation*}
+\( \Psi \) hat also bzgl. \( B \) die Abbildungsmatrix
+\begin{equation*}
+	C = \left( \begin{smallmatrix}
+		\mu_1 & & \\
+		 & \ddots &  \\
+		 & & \mu_n
+	\end{smallmatrix} \right)\text{.}
+\end{equation*}
+Da \( A \) und \( C \) Abbildungsmatrizen bzgl. derselben Orthonormalbasis \( B \) sind, folgt aus \( C^3=A \)
+\begin{equation*}
+	\Psi^3=\Phi\text{.}
+\end{equation*}
+\( \Psi \) ist selbstadjungiert, denn mit \( C \) existiert eine diagonale Abbildungsmatrix mit reellen Einträgen.
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBSt 2007
+%----------------------------------------------------------------------------------------
+\section{Herbst 2007}
+
+\subsection{Aufgabe}
+Es seien \( V \) ein endlichdimensionaler euklidischer Vektorraum und \( \Phi, \Psi \in \text{End}(V) \) selbstadjungiert. Zeigen Sie:
+\begin{enumerate}
+	\item \( \Phi \circ \Psi \) ist selbstadjungiert \( \Leftrightarrow \Phi \circ \Psi = \Psi \circ \Phi \).
+	\item Ist \( \Phi \circ \Psi \) selbstadjungiert, so besitzt jeder Eigenraum von \( \Phi \) eine Basis, die aus \( \Psi \)-Eigenvektoren besteht.
+	\item Ist \( \Phi \circ \Psi \) selbstadjungiert, so ist jeder Eigenwert von \( \Phi \circ \Psi \) ein Produkt eines Eigenwerts von \( \Phi \) und eines Eigenwerts von \( \Psi \).
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Zeige, dass \( \Phi \circ \Psi \) zu \( \Psi \circ \Phi \) adjungiert ist. Damit lassen sich beide Richtungen zeigen.
+	\item Zeige, dass die Einschränkung von \( \Psi \) auf einen Eigenraum von \( \Phi \) selbstadjungiert ist.
+	\item Zeige, dass es eine \( V \)-Basis aus gemeinsamen Eigenvektoren von \( \Phi \) und \( \Psi \) gibt. 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item \( \Phi \) und \( \Psi \) sind selbstadjungiert, also gilt
+		\begin{equation*}
+			\langle \Phi \circ \Psi(v),w \rangle = \langle \Phi(\Psi(v)),w \rangle = \langle \Psi(v),\Phi(w) \rangle = \langle v, \Psi(\Phi(v)) \rangle = \langle v,\Psi \circ \Phi(w) \rangle\text{.}
+		\end{equation*}
+		Damit ist \( \Psi \circ \Phi \) zu \( \Phi \circ \Psi \) adjungiert. Da nach Definition \( \Psi \circ \Phi \) genau dann selbstadjungiert ist, wenn es mit seinem adjungierten übereinstimmt, folgt die Behauptung.
+
+	\item Wir zeigen, dass die Behauptung gilt, indem wir zeigen, dass die Einschränkung von \( \Psi \) auf einen \( \Phi \)-Eigenraum selbstadjungiert ist (dann existiert die gesuchte Basis nach dem Spektralsatz). Das ist genau dann der Fall, wenn jeder Eigenraum \( \Psi \)-invariant ist. Sei also \( \lambda \in \spec(\Phi) \) und \( v \in \eig(\Phi,\lambda) \). Es ist
+		\begin{equation*}
+			\Phi(\Psi(v)) \overset{\text{1.}}{=} \Psi(\Phi(v)) = \Psi(\lambda v) = \lambda \Psi(v)\text{,}
+		\end{equation*}
+		also ist auch \( \Psi(v) \in \eig(\Phi,\lambda) \) und somit die Behauptung gezeigt.
+
+	\item Nach dem zweiten Teil gibt es für die Eigenräume von \( \Phi \) jeweils eine Basis aus gemeinsamen Eigenvektoren von \( \Phi \) und \( \Psi \), nach dem Spektralsatz also eine Basis von \( V \) aus gemeinsamen Eigenvektoren von \( \Phi \) und \( \Psi \). Für einen Eigenvektor von \( \Phi \circ \Psi \) gibt es also \( \lambda, \mu \in \R \) derart, dass
+	\begin{equation*}
+		\Phi \circ \Psi(v) = \Phi(\mu v) = \lambda\mu v\text{.}
+	\end{equation*}
+	Somit ist jeder Eigenwert von \( \Phi \circ \Psi \) ein Produkt aus Eigenwerten von \( \Phi \) und \( \Psi \).
+
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2010
+%----------------------------------------------------------------------------------------
+\section{Herbst 2010}
+
+\subsection{Aufgabe}
+\begin{remark}
+	\textbf{Hinweis}:
+	\\
+	Diese Aufgabe stimmt mit Aufgabe 4 aus dem Herbst 2015 überein, weswegen diese im Folgenden nicht auftaucht.
+\end{remark}
+Gegeben sei
+\begin{equation*}
+	A = \begin{pmatrix}
+		2 & 1 & 0 \\
+		1 & 2 & 1 \\
+		0 & 1 & 2
+	\end{pmatrix} \in \R^{3 \times 3}\text{.}
+\end{equation*}
+Zeigen Sie: Es gibt eine symmetrische Matrix \( B \in \R^{3 \times 3} \) mit \( B^2 = A \).
+
+\subsection{Ansatz}
+Verwende, dass \( A \) symmetrisch und somit orthogonal diagonalisierbar ist. Konstruiere \( B \) aus der Diagonalmatrix und weise schließlich nach, dass \( B \) symmetrisch ist (\( B^\top = B \)).
+
+\subsection{Lösung}
+\( A \) ist symmmetrisch, also nach dem Spektralsatz orthogonal diagonalisierbar. Also existiert \( T \in O(3) \) derart, dass
+\begin{equation*}
+	T^\top AT = \underbrace{\left( \begin{smallmatrix}
+		\lambda_1 & & \\
+		& \lambda_2 & \\
+		& & \lambda_3 
+	\end{smallmatrix} \right)}_{\coloneqq D}\text{.}
+\end{equation*}
+Mit dem Hurwitz-Kriterium sehen wir, dass \( A \) positiv definit ist, also sind die drei Eigenwerte positiv und somit \( \sqrt{\lambda_i} \in \R \). Sei nun
+\begin{equation*}
+ 	S \coloneqq \left( \begin{smallmatrix}
+ 		\sqrt{\lambda_1} & & \\
+ 		& \sqrt{\lambda_2} & \\
+ 		& & \sqrt{\lambda_3} 
+ 	\end{smallmatrix} \right)\text{.}
+ \end{equation*} 
+ Dann gilt:
+ \( A = TT^\top ATT^\top = TDT^\top = TS^2T^\top = \underbrace{TST^\top}_{\coloneqq B} TST^\top \) und somit \( B^2=A \). \\
+ \( B \) ist symmetrisch, denn \( B^\top = (TST^\top)^\top = TS^\top T^\top = TST^\top = B \).
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2013
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2013}
+
+\subsection{Aufgabe}
+Es sei \( V = \{ p \in \R[X] \mid \grad(p) \leq 2 \} \).
+\begin{enumerate}
+	\item Zeigen Sie, dass die Abbildung
+	\begin{equation*}
+	  	\langle \cdot, \cdot \rangle: V \times V \ni (p,q) \mapsto p(0)q(0)+p'(0)q'(0)+p''(0)q''(0) \in \R
+	  \end{equation*}
+	  ein Skalarprodukt ist.
+	\item Berechnen Sie eine Orthonormalbasis von \( V \) bzgl. \( \langle \cdot, \cdot \rangle \).
+	\item Bestimmen Sie die Orthogonalprojektion von \( p \coloneqq X^2+1 \) auf \( U \coloneqq \langle \{ 1,X \} \rangle \) sowie den Abstand von \( p \) zu \( U \).
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Weise Symmetrie, Bilinearität und positive Definitheit nach.
+	\item Orthogonalisiere die Standardbasis von \( V \) mittels Gram-Schmidt und normiere sie anschließend.
+	\item Berechne die orthogonale Projektion (was sehr einfach ist, da ja bereits eine Orthonormalbasis bestimmt wurde) und anschließend den Abstand (was sehr einfach ist, da die orthogonale Projektion bereits berechnet wurde).
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{remark}
+	\textbf{Achtung}: Das hier ist meine eigene Lösung. \\*
+	Das liegt daran, dass die Musterlösung meiner Meinung nach sehr unnötig kompliziert ist.
+\end{remark}
+\begin{enumerate}
+	\item Symmetrie und Bilinearität folgen direkt aus der Kommutativität der Multiplikation und der Distributivität über \( \R \). Für die positive Definitheit berechnen wir \( \langle p,p \rangle \) mit \( p = aX^2+bX+c \) (\( a,b,c \in \R \)):
+	\begin{equation*}
+		\langle p,p \rangle = (a*0^2+b*0+c)^2 + (2a*0+b)^2 + (2a)^2 = c^2+b^2+4a^2 > 0\text{.}
+	\end{equation*}
+
+	\item Wir nehmen die Standardbasis \( 1,X,X^2 \) und berechnen die Fundamentalmatrix:
+	\begin{equation*}
+		F = \left( \begin{smallmatrix}
+			\langle 1,1 \rangle & \langle 1,X \rangle & \langle 1,X^2 \rangle \\
+			\langle X,1 \rangle & \langle X,X \rangle & \langle X,X^2 \rangle \\
+			\langle X^2,1 \rangle & \langle X^2,X \rangle & \langle X^2,X^2 \rangle
+		\end{smallmatrix} \right) = \left( \begin{smallmatrix}
+			1 & 0 & 0 \\
+			0 & 1 & 1 \\
+			0 & 0 & 4
+		\end{smallmatrix} \right)\text{.}
+	\end{equation*}
+	Wir sehen, dass die Basis bereits orthogonal ist. Durch Normierung erhalten wir die Orthonormalbasis \( \{ 1,X,\tfrac{1}{2}X^2 \} \).
+
+	\item Die Basis \( \{ 1,X \} \) ist nach 2. bereits Orthonormalbasis von \( U \), also ist
+	\begin{equation*}
+		\Pi_U(X^2+1) = \langle X^2+1,1 \rangle*1+\langle X^2+1,X \rangle*X = 1\text{,}
+	\end{equation*}
+	und weiter
+	\begin{equation*}
+		d(X^2+1,U) = ||\Pi_U(X^2+1)-X^2+1|| = ||-X^2|| = \sqrt{\langle -X^2,-X^2 \rangle} = \sqrt{4} = 2\text{.}
+	\end{equation*}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2013
+%----------------------------------------------------------------------------------------
+\section{Herbst  2013}
+
+\subsection{Aufgabe}
+Gegeben sei
+\begin{equation*}
+	A = \frac{1}{8}\begin{pmatrix}
+		1 & 7 & -\sqrt{14} \\
+		7 & 1 & \sqrt{14} \\
+		\sqrt{14} & -\sqrt{14} & -6
+	\end{pmatrix} \in \R^{3 \times 3}\text{.}
+\end{equation*}
+\begin{enumerate}
+	\item Zeigen Sie, dass die lineare Abblidung \( \Phi: \R^3 \ni v \mapsto Av \in \R^3 \) eine Isometrie des euklidischen Standardraums in \( \R^3 \) ist.
+	\item Bestimmen sie die Isometrienormalform \( B \) von \( A \).
+	\item Geben Sie eine orthogonale Matrix \( S \) an, sodass \( B = S^{-1}AS \) gilt. 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Zeige, dass \( A^\top A=I_n \). 
+	\item Betrachte Determinante und Spur von \( A \), denn diese sind ähnlichkeitsinvariant.
+	\item Bestimme Orthonormalbasen für die Eigenräume.
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Es ist \( A^\top A = \tfrac{1}{64}\left( \begin{smallmatrix}
+		64 & 0 & 0 \\
+		0 & 64 & 0 \\
+		0 & 0 & 64
+	\end{smallmatrix} \right) = I_3 \leadsto A \in \O(3) \), also ist \( \Phi \) eine Isometrie.
+
+	\item Es ist \( \det(A)=1 \) und \( \spur(A) = -\tfrac{1}{2} \). Determinante und Spur sind ähnlichkeitsinvariant, also hat die Isometrie-Normalform \( B \) von \( A \) die Form
+	\begin{equation*}
+		B = \left( \begin{smallmatrix}
+			1 & 0 & 0 \\
+			0 & b & -c \\
+			0 & c & b
+		\end{smallmatrix} \right)
+	\end{equation*}
+	mit \( 1+2b = -\tfrac{1}{2} \), \( b^2+c^2=1 \) und \( c > 0 \). Somit erhalten wir \( b = -\tfrac{3}{4} \) und \( c = \tfrac{\sqrt{7}}{4} \).
+
+	\item Wir bestimmen einen normierten Eigenvektor zu \( 1 \eqqcolon \lambda \in \spec(A) \):
+	\begin{equation*}
+		v_1 \in \kr(8A-8I_4) = \kr\left( \begin{smallmatrix}
+			-7 & 7 & -\sqrt{14} \\
+			7 & -7 & \sqrt{14} \\
+			\sqrt{14} & -\sqrt{14} & -14
+		\end{smallmatrix} \right)\text{, also z.B. } v_1 = \tfrac{1}{\sqrt{2}}\left( \begin{smallmatrix}
+			1 \\ 1 \\ 0
+		\end{smallmatrix} \right)\text{.}
+	\end{equation*}
+	Wir ergänzen \( v_1 \) zu einer Orthonormalbasis von \( \R^3 \): 
+	\begin{equation*}
+		v_2 = \tfrac{1}{\sqrt{2}}\left( \begin{smallmatrix}
+			1 \\ -1 \\ 0
+		\end{smallmatrix} \right)\text{,} \quad v_3 = \left( \begin{smallmatrix}
+			0 \\ 0 \\ 1
+		\end{smallmatrix} \right)
+	\end{equation*}
+	und erhalten so die Matrix
+	\begin{equation*}
+		S = \begin{pmatrix}
+			\tfrac{1}{\sqrt{2}} & \tfrac{1}{\sqrt{2}} & 0 \\
+			\tfrac{1}{\sqrt{2}} & -\tfrac{1}{\sqrt{2}} & 0 \\
+			0 & 0 & 1
+		\end{pmatrix}\text{.}
+	\end{equation*}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2014
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2014}
+
+\subsection{Aufgabe}
+Sei \( \Phi: \R^3 \to \R^3 \) eine Isometrie des euklidischen Standardraums \( \R^3 \), für die \( \det(\Phi) = -1 \) gilt. Weiter gelten
+\begin{equation*}
+	\Phi\left( \left( \begin{smallmatrix}
+		1 \\ 1 \\ 1
+	\end{smallmatrix} \right) \right) = \left( \begin{smallmatrix}
+		-1 \\ -1 \\ -1
+	\end{smallmatrix} \right) \quad \text{und} \quad \Phi\left( \left( \begin{smallmatrix}
+		1 \\ 2 \\ 0
+	\end{smallmatrix} \right) \right) = \left( \begin{smallmatrix}
+		0 \\ -1 \\ -2
+	\end{smallmatrix} \right)\text{.}
+\end{equation*}
+\begin{enumerate}
+	\item Geben Sie eine Orthonormalbasis \( B \) von \( \R^3 \) an, sodass die Abbildungsmatrix \( D_{BB}(\Phi) \) in Isometrienormalform ist.
+	\item Geben Sie \( D_{BB}(\Phi) \) an. 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Finde ein \( \lambda \in \spec(\Phi) \) und einen zugehörigen Eigenvektor \( v_1 \). Zerlege so den Raum in \( \langle v_1 \rangle \) und \( \langle v_1 \rangle\top \). Betrachte die Determinante von \( \Phi_{\langle v_1 \rangle\top} \) und konstruiere so die gewünschte Basis.
+	\item Nutze die angegebenen Bilder, um die Bilder der Basisvektoren für \( D_{BB}(\Phi) \) zu konstruieren. 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Offensichtlich ist \( v_1 \coloneqq \left( \begin{smallmatrix}
+		1 \\ 1 \\ 1
+	\end{smallmatrix} \right) \) Eigenvektor zu \( -1 \in \spec(\Phi) \), also ist \( \langle v_1 \rangle \) \( \Phi \)-invariant und sein orthogonales Komplement auch. Da \( \det(\Phi)=-1 \) muss \( \Phi|_{\langle v_1 \rangle\top} \) Determinante \( 1 \) haben, also eine Drehung sein. Es reicht also, \( v_1 \) zu einer orthogonalen Basis zu ergänzen und diese zu normieren, um eine Basis \( B \) zu erhalten, die die gewünschten Eigenschaften erfüllt.
+	\begin{equation*}
+		v_1 = \left( \begin{smallmatrix}
+			1 \\ 1 \\ 1
+		\end{smallmatrix} \right), \ v_2 = \left( \begin{smallmatrix}
+			0 \\ 1 \\ -1
+		\end{smallmatrix} \right), \ v_3 = \left( \begin{smallmatrix}
+			-2 \\ 1 \\ 1
+		\end{smallmatrix} \right)
+	\end{equation*}
+	Durch Normieren erhält man
+	\begin{equation*}
+		b_1 = \tfrac{1}{\sqrt{3}}v_1, \ b_2 = \tfrac{1}{\sqrt{2}}v_2, \ b_3= \tfrac{1}{\sqrt{6}}v_3
+	\end{equation*}
+
+	\item Wir berechnen \( \Phi\left( \begin{smallmatrix}
+		0 \\ 1 \\ -1
+	\end{smallmatrix} \right) \):
+	\begin{equation*}
+		\left( \begin{smallmatrix}
+			0 \\ -1 \\ -2
+		\end{smallmatrix} \right) = \Phi\left( \begin{smallmatrix}
+			0 \\ 1 \\ -1
+		\end{smallmatrix} \right) + \Phi\left( \begin{smallmatrix}
+			1 \\ 1 \\ 1
+		\end{smallmatrix} \right) = \Phi\left( \begin{smallmatrix}
+			0 \\ 1 \\ -1
+		\end{smallmatrix} \right) - \left( \begin{smallmatrix}
+			1 \\ 1 \\ 1
+		\end{smallmatrix} \right) \leadsto \Phi\left( \begin{smallmatrix}
+			0 \\ 1 \\ -1
+		\end{smallmatrix} \right) = \left( \begin{smallmatrix}
+			1 \\ 0 \\ -1
+		\end{smallmatrix} \right)
+	\end{equation*}
+	Da die drei Baisvektoren orthogonal und normiert sind, gilt
+	\begin{equation*}
+		\Phi(b_2) = b_2^\top\Phi(b_2)b_2+b_3^\top\Phi(b_2)b_3 = \tfrac{1}{2}b_2-\tfrac{\sqrt{3}}{2}b_3
+	\end{equation*}
+	Wir erhalten also
+	\begin{equation*}
+		D_{BB}(\Phi) = \begin{pmatrix}
+			-1 & 0 & 0 \\
+			0 & a & -b \\
+			0 & b & a
+		\end{pmatrix} = \begin{pmatrix}
+			-1 & 0 & 0 \\
+			0 & \tfrac{1}{2} & \tfrac{\sqrt{3}}{2} \\
+			0 & -\tfrac{\sqrt{3}}{2} & \tfrac{1}{2}
+		\end{pmatrix}\text{.}
+	\end{equation*}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2014
+%----------------------------------------------------------------------------------------
+\section{Herbst 2014}
+
+\subsection{Aufgabe}
+Gegeben sei
+\begin{equation*}
+	A = \frac{1}{4}\begin{pmatrix}
+		\sqrt{3}-2 & \sqrt{2} & -\sqrt{3}-2 \\
+		-\sqrt{2} & 2\sqrt{3} & \sqrt{2} \\
+		-\sqrt{3}-2 & -\sqrt{2} & \sqrt{3}-2
+	\end{pmatrix} \in \R^{3 \times 3}\text{.}
+\end{equation*}
+\begin{enumerate}
+	\item Zeigen Sie, dass die Abbildung \( f: \R^3 \ni x \mapsto Ax \in \R^3 \) eine Isometrie des euklidischen Standardraums \( (\R^3,\langle \cdot, \cdot \rangle) \) ist.
+	\item Bestimmen Sie die Isometrienormalform \( \widetilde{A} \) von \( A \).
+	\item Geben Sie eine orthogonale Matrix \( S \in \R^{3 \times 3} \) an, sodass \( S^\top AS = \widetilde{A} \). 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Überprüfe, ob \( A^\top A=I_3 \).
+	\item Bestimme \( \cp_A(X) \), daraus \( \spec(A) \) und daraus die Isometrienormalform.
+	\item Bestimme einen normierten Eigenvektor \( b_1 \) zum Eigenwert \( -1 \), konstruiere anschließend zu seinem orthogonalen Komplementärraum eine Orthonormalbasis \( \{ b_2,b_3 \} \). Überprüfe die Reihenfolge von \( b_2 \) und \( b_3 \). Dann kann die gesuchte Matrix angegeben werden.
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item \( f \) ist eine Isometrie genau dann, wenn \( A \) orthogonal ist, also wenn \( A^\top A = I_3 \), was der Fall ist.
+	\item Wir bestimmen zuerst \( CP_A(X) = -(X+1)(X^2-\sqrt{3}X+1) \), also
+	\begin{equation*}
+		\spec(A) = \{ -1, \tfrac{\sqrt{3}}{2}+\text{i}\tfrac{1}{2}, \tfrac{\sqrt{3}}{2}-\text{i}\tfrac{1}{2} \}\text{,}
+	\end{equation*}
+	also ist die Isometrienormalform \( \widetilde{A} \) von \( A \)
+	\begin{equation*}
+		\widetilde{A} = \begin{pmatrix}
+			-1 & 0 & 0 \\
+			0 & \tfrac{\sqrt{3}}{2} & -\tfrac{1}{2} \\
+			0 & \tfrac{1}{2} & \tfrac{\sqrt{3}}{2}
+		\end{pmatrix}\text{.}
+	\end{equation*}
+
+	\item Wir berechnen zunächst einen normierten Eigenvektor \( b_1 \) zu \( -1 \in \spec(A) \). Den erhalten wir aus
+	\begin{equation*}
+		(A+I_3) \sim \left( \begin{smallmatrix}
+			1 & 0 & -1 \\
+			0 & 1 & 0 \\
+			0 & 0 & 0 
+		\end{smallmatrix} \right) \leadsto b_1 = \tfrac{1}{\sqrt{2}}\left( \begin{smallmatrix}
+			1 \\ 0 \\ 1
+		\end{smallmatrix} \right)\text{.}
+	\end{equation*}
+	Wir wählen noch \( b_2 \), \( b_3 \) aus dem orthogonalen Komplement von \( \langle b_1 \rangle \), also z.B. \( b_2 = \left( \begin{smallmatrix}
+		0 \\ 1 \\ 0
+	\end{smallmatrix} \right) \) und \( b_3 = Ab_2 = \tfrac{1}{4}\left( \begin{smallmatrix}
+		\sqrt{2} \\ 2\sqrt{3} \\ -\sqrt{2}
+	\end{smallmatrix} \right) \). Durch Gram-Schmidt erhält man als Orthogonalbasis von \( \langle b_1 \rangle^\perp = \langle \{ b_2, b_3 \} \rangle \)
+	\begin{equation*}
+		\widetilde{b}_2 = b_2\text{,} \quad \widetilde{b}_3 = Ab_2 - \langle Ab_2,b_2 \rangle b_2 = \tfrac{1}{2\sqrt{2}}\left( \begin{smallmatrix}
+			1 \\ 0 \\ -1
+		\end{smallmatrix} \right) \overset{\text{normieren}}{\leadsto} b_3 = \tfrac{1}{\sqrt{2}}\left( \begin{smallmatrix}
+			1 \\ 0 \\ -1
+		\end{smallmatrix} \right)\text{.}
+	\end{equation*}
+	Wir überprüfen, ob die Reihenfolge der Basisvektoren in \( (b_2, b_3) \) richtig ist, indem wir überprüfen, ob \( Ab_2 = \tfrac{\sqrt{3}}{2}b_2+\tfrac{1}{2}b_3 \), was der Fall ist. Also ist die gesuchte Matrix
+	\begin{equation*}
+		S = (b_1,b_2,b_3) = \begin{pmatrix}
+			\tfrac{1}{\sqrt{2}} & 0 & \tfrac{1}{\sqrt{2}} \\
+			0 & 1 & 0 \\
+			\tfrac{1}{\sqrt{2}} & 0 & -\tfrac{1}{\sqrt{2}}
+		\end{pmatrix}\text{.}
+	\end{equation*}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2015
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2015}
+
+\subsection{Aufgabe}
+Gegeben sei
+\begin{equation*}
+	A = \frac{1}{4}\begin{pmatrix}
+		2\sqrt{2} & 2 & -2 \\
+		-2 & \sqrt{2}-2 & -\sqrt{2}-2 \\
+		2 & -\sqrt{2}-2 & \sqrt{2}-2
+	\end{pmatrix} \in \R^{3 \times 3}\text{.}
+\end{equation*}
+\begin{enumerate}
+	\item Zeigen Sie, dass \( A \) eine orthogonale Matrix ist.
+	\item Bestimmen Sie die Isometrienormalform \( \widetilde{A} \) von \( A \).
+	\item Geben Sie eine orthogonale Matrix \( S \in \R^{3 \times 3} \) an, sodass \( S^\top AS = \widetilde{A} \). 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Zeige, dass \( A^\top A = I_3 \).
+	\item Bestimme zunächst \( \cp_A(X) \) und daraus \( \spec(A) \). Leite daraus \( \widetilde{A} \) ab.
+	\item Bestimme einen normierten Eigenvektor \( b_1 \) zum Eigenwert \( -1 \), konstruiere anschließend zu seinem orthogonalen Komplementärraum eine Orthonormalbasis \( \{ b_2,b_3 \} \). Überprüfe die Reihenfolge von \( b_2 \) und \( b_3 \). Dann kann die gesuchte Matrix angegeben werden.
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item \( A \) ist eine orthogonale Matrix genau dann, wenn \( A^\top A = I_3 \), was der Fall ist.
+	\item Wir bestimmen zunächst
+	\begin{equation*}
+		\cp_A(X) = -(X+1)(X^2-\sqrt{2}X + 1) \leadsto \spec(A) = \{ -1, \tfrac{\sqrt{2}}{2}+\text{i}\tfrac{\sqrt{2}}{2} \}\text{.}
+	\end{equation*}
+	Also ist die Isometrienormalform von \( A \):
+	\begin{equation*}
+		\widetilde{A} = \begin{pmatrix}
+			-1 & 0 & 0 \\
+			0 & \tfrac{\sqrt{2}}{2} & -\tfrac{\sqrt{2}}{2} \\
+			0 & \tfrac{\sqrt{2}}{2} & \tfrac{\sqrt{2}}{2}
+		\end{pmatrix}\text{.}
+	\end{equation*}
+
+	\item Wir berechnen zunächst einen normierten Eigenvektor zu \( -1 \in \spec(A) \). Den erhalten wir aus
+	\begin{equation*}
+		(A+I_3) \sim \left( \begin{smallmatrix}
+			1 & 0 & 0 \\
+			0 & 1 & -1 \\
+			0 & 0 & 0
+		\end{smallmatrix} \right) \leadsto b_1 = \tfrac{1}{\sqrt{2}}\left( \begin{smallmatrix}
+			0 \\ 1 \\ 1
+		\end{smallmatrix} \right)\text{.}
+	\end{equation*}
+	Wir wählen noch \( b_2, b_3 \) aus dem orthogonalen Komplement von \( \langle b_1 \rangle \), also z.B. \( b_2 = \left( \begin{smallmatrix}
+		1 \\ 0 \\ 0
+	\end{smallmatrix} \right) \) und \( b_3 = Ab_2 = \tfrac{1}{4}\left( \begin{smallmatrix}
+		2\sqrt{2} \\ -2 \\ 2
+	\end{smallmatrix} \right) \). \\* Durch Gram-Schmidt erhält man als Orthogonalbasis von \( \langle b_1 \rangle^\perp = \langle \{ b_2,b_3 \} \rangle \)
+	\begin{equation*}
+		\widetilde{b}_2 = b_2\text{,} \quad \widetilde{b}_3 = Ab_2 - \langle Ab_2,b_2 \rangle b_2 = \tfrac{1}{2}\left( \begin{smallmatrix}
+			0 \\ -1 \\ 1
+		\end{smallmatrix} \right) \overset{\text{normieren}}{\leadsto}b_3 = \tfrac{1}{\sqrt{2}}\left( \begin{smallmatrix}
+			0 \\ -1 \\ 1
+		\end{smallmatrix} \right)\text{.}
+	\end{equation*}
+	Wir überprüfen, ob die Reihenfolge der Basisvektoren in \( (b_2,b_3) \) richtig ist, indem wir überprüfen, ob \( Ab_2 = \tfrac{\sqrt{2}}{2}b_2 + \tfrac{\sqrt{2}}{2}b_3 \), was der Fall ist. Also ist die gesuchte Matrix
+	\begin{equation*}
+		S = (b_1,b_2,b_3) = \begin{pmatrix}
+			0 & 1 & 0 \\
+			\tfrac{1}{\sqrt{2}} & 0 & -\tfrac{1}{\sqrt{2}} \\
+			\tfrac{1}{\sqrt{2}} & 0 & \tfrac{1}{\sqrt{2}}
+		\end{pmatrix}\text{.}
+	\end{equation*}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2015
+%----------------------------------------------------------------------------------------
+\section{Herbst 2015}
+
+\subsection{Aufgabe}
+Es sei \( V \) ein endlichdimensionaler euklidischer Vektorraum mit Skalarprodukt \( \langle \cdot, \cdot \rangle \) und induzierter Norm \( ||\cdot || \). Weiter sei \( \Phi \in \text{End}(V) \) mit \( \Phi(U^\perp) = \Phi(U)^\perp \) für alle Untervektorräume \( U \leq V \). Zeigen Sie:
+\begin{enumerate}
+	\item \( \forall x,y \in V: \langle x,y \rangle = 0 \Rightarrow \langle \Phi(x),\Phi(y) \rangle = 0 \) 
+	\item \( \forall x,y \in V: ||x||=||y|| \Rightarrow ||\Phi(x)|| = ||\Phi(y)|| \)
+	\item \( \exists \ \Psi \in \text{Iso}(V), \lambda \in \R\setminus\{ 0 \}: \Phi = \lambda \Psi \).
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Beachte, dass \( \langle x,y \rangle = 0 \) und damit \( y \in \langle x \rangle^\perp \). 
+	\item Forme die Bedingung \( ||\Phi(x)|| = ||\Phi(y)|| \) um. Zeige unter Verwendung von Teil 1 und \( ||x||=||y|| \), dass \( \langle x-y,x+y \rangle = 0 \) und verwende das in der umgeformten Bedingung.
+	\item Zeige zunächst, dass \( \lambda > 0 \) existiert, sodass \( ||\Phi(x)|| = \lambda||x|| \). Setze anschließend \( \Psi \coloneqq \lambda^{-1}\Phi \) und zeige, dass \( \Psi \) Isometrie ist.
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Seien \( x,y \in V \) mit \( \langle x,y \rangle = 0 \), also \( y \in \langle x \rangle^\perp \), nach Vorraussetzung also \( \Phi(y) \in \langle \Phi(x) \rangle^\perp \) und somit \( \langle \Phi(x), \Phi(y) \rangle = 0 \).
+	\item Seien \( x,y \in V \) mit \( ||x||=||y|| \). Es ist
+		\begin{align*}
+			&||\Phi(x)|| = ||\Phi(y)|| \\
+			\Leftrightarrow \quad &0 = ||\Phi(x)||^2-||\Phi(y)||^2 \\
+			\Leftrightarrow \quad &0 = \langle \Phi(x), \Phi(x) \rangle - \langle \Phi(y),\Phi(y) \rangle \\
+			\Leftrightarrow \quad &0 = \langle \Phi(x), \Phi(x) \rangle - \langle \Phi(x),\Phi(y) \rangle + \langle \Phi(y),\Phi(x) \rangle - \langle \Phi(y),\Phi(y) \rangle \\
+			\Leftrightarrow \quad &0 = \langle \Phi(x+y),\Phi(x-y) \rangle
+		\end{align*}
+		Nun ist
+		\begin{equation*}
+			\langle x+y,x-y \rangle = \langle x,x \rangle - \langle x,y \rangle + \langle y,x \rangle + \langle y,y \rangle = ||x||^2-||y||^2=0\text{,}
+		\end{equation*}
+		also gilt mit dem ersten Teil die Behauptung.
+
+	\item Wir zeigen zunächst, dass ein \( \lambda > 0 \) existiert, sodass \( ||\Phi(x)|| = \lambda||x|| \) für alle \( x \in V \):
+		\\*
+		Für \( x,y \in V\setminus \{ 0 \} \) existieren \( \lambda_x \), \( \lambda_y \) mit \( ||\Phi(x)|| = \lambda_x||x|| \) und \( ||\Phi(y)|| = \lambda_y||y|| \). \( \lambda_x > 0 \) und \( \lambda_y > 0 \), denn \( \Phi \) ist injektiv, was man so zeigt:
+		\begin{equation*}
+			\Phi(V) = \Phi(\langle 0 \rangle^\perp) = \Phi(\langle 0 \rangle)^\perp = \langle 0 \rangle^\perp = V\text{,}
+		\end{equation*}
+		also ist \( \Phi \) surjektiv und da \( \dim(V) < \infty \) auch injektiv.
+		\\*
+		Mit dem zweiten Teil gilt
+		\begin{equation*}
+			\left|\left| \tfrac{1}{||x||}x \right|\right| = 1 = \left|\left| \tfrac{1}{||y||}y \right|\right| \leadsto \left|\left| \Phi\left(\tfrac{1}{||x||}x\right) \right|\right| = \left|\left| \Phi\left(\tfrac{1}{||y||}y\right) \right|\right|
+		\end{equation*}
+		Daraus folgt, dass \( \lambda \coloneqq \lambda_x = \tfrac{||\Phi(x)||}{||x||} = \tfrac{||\Phi(y)||}{||y||} = \lambda_y \).
+		\\*
+		Sei nun \( \Psi \coloneqq \lambda^{-1}\Phi \). \( \Psi \) ist Isometrie, denn
+		\begin{equation*}
+			||\Psi(x)|| = \lambda^{-1}||\Phi(x)|| = \lambda^{-1}\lambda||x|| = ||x||\text{.}
+		\end{equation*}
+\end{enumerate}

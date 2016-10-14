@@ -1,0 +1,631 @@
+\chapter{Aufgabe 3}
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2007
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2007}
+
+\subsection{Aufgabe}
+Zeigen Sie, dass es genau eine lineare Abbildung \( \varphi: \R^4 \to \R^4 \) gibt, für die gilt:
+\begin{align*}
+	\varphi &\left(\begin{pmatrix}
+		2 \\ 1 \\ 0 \\ -1
+	\end{pmatrix}\right) = \begin{pmatrix}
+		1 \\ 2 \\ 1 \\ 0
+	\end{pmatrix}, 
+	\varphi\left( \begin{pmatrix}
+		0 \\ 1 \\ 0 \\ 1
+	\end{pmatrix} \right) = \begin{pmatrix}
+		0 \\ 1 \\ 0 \\ 1
+	\end{pmatrix}, 
+	\varphi\left( \begin{pmatrix}
+		-1 \\ 0 \\ 1 \\ 2
+	\end{pmatrix} \right) = \begin{pmatrix}
+		2 \\ -7 \\ 2 \\ 3
+	\end{pmatrix}, \\
+	\varphi &\left( \begin{pmatrix}
+		1 \\ -1 \\ 1 \\ 1
+	\end{pmatrix} \right) = \begin{pmatrix}
+		3 \\ 1 \\ 3 \\ 1
+	\end{pmatrix}, 
+	\varphi\left( \begin{pmatrix}
+		0 \\ 1 \\ 0 \\ 0
+	\end{pmatrix} \right) = \begin{pmatrix}
+		0 \\ -3 \\ 0 \\1
+	\end{pmatrix}\text{.}
+\end{align*}
+
+\subsection{Ansatz}
+Benutze den Satz über lineare Fortsetzung um zu zeigen, dass vier der abgebildeten Vektoren zusammen eine Basis des \( \R^4 \) ergeben. Weise dann nach, dass der fünfte Vektor auch korrekt abgebildet wird, indem du den Vektor als Linearkombination der anderen Vektoren schreibst.
+
+\subsection{Lösung}
+Wir zeigen, dass
+\begin{equation*}
+	B \coloneqq \left \{ \begin{pmatrix}
+		2 \\ 1 \\ 0 \\ -1
+	\end{pmatrix}, \begin{pmatrix}
+		0 \\ 1 \\ 0 \\ 1
+	\end{pmatrix}, \begin{pmatrix}
+		1 \\ -1 \\ 1 \\ 1
+	\end{pmatrix}, \begin{pmatrix}
+		0 \\ 1 \\ 0 \\ 0
+	\end{pmatrix} \right \}
+\end{equation*}
+eine Basis des \( \R^4 \) ist, indexm wir die Vektoren als Zeilen in eine Matrix eintragen, den Gauß-Algorithmus anwenden und zeigen, dass die entstandene Matrix Rang \( 4 \) hat:
+\begin{equation*}
+	\begin{pmatrix}
+		2 & 1 & 0 & -1 \\
+		0 & 1 & 0 & 0 \\
+		1 & -1 & 1 & 1 \\
+		0 & 1 & 0 & 1
+	\end{pmatrix} \leadsto \begin{pmatrix}
+		1 & 0 & 0 & 0 \\
+		0 & 1 & 0 & 0 \\
+		0 & 0 & 1 & 0 \\
+		0 & 0 & 0 & 1
+	\end{pmatrix}
+\end{equation*}
+Also ist \( \langle B \rangle = \R^4 \). Es gibt also nach dem Satz über die lineare Fortsetzung genau ein \( \varphi \in \text{End}(\R^4) \), der auf den vier Basisvektoren die vorgeschriebenen Werte annimmt.
+\\*
+Wir überprüfen noch, ob \( \varphi \) den verbleibenden Vektor korrekt abbildet. Wir schreiben diesen dazu als Linearkombination der anderen Vektoren und nutzen die Linearität von \( \varphi \) aus, um zu zeigen, dass sich das Bild des Vektors aus den Bildern der anderen Vektoren konstruieren lässt:
+\begin{align*}
+	\varphi \left( \begin{pmatrix}
+		-1 \\ 0 \\ 1 \\ 2
+	\end{pmatrix} \right) &= \varphi \left( - \begin{pmatrix}
+		2 \\ 1 \\ 0 \\ -1
+	\end{pmatrix} + \begin{pmatrix}
+		1 \\ -1 \\ 1 \\ 1
+	\end{pmatrix} + 2* \begin{pmatrix}
+		0 \\ 1 \\ 0 \\ 0
+	\end{pmatrix} \right) \\ &= - \varphi \left( \begin{pmatrix}
+		1 \\ 2 \\ 1 \\ 0
+	\end{pmatrix} \right) + \varphi \left( \begin{pmatrix}
+		1 \\ -1 \\ 1 \\ 1
+	\end{pmatrix} \right) + 2* \varphi \left( \begin{pmatrix}
+		0 \\ 1 \\ 0 \\ 0
+	\end{pmatrix} \right) = \begin{pmatrix}
+		2 \\ -7 \\ 2 \\ 3
+	\end{pmatrix}
+\end{align*}
+
+\newpage
+
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2007
+%----------------------------------------------------------------------------------------
+\section{Herbst 2007}
+
+\subsection{Aufgabe}
+Im reellen Vektorraum \( V \coloneqq \R^5 \) seien die Vektoren
+\begin{equation*}
+	u_1 = \begin{pmatrix}
+		1 \\ 1 \\ 1 \\ 1 \\ 1
+	\end{pmatrix},
+	u_2 = \begin{pmatrix}
+		1 \\ 2 \\ 2 \\ 2 \\ 2
+	\end{pmatrix},
+	u_3 = \begin{pmatrix}
+		1 \\ 2 \\ 3 \\ 3 \\ 3
+	\end{pmatrix},
+	w_1 = \begin{pmatrix}
+		1 \\ 2 \\ 3 \\ 5 \\ 6
+	\end{pmatrix},
+	w_2 = \begin{pmatrix}
+		2 \\ 4 \\ 6 \\ 8 \\ 9
+	\end{pmatrix},
+	w_3 = \begin{pmatrix}
+		3 \\ 6 \\ 9 \\ 11 \\ 12
+	\end{pmatrix}
+\end{equation*}
+gegeben. Weiter sei \( U = \langle \{ u_1, u_2, u_3 \} \rangle \) und \( W = \langle \{ w_1, w_2, w_3 \} \rangle \). \\*
+Berechnen Sie Basen der Vektorräume \( U+W \) und \( U \cap W \).
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item \( U + W \): Betrachte \( \{ u_1, u_2, u_3, w_1, w_2, w_3 \} \) als Erzeugendensystem von \( U + W \) und minimiere es zu einer Basis von \( U + W \).
+	\item \( U, W \): Verwende die Ergebnisse von \( U+W \), um die einzelnen Basen und Dimensionen zu ermitteln.
+	\item \( U \cap W \): Verwende den Dimensionssatz, um die Dimension von \( U \cap W \) zu bestimmen und ermittle schließlich aus den Basisvektoren von \( U \) und \( W \) eine Basis von \( U \cap W \). 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item \( U + W \): Wir schreiben die Vektoren als Spalten in eine Matrix und wenden den Gauß-Algorithmus an. So erhalten wir aus den Vektoren eine Basis von \( U + W \).
+	\begin{equation*}
+	 	\begin{pmatrix}
+	 		1 & 1 & 1 & 1 & 2 & 3 \\
+	 		1 & 2 & 2 & 2 & 4 & 6 \\
+	 		1 & 2 & 3 & 3 & 6 & 9 \\
+	 		1 & 2 & 3 & 5 & 8 & 11 \\
+	 		1 & 2 & 3 & 6 & 9 & 12
+	 	\end{pmatrix} \leadsto \begin{pmatrix}
+	 		1 & 1 & 1 & 1 & 2 & 3 \\
+	 		0 & 1 & 1 & 1 & 2 & 3 \\
+	 		0 & 0 & 1 & 1 & 2 & 3 \\
+	 		0 & 0 & 0 & 2 & 2 & 2 \\
+	 		0 & 0 & 0 & 0 & 0 & 0 \\
+	 	\end{pmatrix}
+	 \end{equation*}
+	 Diese Matrix hat Rang \( 4 \) und die ersten vier Spalten sind linear unabhängig, also ist \( \text{dim}(U+W) = 4 \) und \( \{ u_1, u_2, u_3, w_1 \} \) eine Basis von \( U+W \).
+
+	 \item \( U \): Die ersten drei Spalten der oberen Matrix sind linear unabhängig, also ist \( \text{dim}(U) = 3 \) und \( \{ u_1, u_2, u_3 \} \) eine Basis von \( U \).
+
+	 \item \( W \): Die letzten drei Spalten der oberen Matrix erzeugen einen zweidimensionalen Untervektorraum, also ist \( \text{dim}(W) = 2 \) und \( \{ w_1, w_2 \} \) eine Basis von \( W \).
+
+	 \item \( U \cap W \): Es gilt: \( \text{dim}(U \cap W) = \text{dim}(U) + \text{dim}(W) - \text{dim}(U+W) \) erhalten wir \( \text{dim}(U \cap W) = 1 \). Die Differenz der vierten und fünften Spalte ist eine Linearkombination \( \neq 0 \) der ersten drei Spalten (nämlich gleich der dritten Spalte), deshalb ist \( w_2 - w_1 = u_3 \) ein Erzeuger von \( U \cap W \) und somit \( \{ u_3 \} \) eine Basis von \( U \cap W \).
+\end{enumerate}
+
+\newpage
+
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2010
+%----------------------------------------------------------------------------------------
+\section{Herbst 2010}
+
+\subsection{Aufgabe}
+Gegeben sei das lineare Gleichungssystem
+\begin{equation*}
+	\systeme{\alpha x+\beta z=2, \alpha x+\alpha y+4z=4, \alpha y+2z = \beta}
+\end{equation*}
+mit \( \alpha, \beta \in \R \). \\*
+Geben Sie die reelle Lösungsmenge dieses linearen Gleichungssystems in Abhängigkeit von \( \alpha \) und \( \beta \) an.
+
+\subsection{Ansatz}
+Führe eine zweistufige Fallunterscheidung durch (zuerst für \( \alpha \), dann für \( \beta \)).
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item \underline{Fall \( \alpha = 0\)}: Hier ist die erweiterte Matrix
+	\begin{equation*}
+	 	A' = \left( \begin{array}{ccc|c}
+	 		0 & 0 & \beta & 2 \\
+	 		0 & 0 & 4 & 4 \\
+	 		0 & 0 & 2 & \beta
+	 	\end{array} \right)\text{.}
+	 \end{equation*}
+	 \begin{enumerate}
+	 	\item \underline{Fall \( \beta \neq 2 \)}: \( \mathcal{L} = \varnothing \)
+	 	\item \underline{Fall \( \beta = 2 \)}: \( \mathcal{L} = \left \{ \begin{pmatrix}
+	 		s \\ t \\ 1
+	 	\end{pmatrix} \mid s,t \in \R \right \} \) 
+	\end{enumerate}
+
+	\item \underline{Fall \( \alpha \neq 0 \)}: Hier ist die erweiterte Matrix
+	\begin{equation*}
+	 	A' = \left( \begin{array}{ccc|c}
+	 		\alpha & 0 & \beta & 2 \\
+	 		\alpha & \alpha & 4 & 4 \\
+	 		0 & \alpha & 2 & \beta
+	 	\end{array} \right) \leadsto \left( \begin{array}{ccc|c}
+	 		\alpha & 0 & \beta & 2 \\
+	 		0 & \alpha & 4-\beta & 2 \\
+	 		0 & 0 & \beta-2 & \beta-2
+	 	\end{array} \right) \text{.}
+	 \end{equation*}
+	 \begin{enumerate}
+	 	\item \underline{Fall \( \beta \neq 2 \)}: \( A' \) ist invertierbar, deswegen \( |\mathcal{L}| = 1 \) und \( \mathcal{L} = \left \{ \left( \tfrac{2-\beta}{\alpha} \ \tfrac{\beta-2}{\alpha} \ 1 \right)^\top \right \} \).
+	 	\item \underline{Fall \( \beta = 2 \)}: Hier ist \( z \) beliebig, deswegen
+	 	\begin{equation*}
+	 		\mathcal{L} = \left \{ \begin{pmatrix}
+	 			\tfrac{2}{\alpha} \\ \tfrac{2}{\alpha} \\ 0
+	 		\end{pmatrix} + s \begin{pmatrix}
+	 			\tfrac{2}{\alpha} \\ \tfrac{2}{\alpha} \\ -1
+	 		\end{pmatrix} \mid s \in \R \right \}\text{.}
+	 	\end{equation*}
+	 \end{enumerate}
+\end{enumerate}
+
+\newpage
+
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2013
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2013}
+
+\begin{remark}
+	Diese Aufgabe ist identisch zur Aufgabe vom Herbst 2015. \\*
+	Diese taucht hier deswegen nicht auf.
+\end{remark}
+
+\subsection{Aufgabe}
+Gegeben seien die folgenden Untervektorräume des \( \R^4 \):
+\begin{equation*}
+	U_1 \coloneqq \langle \begin{pmatrix}
+		3 \\ 2 \\ 2 \\ 1
+	\end{pmatrix}, \begin{pmatrix}
+		3 \\ 3 \\ 2 \\ 1
+	\end{pmatrix}, \begin{pmatrix}
+		2 \\ 1 \\ 2 \\ 1
+	\end{pmatrix} \rangle \qquad U_2 \coloneqq \langle \begin{pmatrix}
+		1 \\ 0 \\ 4 \\ 0
+	\end{pmatrix}, \begin{pmatrix}
+		2 \\ 3 \\ 2 \\ 3
+	\end{pmatrix}, \begin{pmatrix}
+		1 \\ 2 \\ 0 \\ 2
+	\end{pmatrix} \rangle
+\end{equation*}
+Bestimmen Sie für \( U_1, U_2, U_1 \cap U_2 \) und \( U_1 + U_2 \) je eine Basis und die Dimension.
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item \( U_1, U_2 \): Schreibe die Vektoren als Zeilen in eine Matrix und wende den Gauß-Alorithmus an.
+	\item \( U_1 + U_2 \) Ergänze die Basisvektoren von \( U_1 \) um die Vektoren aus der \( U_2 \)-Basis, die nicht in \( U_1 \) liegen.
+	\item \( U_1 \cap U_2 \): Berechne mithilfe des Dimensionssatzes die Dimension von \( U_1 \cap U_2 \) und konstruiere dann eine Basis von \( U_1 \cap U_2 \) aus den Basisvektoren von \( U_1 \) und \( U_2 \). 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item \( U_1 \): Wir schreiben die Vektoren als Zeilen in eine Matrix und wenden den Gauß-Algorithmus an:
+	\begin{equation*}
+	 	\begin{pmatrix}
+	 		3 & 2 & 2 & 1 \\
+	 		0 & 1 & 0 & 0 \\
+	 		1 & 2 & 0 & 0 
+	 	\end{pmatrix} \leadsto \begin{pmatrix}
+	 		1 & 0 & 0 & 0 \\
+	 		0 & 1 & 0 & 0 \\
+	 		0 & 0 & 2 & 1 
+	 	\end{pmatrix}
+	 \end{equation*} 
+	 Die Vektoren sind also linear unabhängig und bilden somit eine Basis von \( U_1 \) (\( \text{dim}(U_1) = 3 \)).
+
+	 \item \( U_2 \): Verfahren wie bei \( U_1 \):
+	 \begin{equation*}
+	 	\begin{pmatrix}
+	 		1 & 0 & 4 & 0 \\
+	 		2 & 3 & 2 & 3 \\
+	 		1 & 2 & 0 & 2
+	 	\end{pmatrix} \leadsto \begin{pmatrix}
+	 		1 & 2 & 0 & 2 \\
+	 		1 & 0 & 4 & 0 \\
+	 		0 & 0 & 0 & 0
+	 	\end{pmatrix}
+	 \end{equation*}
+	 Diese zwei Vektoren bilden also eine Basis von \( U_2 \) (\( \text{dim}(U_2) = 2 \)).
+
+	 \item \( U_1 + U_2 \): Es ist
+	 \begin{equation*}
+	  	U_2 \ni \begin{pmatrix}
+	  		1 \\ 2 \\ 0 \\ 2
+	  	\end{pmatrix} \not \in U_1 \text{,}
+	  \end{equation*}
+	  somit ist \( \text{dim}(U_1 + U_2) \geq 4 \). Da wir uns in Unterräumen des \( \R^4 \) befinden kann die Dimension nicht größer als \( 4 \) werden. Somit ist \( \text{dim}(U_1 + U_2) = 4 \) und die Standardbasis des \( \R^4 \) eine Basis von \( U_1 + U_2 \).
+\end{enumerate}
+
+\newpage
+
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2013
+%----------------------------------------------------------------------------------------
+\section{Herbst 2013}
+
+\subsection{Aufgabe}
+Gegeben sei das folgende Gleichungssystem:
+\begin{equation*}
+	\systeme{x+3y+2z=3, 2x+9y+6z=8, x + (\alpha \- 1)z = 1}
+\end{equation*}
+\begin{enumerate}
+	\item Bestimmen Sie für jedes \( \alpha \in \R \) die Lösungsmenge des obigen Gleichungssystems über \( \R \).
+	\item Bestimmen Sie für jedes \( \alpha \in \Z/3\Z \) die Lösungsmenge des obigen Gleichungssystems über \( \Z/3\Z \). 
+\end{enumerate}
+
+\subsection{Ansatz}
+Führe zuerst Schritte an, die sowohl über \( \R \) als auch über \( \Z/3\Z \) erlaubt sind. Mache anschließend eine Fallunterscheidung für \( \alpha \) durch.
+
+\subsection{Lösung}
+Wir schreiben das LGS in erweiterter Matrixdarstellung und führen anschließend Schritte durch, die sowohl auf \( \R \) als auch auf \( \Z/3\Z \) erlaubt sind:
+\begin{equation*}
+	\left( \begin{array}{ccc|c}
+		1 & 3 & 2 & 3 \\
+		2 & 9 & 6 & 8 \\
+		1 & 0 & \alpha-1 & 1 
+	\end{array} \right) \leadsto \left( \begin{array}{ccc|c}
+		1 & 0 & 0 & 1 \\
+		0 & 3 & 2 & 2 \\
+		0 & 0 & \alpha-1 & 0
+	\end{array} \right)
+\end{equation*}
+\begin{enumerate}
+	\item \underline{Fall \( \alpha = 1 \)}: Die letzte Zeile verschwindet:
+	\begin{equation*}
+	 	\left( \begin{array}{ccc|c}
+	 		1 & 0 & 0 & 1 \\
+	 		0 & 3 & 2 & 2 
+	 	\end{array} \right)
+	 \end{equation*} 
+	 \begin{enumerate}
+	 	\item \underline{Über \( \R \)}: Setzen wir \( t \coloneqq - \tfrac{y}{2} \), so erhalten wir als Lösungsmenge:
+	 	\begin{equation*}
+	 	 	\mathcal{L} = \left \{ \begin{pmatrix}
+	 	 		1 \\ 0 \\ 1
+	 	 	\end{pmatrix} + t \begin{pmatrix}
+	 	 		0 \\ -2 \\ 3
+	 	 	\end{pmatrix} \mid t \in \Z \right \}\text{.}
+	 	 \end{equation*} 
+
+	 	 \item \underline{Über \( \Z/3\Z \)}: \( \mathcal{L} \) wie oben, nur mit \( t \in \Z/3\Z \). Also ist hier \( | \mathcal{L} | = 3 \).
+	 \end{enumerate}
+
+	 \item \underline{Fall \( \alpha \neq 1 \)}: Wir erhalten die Matrix
+	 \begin{equation*}
+	 	\left( \begin{array}{ccc|c}
+	 		1 & 0 & 0 & 1 \\
+	 		0 & 3 & 0 & 2 \\
+	 		0 & 0 & 1 & 0 
+	 	\end{array} \right)\text{.}
+	 \end{equation*}
+	 \begin{enumerate}
+	 	\item \underline{Über \( \R \)}: Die Matrix hat Rang \( 3 \) und somit eine Lösung: \( \mathcal{L} = \left\{ \left( 1 \ \tfrac{2}{3} \ 0 \right)^\top \right\} \).
+	 	\item \underline{Über \( \Z/3\Z \)}: Wir erhalten \( 0 = 2 \) als zweite Zeile, somit ist hier \( \mathcal{L} = \varnothing \).
+	 \end{enumerate}
+\end{enumerate}
+
+\newpage
+
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2014
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2014}
+
+\subsection{Aufgabe}
+In Abhängigkeit von Parameter \( \alpha \) sei das folgende Gleichungssystem gegeben:
+\begin{equation*}
+	\systeme{2x+\alpha y+z=7, x+2y+2z = 8, -x+y+z=1}
+\end{equation*}
+\begin{enumerate}
+	\item Bestimmen Sie für jedes \( \alpha \in \R \) die Lösungsmenge des obigen Gleichungssystems über \( \R \).
+	\item Bestimmen Sie für jedes \( \alpha \in \Z/3\Z \) die Lösungsmenge des obigen Gleichungssystems über \( \Z/3\Z \). Wie viele Lösungen hat das Gleichungssystem über \( \Z/3\Z \) jeweils?
+\end{enumerate}
+
+\subsection{Ansatz}
+Führe zuerst Schritte durch, die auf beiden Körpern erlaubt sind und mache anschließend eine zweistufige Fallunterscheidung (Körper, \( \alpha \)).
+
+\subsection{Lösung}
+Wir schreiben das LGS in erweiterter Matrixdarstellung und führen anschließend Schritte durch, die auf beiden Körpern erlaubt sind:
+\begin{equation*}
+	\left( \begin{array}{ccc|c}
+		2 & \alpha & 1 & 7 \\
+		1 & 2 & 2 & 8 \\
+		-1 & 1 & 1 & 1
+	\end{array} \right) \leadsto \left( \begin{array}{ccc|c}
+		0 & \alpha-1 & 0 & 0 \\
+		1 & 2 & 2 & 8 \\
+		0 & 3 & 3 & 9
+	\end{array} \right)
+\end{equation*}
+\begin{enumerate}
+	\item \underline{Über \( \R \)}:
+	\begin{enumerate}
+	 	\item \underline{Fall \( \alpha = 1 \)}: Wir formen weiter um:
+	 	\begin{equation*}
+			\left( \begin{array}{ccc|c}
+				2 & \alpha & 1 & 7 \\
+				1 & 2 & 2 & 8 \\
+				-1 & 1 & 1 & 1
+			\end{array} \right) \leadsto \left( \begin{array}{ccc|c}
+				1 & 0 & 0 & 2 \\
+				0 & 1 & 1 & 3 \\
+				0 & 0 & 0 & 0 
+			\end{array} \right)\text{, also ist }\mathcal{L} = \left\{ \begin{pmatrix}
+	 	 	2 \\ 3 \\ 0
+	 	 \end{pmatrix} + t \begin{pmatrix}
+	 	 	0 \\ 1 \\ -1
+	 	 \end{pmatrix} \mid t \in \Z \right\}\text{.}
+ 	 	\end{equation*}
+
+	 	 \item \underline{Fall \( \alpha \neq 1 \)}: Wir formen weiter um:
+	 	 \begin{equation*}
+	 	 	\left( \begin{array}{ccc|c}
+	 	 		0 & \alpha-1 & 0 & 0 \\
+	 	 		1 & 2 & 2 & 8 \\
+	 	 		0 & 3 & 3 & 9
+	 	 	\end{array} \right) \leadsto \left( \begin{array}{ccc|c}
+	 	 		1 & 0 & 0 & 2 \\
+	 	 		0 & 1 & 0 & 0 \\
+	 	 		0 & 0 & 1 & 3
+	 	 	\end{array} \right)\text{, also ist } \mathcal{L} = \left\{ \left( 2 \ 0 \ 3 \right)^\top \right\}\text{.}
+ 	 	\end{equation*}
+	 \end{enumerate} 
+
+	 \item \underline{Über \( \Z/3\Z \)}: Wir schreiben \( -1 \) statt \( 2 \) und formen weiter um zu \( \left( \begin{array}{ccc|c}
+	 	1 & -1 & -1 & -1 \\
+	 	0 & \alpha-1 & 0 & 0 \\
+	 	0 & 0 & 0 & 0
+	 \end{array} \right) \).
+	 \begin{enumerate}
+	 	\item \underline{Fall \( \alpha = 1 \)}: \( \mathcal{L} = \left\{ \begin{pmatrix}
+	 		-1 \\ 0 \\ 0
+	 	\end{pmatrix} + t \begin{pmatrix}
+	 		-1 \\ -1  \\ 0
+	 	\end{pmatrix} + u \begin{pmatrix}
+	 		-1 \\ 0 \\ -1
+	 	\end{pmatrix} \mid t,u \in \Z \right\} \).
+
+	 	\item \underline{Fall \( \alpha \neq 1 \)}: Wir formen um:
+	 	\begin{equation*}
+	 		\left( \begin{array}{ccc|c}
+	 		1 & -1 & -1 & -1 \\
+	 		0 & \alpha-1 & 0 & 0 \\
+	 		0 & 0 & 0 & 0
+	 	\end{array} \right) \leadsto \left( \begin{array}{ccc|c}
+	 		1 & 0 & -1 & -1 \\
+	 		0 & 1 & 0 & 0 \\
+	 		0 & 0 & 0 & 0
+	 	\end{array} \right)\text{, also ist } \mathcal{L} = \left\{ \begin{pmatrix}
+	 		-1 \\ 0 \\ 0 
+	 	\end{pmatrix} +t \begin{pmatrix}
+	 		-1 \\ 0 \\ -1
+	 	\end{pmatrix} \mid t \in \Z \right\}\text{.}
+	 	\end{equation*}
+	 \end{enumerate}
+\end{enumerate}
+
+\newpage
+
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2014
+%----------------------------------------------------------------------------------------
+\section{Herbst 2014}
+
+\subsection{Aufgabe}
+Gegeben seien die folgenden Untervektorräume von \( \R^4 \):
+\begin{equation*}
+	U_1 \coloneqq \langle \begin{pmatrix}
+		2 \\ 3 \\ 3 \\ 6
+	\end{pmatrix}, \begin{pmatrix}
+		1 \\ 2 \\ 2 \\ 4
+	\end{pmatrix}, \begin{pmatrix}
+		0 \\ 1 \\ 1 \\ 2
+	\end{pmatrix} \rangle \qquad
+	U_2 \coloneqq \langle \begin{pmatrix}
+		2 \\ 2 \\ 2 \\ 4
+	\end{pmatrix}, \begin{pmatrix}
+		2 \\ 1 \\ 2 \\ 3
+	\end{pmatrix}, \begin{pmatrix}
+		1 \\ 0 \\ 1 \\ 1
+	\end{pmatrix} \rangle
+\end{equation*}
+Bestimmen Sie für die Vektorräume \( U_1, U_2, U_1 \cap U_2 \) und \( U_1 + U_2 \) je eine Basis und die Dimension.
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item \( U_1, U_2 \): Schreibe die jeweiligen Vektoren des Erzeugendensystems als Zeilen in eine Matrix und wende den Gauß-Algorithmus an.
+	\item \( U_1 + U_2 \): Vergleiche die Basen von \( U_1 \) und \( U_2 \) und ermittle so eine Basis von \( U_1 + U_2 \).
+	\item \( U_1 \cap U_2 \): Wende den Dimensionssatz an und bestimme aus den beiden Basen die nötige Anzahl an Vektoren für eine Basis von \( U_1 \cap U_2 \). 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item \( U_1 \): Wir schreiben die Vektoren des Erzeugendensystems als Zeilen in eine Matrix und wenden den Gauß-Algorithmus an:
+	\begin{equation*}
+	 	\begin{pmatrix}
+	 		2 & 3 & 3 & 6 \\
+	 		1 & 2 & 2 & 4 \\
+	 		0 & 1 & 1 & 2
+	 	\end{pmatrix} \leadsto \begin{pmatrix}
+	 		1 & 0 & 0 & 0 \\
+	 		0 & 1 & 1 & 2 \\
+	 		0 & 0 & 0 & 0 
+	 	\end{pmatrix}\text{,}
+	 \end{equation*} 
+	 also ist \( \left\{ \begin{pmatrix}
+	 	1 \\ 0 \\ 0 \\ 0
+	 \end{pmatrix}, \begin{pmatrix}
+	 	0 \\ 1 \\ 1 \\ 2
+	 \end{pmatrix} \right\} \) eine Basis von \( U_1 \) (\( \text{dim}(U_1) = 2 \)).
+
+	 \item \( U_2 \): Vorgehen wie bei \( U_1 \):
+	 \begin{equation*}
+	 	\begin{pmatrix}
+	 		2 & 2 & 2 & 4 \\
+	 		2 & 1 & 2 & 3 \\
+	 		1 & 0 & 1 & 1
+	 	\end{pmatrix} \leadsto \begin{pmatrix}
+	 		0 & 1 & 0 & 1 \\
+	 		1 & 0 & 1 & 1
+	 	\end{pmatrix}\text{, also ist } \left\{ \begin{pmatrix}
+	 	0 \\ 1 \\ 0 \\ 1
+	 \end{pmatrix}, \begin{pmatrix}
+	 	1 \\ 0 \\ 1 \\ 1
+	 \end{pmatrix} \right\} \text{ eine Basis von } U_2 \ (\text{dim}(U_2) = 2)\text{.}
+	 \end{equation*}
+
+	 \item \( U_1 + U_2 \): Wir minimieren den Schnitt der beiden Erzeugendensysteme mit dem Gauß-Algorithmus:
+	 \begin{equation*}
+	 	\begin{pmatrix}
+	 		1 & 0 & 0 & 0 \\
+	 		0 & 1 & 1 & 2 \\
+	 		0 & 1 & 0 & 1 \\
+	 		1 & 0 & 1 & 1
+	 	\end{pmatrix} \leadsto \begin{pmatrix}
+	 		1 & 0 & 0 & 0 \\
+	 		0 & 1 & 0 & 1 \\
+	 		0 & 0 & 1 & 1 \\
+	 		0 & 0 & 0 & 0
+	 	\end{pmatrix}\text{,also ist } \left\{ \begin{pmatrix}
+	 	1 \\ 0 \\ 0 \\ 0
+	 \end{pmatrix}, \begin{pmatrix}
+	 	0 \\ 1 \\ 0 \\ 1
+	 \end{pmatrix}, \begin{pmatrix}
+	 	0 \\ 0 \\ 1 \\ 1
+	 \end{pmatrix} \right\}\text{ Basis von } U_1 + U_2 \ (\text{dim}(U_1 + U_2) = 3)\text{.}
+	 \end{equation*}
+
+	 \item \( U_1 \cap U_2 \): Mit dem Dimensionssatz erhalten wir \( \text{dim}(U_1 \cap U_2) = \text{dim}(U_1) + \text{dim}(U_2) - \text{dim}(U_1 + U_2) = 1 \). Also müssen wir nur einen Vektor finden, der in \( U_1 \) und \( U_2 \) liegt. Die Summe der Basisvektoren ist jeweils dieselbe, deswegen ist \( \{ (1 \ 1 \ 1 \ 2)^\top \} \) eine Basis von \( U_1 \cap U_2 \).
+\end{enumerate}
+
+\newpage
+
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2015
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2015}
+
+\subsection{Aufgabe}
+Beweisen Sie die folgenden Aussagen:
+\begin{enumerate}
+	\item \( \forall A, B \in \R^{2 \times 2}: U \coloneqq \{ X \in \R^{2 \times 2} \mid AX = XB \} \) ist Untervektorraum von \( \R^{2 \times 2} \).
+	\item Sind
+	\begin{equation*}
+	  	A = \begin{pmatrix}
+	  		a_1 & a_2 \\
+	  		0 & a_4
+	  	\end{pmatrix} \qquad B = \begin{pmatrix}
+	  		b_1 & 0 \\
+	  		b_3 & b_4
+	  	\end{pmatrix}
+	\end{equation*}
+	so gilt für \( U \) aus dem ersten Teil:
+	\begin{equation*}
+		U = \{ 0 \} \Leftrightarrow \{ a_1, a_4 \} \cap \{ b_1, b_4 \} = \varnothing
+	\end{equation*}
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Weise die Untervektorraumkriterien für \( U \) nach.
+	\item Stelle \( X \in \R^{2 \times 2} \) mit \( AX = XB \) explizit dar und verwende diese Darstellung, um ein LGS zu konstruieren.  
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Wir weisen die Untervektorraumkriterien einzeln nach:
+	\begin{enumerate}
+	 	\item \emph{nicht leer}: Es ist \( 0 \in U \), denn \( A*0 = 0*B = 0 \).
+	 	\item \emph{Abgeschlossenheit Addition}: Für \( X, Y \in U \) gilt: \\* \( A(X+Y) = AX + AY = XB + YB = (X+Y)B \).
+	 	\item \emph{Abgeschlossenheit Multiplikation}: Für \( X \in U \), \( \lambda \in \R \) gilt: \\* \( A(\lambda X) = \lambda(AX) = \lambda(XB) = (\lambda X)B \).
+	 \end{enumerate} 
+	 Also ist \( U \) ein Untervektorraum des \( \R^{2 \times 2} \).
+
+	 \item Es sei \( X = \begin{pmatrix}
+	 	x_1 & x_2 \\
+	 	x_3 & x_4
+	 \end{pmatrix} \in \R^{2 \times 2} \). \( AX = XB \) ist dann explizit ausgeschrieben:
+	 \begin{equation*}
+	 	\begin{pmatrix}
+	 		a_1x_1+a_2x_3 & a_1x_2+a_2x_4 \\
+	 		a_4x_3 & a_4x_4 
+	 	\end{pmatrix} = \begin{pmatrix}
+	 		x_1b_1 + x_2b_3 & x_2b_4 \\
+	 		x_3b_1 + x_4b_3 & x_4b_4
+	 	\end{pmatrix}
+	 \end{equation*}
+	 Indem man die vier Gleichheiten zu Nullgleichheiten umformt erhält man ein LGS:
+	 \begin{equation*}
+	 	\left( \begin{array}{cccc|c}
+	 		a_1-b_1 & -b_3 & a_2 & 0 & 0 \\
+	 		0 & a_1-b_4 & 0 & a_2 & 0 \\
+	 		0 & 0 & a_4-b_1 & -b_3 & 0 \\
+	 		0 & 0 & 0 & a_4-b_4 & 0 
+	 	\end{array} \right)
+	 \end{equation*}
+	 Da \( U = \{ 0 \} \) gerade dann, wenn die Koeffizenzenmatrix regulär ist, also wenn die Diagonaleinträge alle \( \neq 0 \), also wenn \( a_1 \not \in \{ b_1, b_4 \} \) und \( a_4 \not \in \{b_1, b_4 \} \), ist die Behauptung gezeigt.
+\end{enumerate}
+
+\newpage

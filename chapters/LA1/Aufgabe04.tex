@@ -1,0 +1,526 @@
+\chapter{Aufgabe 4}
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2007
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2007}
+
+\subsection{Aufgabe}
+Es seien \( V \) ein \( n \)-dimensionaler reeller Vektorraum und \( \psi \in V^\ast \) eine von der Nullabbildung verschiedene Linearform. Weiter sei \( \varphi: V \to V \) ein Endomorphismus von \( V \) mit der Eigenschaft
+\begin{equation*}
+	\psi \circ \varphi = \psi\text{.}
+\end{equation*}
+Zeigen Sie:
+\begin{enumerate}
+	\item \( \varphi \) besitzt den Eigenwert \( 1 \).
+	\item Ist \( W \) ein Untervektorraum von \( V \) mit \( V = \text{Kern}(\psi) \oplus W \) und \( \varphi(W) \subset W \), so wird \( W \) von einem Eigenvektor zum Eigenwert \( 1 \) erzeugt. 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Führe einen Widerspruchsbeweis durch unter Untersuchung der Injektivität von \( \varphi - \text{Id} \).
+	\item Untersuche die Dimensionen der beteiligten Unterräume. Zeige, dass \( \varphi(w) = c*w \) und anschließend, dass \( c=1 \). 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Es gilt:
+	\begin{equation*}
+	 	1 \in \text{Spec}(\varphi) \Leftrightarrow \text{Kern}(\varphi - \text{Id}) \neq \{  0 \} \Leftrightarrow \varphi - \text{Id ist nicht injektiv.}
+	 \end{equation*} 
+	 Da \( \text{dim}(V) = n < \infty \) ist das äquivalent dazu, dass \( \varphi - \text{Id} \) nicht bijektiv ist.
+	 \\*
+	 Wir folgern:
+	 \begin{equation*}
+	 	\psi \circ \varphi = \psi = \psi \circ \text{Id} \leadsto \psi \circ (\varphi - \text{Id}) = 0\text{.}
+	 \end{equation*}
+	 Wäre \( \varphi - \text{Id} \) bijektiv, so würde \( \psi = 0 \) folgen. Widerspruch! \\*
+	 Also ist \( \varphi - \text{Id} \) nicht injektiv und somit \( 1 \in \text{Spec}(\varphi) \).
+
+	 \item Sei \( W \) wie gefordert ein \( \varphi \)-invarianter Komplementärraum zu \( U \coloneqq \text{Kern}(\psi) \). Wegen \( \text{dim}(U) = n - 1 \) folgt aus der Dimensionsformel \( \text{dim}(W) = 1 \). 
+	 \\
+	 Sei nun \( W = \langle w \rangle \), \( w \neq 0 \). Wegen \( \varphi(W) \subset W \) ist \( \varphi(w) = cw \). Zu zeigen ist noch, dass \( c = 1 \).
+	 \\
+	 Es gilt:
+	 \begin{equation*}
+	 	\psi \circ \varphi(w) = c\psi(w) \quad \text{und} \quad \psi \circ \varphi(w) = \psi(w)\text{,}
+	 \end{equation*}
+	 also muss \( c = 1 \) sein, da \( w \not \in \text{Kern}(\psi) \).
+\end{enumerate}
+
+\newpage
+
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2007
+%----------------------------------------------------------------------------------------
+\section{Herbst 2007}
+
+\subsection{Aufgabe}
+Es seien \( V \) ein dreidimensionaler \( K \)-Vektorraum und \( \varphi_1, \varphi_2, \varphi_3 \) Linearformen auf \( V \). \\
+Zeigen Sie, dass diese Linearformen genau dann linear abhängig sind, wenn es einen Vektor \( v \in V \setminus \{ 0 \} \) gibt mit
+\begin{equation*}
+	\forall i \in \{1, 2, 3 \}: \varphi_i(v) = 0\text{.}
+\end{equation*}
+
+\subsection{Ansatz}
+Nehme zuerst an, dass die Linearformen linear unabhängig sind und zeige, dass dann ein solcher Vektor nicht existiert. Weise anschließend nach, dass ein solcher Vektor existiert, wenn die Linearformen linear abhängig sind.
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item \underline{Annahme: \( \varphi_1, \varphi_2, \varphi_3 \) linear unabhängig}. \( \langle \varphi_1, \varphi_2, \varphi_3 \rangle = V^\ast \), da \( \text{dim}(V) = 3 \). Es gibt zu jedem \( v \neq 0  \) eine Linearform \( \psi \) mit \( \psi(v) \neq 0 \), also kann nicht \( \varphi_i(v) = 0 \) für \( i= 1,2,3 \) sein, denn das \( \psi \) lässt sich als Linearkombination von \( \varphi_1, \varphi_2, \varphi_3 \) darstellen.
+
+	\item \underline{Annahme: \( \varphi_1, \varphi_2, \varphi_3 \) linear abhängig}: Es existieren \( a_1, a_2, a_3 \in K \) die nicht alle \( =0 \) sind, sodass \( a_1\varphi_1+a_2\varphi_2+a_3\varphi_3 = 0 \). Die lineare Abbildung
+	\begin{equation*}
+		\varphi: V \to K^3, \ \varphi(v) = \begin{pmatrix}
+			\varphi_1(v) \\
+			\varphi_2(v) \\
+			\varphi_3(v)
+		\end{pmatrix}
+	\end{equation*}
+	ist dann nicht surjektiv, denn für alle \( v \in V \) gilt:
+	\begin{equation*}
+		(a_1, a_2, a_3)\varphi(v) = a_1\varphi_1(v) + a_2\varphi_2(v) + a_3\varphi_3(v) = 0\text{,}
+	\end{equation*}
+	daher können nicht alle Vektoren der Standardbasis im Bild von \( \varphi \) liegen. \\
+	Wegen der Dimensionsformel ist
+	\begin{equation*}
+		\text{dim}(\text{Kern}(\varphi)) = 3 - \text{dim}(\text{Bild}(\varphi)) > 0\text{,}
+	\end{equation*}
+	also \( \text{Kern}(\varphi) \neq \{0\} \). Daher gibt es ein \( 0 \neq v \in V \) mit \( \varphi(v) = 0 \), oder auch
+	\begin{equation*}
+		\forall i \in \{1,2,3\}: \varphi_i(v) = 0\text{.}
+	\end{equation*}
+\end{enumerate}
+
+\newpage
+
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2010
+%----------------------------------------------------------------------------------------
+\section{Herbst 2010}
+
+\subsection{Aufgabe}
+Im Vektorraum \( V \coloneqq \{ f \in \R[X] \mid \text{Grad}(f) \leq 4 \} \) sei der Untervektorraum
+\begin{equation*}
+	U \coloneqq \{ f \in V \mid f(1) = f(-1) = 0 \}
+\end{equation*}
+gegeben. Bestimmen Sie eine Basis \( B \) von \( U \) und stellen Sie die Linearformen
+\begin{equation*}
+	\varphi: U \to \R, f \mapsto -f(0) \qquad \Psi: U \to \R, f \mapsto f'(1)
+\end{equation*}
+als Linearkombinationen der zu \( B \) dualen Basis dar.
+
+\subsection{Ansatz}
+Finde für \( f \in V \) eine möglichst explizite Darstellung und konstruiere einen Isomorphismus, der den unbestimmten Teil von \( f \) auf \( f \) abbildet. Nutze den Isomorphismus, um die Basis von \( \{ f \in \R[X] \mid \text{Grad}(f) \leq 2 \} \) auf eine Basis von \( U \) abzubilden. Konstruiere anschließend Linearkombinationen aus Basisvektoren der Dualbasis für die beiden Linearformen.
+
+\subsection{Lösung}
+Ein Polynom \( f \) liegt in \( U \) genau dann, wenn es von \( (X+1)(X-1) = (X^2-1) \) geteilt wird und \( \text{Grad}(f) \leq 4 \) ist, also wenn \( f=(X^2-1)g \) mit \( g \in \R[X] \wedge \text{Grad}(g) \leq 2 \). \\
+Die Abbildung \( g \mapsto (X^2-1)g \) ist also ein Vektorraumisomorphismus von \( \{ f \in \R[X] \mid \text{Grad}(f) \leq 2 \} \) nach \( U \). Das Bild der Basis \( \{1, X, X^2\} \) von \( \{ f \in \R[X] \mid \text{Grad}(f) \leq 2 \} \) ist also eine Basis von \( U \). Es gilt
+\begin{equation*}
+	B = \{ b_1, b_2, b_3 \} \text{ mit } b_1 = X^2-1, \ b_2 = (X^2-1)X, \ b_3 = (X^2-1)X^2\text{.}
+\end{equation*}
+Sei nun \( B^\ast = \{ b_1^\ast, b_2^\ast, b_3^\ast \} \) die zu \( B \) duale Basis von \( U^\ast \). Wegen
+\begin{equation*}
+	\varphi(b_1) = 1, \quad \varphi(b_2) = 0, \quad \varphi(b_3) = 0
+\end{equation*}
+erfüllt \( \varphi \) genau die definierende Gleichung für \( b_1^\ast \):
+\begin{equation*}
+	\varphi(b_i) = \delta_{1i}\text{, also } \varphi = b_1^\ast\text{.}
+\end{equation*}
+Es gilt:
+\begin{equation*}
+	b_1' = 2X, \quad b_2' = 3X^2-1, \quad b_3' = 4X^3-2X\text{,}
+\end{equation*}
+also
+\begin{equation*}
+	\Psi(b_1) = 2, \quad \Psi(b_2) = 2, \quad \Psi(b_3) = 2\text{,}
+\end{equation*}
+somit ist \( \varphi = 2(b_1^\ast + b_2^\ast + b_3^\ast) \).
+
+\newpage
+
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2013
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2013}
+
+\subsection{Aufgabe}
+Gegeben seien die \( n \) Linearformen
+\begin{align*}
+	\varphi_j &: \R^n \to \R, \quad (x_1, \dots, x_n) \mapsto x_j - x_{j+1} \quad (j = 1, \dots, n-1) \\
+	\varphi_n &: \R^n \to \R, \quad (x_1, \dots, x_n) \mapsto x_n\text{.}
+\end{align*}
+Zeigen Sie, dass \( B^\ast = (\varphi_1, \dots, \varphi_n) \) eine Basis des Dualraums von \( \R^n \) ist und geben Sie eine Basis \( B = \{ b_1, \dots, b_n \} \) von \( \R^n \) an, die \( B^\ast \) als Dualbasis hat.
+
+\subsection{Ansatz}
+Untersuche die Anforderungen der \( \varphi_j \) an die \( b_i \). Bestimme so \( B \).
+
+\subsection{Lösung}
+Nach Definition der Dualbasis muss gelten:
+\begin{equation*}
+	\varphi_j(b_i) = \begin{cases}
+		1 \text{, falls } i = j \\
+		0 \text{, falls } i \neq j
+	\end{cases} \text{ für } i,j = 1, \dots, n \text{ (siehe auch Kronecker-Delta)}
+\end{equation*}
+Damit \( b_i = (x_1, \dots, x_n) \) das erfüllt sind laut Definition der \( \varphi_j \) notwendig und hinreichend:
+\begin{enumerate}
+	\item \( x_1 = \cdots = x_i \) (damit \( \varphi_j(b_i) = 0 \) für \( 1 \leq j < i \leq n \)),
+	\item \( x_{i+1} = \cdots = x_n \) (damit \( \varphi_j(b_i) = 0 \) für \( n > j > i \) bzw. \( x_n = 0 \) bei \( i < j = n \)),
+	\item \( x_i + x_{i+1} = 1 \) (damit \( \varphi_j(b_i) = 1 \) für \( j=i < n \) bzw. \( x_n = 1 \) bei \( j=i=n \)).
+\end{enumerate}
+Offensichtlich sind diese Bedingungen erfüllt, wenn \( x_i = \cdots = x_i = 1 \) und \( x_{i+1} = \cdots = 0 \).
+\\
+Diese \( b_i \) sind offensichtlich linear unabhängig und bilden damit eine Basis des \( \R^n \). Damit ist gezeigt, dass \( B^\ast = (\varphi_1, \dots, \varphi_n) \) die Dualbasis zu \( B \), also Basis des Dualraums ist.
+
+\newpage
+
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2013
+%----------------------------------------------------------------------------------------
+\section{Herbst 2013}
+
+\subsection{Aufgabe}
+Seien \( K \) ein Körper, \( V \) ein endlichdimensionaler \( K \)-Vektorraum und \( U \leq V \) ein Untervektorraum. Seien weiter \( V^\ast \) der Dualraum von \( V \) sowie \( U^\ast \) der Dualraum von \( U \).
+\begin{enumerate}
+	\item Geben Sie eine Definition von \( V^\ast \) an.
+	\item Zeigen Sie, dass \( U^0 \coloneqq \{ \varphi \in V^\ast \mid \forall u \in U: \varphi(u) = 0 \} \) ein Untervektorraum von \( V^\ast \) ist.
+	\item Geben Sie einen surjektiven Vektorraumhomomorphismus von \( V^\ast \) nach \( U^\ast \) an, der \( U^0 \) als Kern hat.
+	\item Begründen Sie, wieso die Vektorräume \( V^\ast/U^0 \) und \( U^\ast \) isomorph sind. 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Gib die Definition eines Dualraums an.
+	\item Weise die für das Untervektorraumkriterium nötigen Eigenschaften nach.
+	\item Betrachte eine Abbildung, die Linearformen aus \( V^\ast \) auf \( U \) einschränkt.
+	\item Wende den Homomorphiesatz an. 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Es ist \( V^\ast = \text{Hom}_{K-\text{VR}}(V,K) \) der Vektorraum aller Linearformen auf \( V \).
+	\item Wir weisen die für das Untervektorraumkriterium nötigen Eigenschaften nach:
+	\begin{enumerate}
+	 	\item \emph{nicht leer}: Die Nullabbildung liegt in \( U^0 \).
+	 	\item \emph{Abgeschlossenheit Addition}: mit \( \varphi, \psi \in U^0 \):
+	 	\begin{equation*}
+	 	 	(\varphi + \psi)(u) = \varphi(u)+\psi(u) = 0+0 = 0 \leadsto \varphi + \psi \in U
+	 	 \end{equation*} 
+	 	 \item \emph{Abgeschlossenheit Multiplikation}: mit \( \varphi \in U^0 \) und \( a \in K \): 
+	 	 \begin{equation*}
+	 	 	(a\varphi)(u) = a\varphi(u) = a*0 = 0 \leadsto a\varphi \in U
+	 	 \end{equation*}
+	 \end{enumerate} 
+	 Damit ist \( U^0 \leq V^\ast \).
+
+	 \item Eine solche Abbildung ist
+	 \begin{equation*}
+	 	\rho: V^\ast \to U^\ast, \quad \varphi \mapsto \varphi |_U\text{.}
+	 \end{equation*}
+	 \begin{itemize}
+	 	\item \emph{Nachweis \( K \)-Linearität}: \\*
+	 		Für alle \( \varphi, \psi \in V^\ast \), \( a \in K \) und \( u \in U \) gilt:
+	 		\begin{align*}
+	 			\rho(\varphi + \psi) = \rho(\varphi) + \rho(\psi) &\text{, \quad da } \rho(\varphi + \psi)(u) = \varphi(u) + \psi(u) = \rho(\varphi)(u) + \rho(\psi)(u) \\
+	 			\rho(a\varphi) = a\rho(\varphi) &\text{, \quad da } \rho(a\varphi)(u) = a(\varphi(u)) = a(\rho(\varphi)(u))
+	 		\end{align*}
+	 	\item \emph{Nachweis \( \text{Kern}(\rho) = U^0 \)}: Der Kern von \( \rho \) ist:
+	 	\begin{equation*}
+	 		\{ \varphi \in V^\ast \mid \varphi |_U = 0 \} = \{ \varphi \in V^\ast \mid \forall u \in U: \varphi(u) = 0 \} = U^0
+	 	\end{equation*}
+	 	\item \emph{Nachweis Surjektivität}: \( \rho \) ist surjektiv, da sich jede Linearform auf \( U \) zu einer Linearform auf \( V \) fortsetzen lässt:
+	 	\begin{equation*}
+	 		V^\ast \ni \varphi(b) = \begin{cases}
+	 			\psi(b)\text{, falls } b \in B_U \\
+	 			0 \text{ sonst}
+	 		\end{cases}\text{,}
+	 	\end{equation*}
+	 	wobei \( B_U \) \( U \)-Basis, \( B \) zu \( V \)-Basis ergänzte \( B_U \), \( b \in B \)
+	 \end{itemize}
+
+	 \item Laut Homomorphiesatz:
+	 \begin{equation*}
+	 	U^\ast \cong V^\ast/\text{Kern}(\rho) = V^\ast/U^0\text{.}
+	 \end{equation*}
+\end{enumerate}
+
+\newpage
+
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2014
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2014}
+
+\subsection{Aufgabe}
+Für \( n \in \N \) sei \( V = \{ f \in \R[X] \mid \text{Grad}(f) \leq n \} \) der Vektorraum der reellen Polynome mit Grad \( \leq n \). Weiter sei \( D \in \text{End}(V) \) der Endomorphismus, der \( f \in V \) auf seine Ableitung abbildet (\( D(f) = f' \)).
+\\
+Für \( 0 \leq i \leq n \) setzen wir \( \varphi_i(f) = \tfrac{1}{i!}D^i(f)(0) \). Die Abbildung \( \varphi_i: V \to \R \) ist eine Linearform auf \( V \).
+\begin{enumerate}
+	\item Bestimmen Sie \( D^i(X^k) \) für \( i,k \in \{ 0, \dots, n \} \).
+	\item Weisen Sie nach, dass \( \{ \varphi_0, \dots, \varphi_n \} \) die zur Basis \( \{ 1, X, \dots, X^n \} \) duale Basis des Dualraums \( V^\ast \) von \( V \) ist.
+		\\*
+		Folgern Sie für \( f \in V \) die Gleichheit \( f = \sum_{i=0}^n \varphi_i(f)X^i \).
+	\item Für \( t \in \R \) ist
+	\begin{equation*}
+		\lambda: V \to \R, \lambda(f) = f(t)
+	\end{equation*}
+	eine Linearform auf \( V \). Schreiben Sie \( \lambda \) als Linearkombination von \( \varphi_0, \dots, \varphi_n \).
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Finde eine explizite Darstellung für \( D^i(X^k) \) und beweise sie durch vollständige Induktion.
+	\item Nutze die Ergebnisse aus dem ersten Teil und betrachte \( \varphi_i(X^k) \) für \( i < k \), \( i = k \) und \( i > k \). Zeige, dass \( \varphi_j(f) = a_j \) unter Ausnutzung der Linearität von \( \varphi_j \).
+	\item Zeige die Behauptung an \( f \in V \), indem du die Ergebnisse aus dem zweiten Teil und die Linearität von \( \lambda \) benutzt.
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Behauptung:
+	\begin{equation*}
+	 	D^i(X^k) = \begin{cases}
+	 		\prod_{l=0}^{i-1}(k-l)X^{k-i}, \quad k-i \geq 0 \\
+	 		0, \quad \text{sonst}
+	 	\end{cases}
+	 \end{equation*}
+	 Wir zeigen die Behauptung durch Induktion über \( i \):
+	 \begin{itemize}
+	 	\item \emph{Induktionsanfang}: \( D^0 = \text{Id}_V \), also ist \( D^0(X^k) = X^k \).
+	 	\item \emph{Induktionsschritt}: Es gelte die Beh. für festes \( i \in \{ 0, \dots, n-1 \} \), wir zeigen für \( n+1 \): 
+	 	\begin{align*}
+	 		D^{i+1}(X^k) &= D(D^i(X^k)) = \begin{cases}
+	 			D(\prod_{l=0}^{i-1}(k-l)X^{k-i}), \ k-i \geq 0 \\
+	 			0, \text{ sonst}
+	 		\end{cases} \\
+	 		&= \begin{cases}
+	 			\prod_{l=0}^{i-1}(k-l)(k-i)X^{k-i-1}, \ k-i-1 \geq 0 \\
+	 			0, \text{ sonst}
+	 		\end{cases} \\
+	 		&= \begin{cases}
+	 			\prod_{l=0}^i (k-l)X^{k-(i+1)}, \ k-(i+1) \geq 0 \\
+	 			0, \ \text{sonst}
+	 		\end{cases}
+	 	\end{align*}
+	 \end{itemize}
+
+	 \newpage
+
+	 \item Wir folgern mithilfe des ersten Teils:
+	 \begin{itemize}
+	 	\item \( i < k \): \quad \( \varphi_i(X^k) = \tfrac{1}{i!}D^i(X^k)(0) = \tfrac{1}{i!}\prod_{l=0}^{i-1}(k-l)0^{k-i} = 0 \) 
+	 	\item \( i=k \): \quad \( \varphi_i(X^k) = \tfrac{1}{i!}D^i(X^k)(0) = \tfrac{1}{i!}\prod_{l=0}^{i-1}(i-1)0^0 = \tfrac{i!}{i!} = 1 \)
+	 	\item \( i > k \): \quad \( D^i(X^k) = 0 \), also \( \varphi_i(X^k) = \tfrac{1}{i!}D^i(X^k)(0) = 0 \)
+	 \end{itemize}
+	 Somit gilt \( \varphi_i(X^k) = \delta_{i,k} \), also ist \( \{ \varphi_0, \dots, \varphi_n \} \) die zu \( \{ 1, X, \dots, X^n \} \) duale Basis von \( X^\ast \).
+	 \\*
+	 Für \( f = \sum_{i=0}^n a_iX^i \in V \) gilt
+	 \begin{equation*}
+	 	\varphi_j(f) = \sum_{i=0}^n a_i\varphi_j(X^i) = a_j
+	 \end{equation*}
+	 Dabei wird die Linearität von \( \varphi_j \) genutzt und dass \( \varphi_j(X^i) = \delta_{j,i} \). Somit ist \( f = \sum_{i=0}^n \varphi_i(f)X^i \).
+
+	 \item Für jedes \( f \in V \) gilt
+	 \begin{equation*}
+	 	\lambda(f) = \lambda\left( \sum_{i=0}^n\varphi_i(f)X^i \right) = \sum_{i=0}^n\varphi_i(f)\lambda(X^i) = \sum_{i=0}^n\varphi_i(f)t^i = \left( \sum_{i=0}^nt^i\varphi_i \right)(f)\text{,}
+	 \end{equation*}
+	 somit gilt \( \lambda = \sum_{i=0}^nt^i\varphi_i \).
+\end{enumerate}
+
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2014
+%----------------------------------------------------------------------------------------
+\section{Herbst 2014}
+
+\subsection{Aufgabe}
+Es seien \( V \) ein Vektorraum über dem Körper \( K \) und \( U \subset V \) ein Untervektorraum. Im Dualraum \( V^\ast \) von \( V \) sei die Teilmenge
+\begin{equation*}
+	U^0 \coloneqq \{ \varphi \in V^\ast \mid \forall u \in U: \varphi(u) = 0 \}
+\end{equation*}
+gegeben. Zeigen Sie:
+\begin{enumerate}
+	\item \( U^0 \) ist ein Untervektorraum von \( V^\ast \).
+	\item Für jedes \( \varphi \in U^0 \) ist die Abbildung
+	\begin{equation*}
+	 	\widetilde{\varphi}: V/U \to K, \quad v + U \mapsto \varphi(v)
+	 \end{equation*} 
+	 wohldefiniert, und es gilt \( \widetilde{\varphi} \in (V/U)^\ast \).
+	 \item Die lineare Abbildung \( f: U^0 \ni \varphi \mapsto \widetilde{\varphi} \in (V/U)^\ast \) ist ein Vektorraumisomorphismus.
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Weise die für das Untervektorraumkriterium nötigen Eigenschaften nach.
+	\item Weise nach, dass \( \widetilde{\varphi} \) wohldefiniert ist. Zeige anschließend, dass \( \widetilde{\varphi} \) linear ist. 
+	\item Zeige, dass die Abbildung injektiv und surjektiv ist.
+\end{enumerate}
+
+\newpage
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Wir zeigen die nötigen Eigenschaften einzeln:
+	\begin{itemize}
+		\item \emph{nicht leer}: Die Nullabbildung liegt in \( U^0 \), also ist \( U^0 \neq \varnothing \).
+		\item \emph{Abgeschlossenheit Addition}: Seien \( \varphi, \psi \in U^0 \), \( u \in U \) beliebig.
+		\begin{equation*}
+		 	(\varphi + \psi)(u) = \varphi(u) + \psi(u) = 0+0 = 0\text{, also } \varphi + \psi \in U^0\text{.}
+		 \end{equation*} 
+		 \item \emph{Abgeschlossenheit Multiplikation}: Seien \( \alpha \in K \), \( \varphi \in U^0 \), \( u \in U \) beliebig.
+		 \begin{equation*}
+		 	(\alpha \varphi)(u) = \alpha(\varphi(u)) = \alpha * 0 = 0\text{, also } \alpha \varphi \in U^0\text{.}
+		 \end{equation*}
+	\end{itemize}
+	Also ist \( U^0 \) ein Untervektorraum von \( V^\ast \).
+
+	\item Wir zeigen die Wohldefiniertheit von \( \widetilde{\varphi} \) und anschließend die Linearität.
+	\begin{itemize}
+		\item \emph{Wohldefiniert}: Ist \( v + U = v' + U \), so ist \( u \coloneqq (v' - v) \in U \), und somit
+		\begin{equation*}
+		 	\varphi(v') = \varphi(v+u) = \varphi(v) + \varphi(u) = \varphi(v)\text{, da } u \in U^0
+		 \end{equation*} 
+
+		 \item \emph{Linearität}: Seien \( v_1, v_2 \in V \), \( \alpha \in K \). Da \( \varphi \) linear ist gilt:
+		 \begin{align*}
+		 	\widetilde{\varphi}((v_1 + U) + (v_2 + U)) &= \widetilde{\varphi}((v_1 + v_2) + U) = \varphi(v_1 + v_2) \\
+		 	 &= \varphi(v_1) + \varphi(v_2) = \widetilde{\varphi}(v_1 + U) + \widetilde{\varphi}(v_2 + U)
+		 \end{align*}
+		 \begin{equation*}
+		 	\widetilde{\varphi}(\alpha(v_1 + U)) = \widetilde{\varphi}((\alpha v_1) + U) = \varphi(\alpha v_1) = \alpha \widetilde{\varphi}(v_1 + U)
+		 \end{equation*}
+	\end{itemize}
+
+	\item Wir zeigen Injektivität und Surjektivität.
+	\begin{itemize}
+		\item \emph{Injektivität}: Für \( \varphi \in \text{Kern}(f) \) gilt:
+		\begin{equation*}
+		 	f(\varphi) = \widetilde{\varphi} = 0\text{, also } \forall v \in V: \phi(v) = \varphi(v + U) = 0 \leadsto \varphi = 0\text{.}
+		 \end{equation*} 
+		 \item \emph{Surjektivität}: Für \( l \in (V/U)^\ast \) betrachte
+		 \begin{equation*}
+		 	\varphi: V \ni v \mapsto l(v+U) \in K\text{.}
+		 \end{equation*}
+		 Diese Abbildung ist linear (direktes Nachrechnen oder Rückführen auf \( \varphi = l \circ \pi \) mit kanonischer Projektion \( \pi \)) und für \( u \in U \) gilt:
+		 \begin{equation*}
+		 	\varphi(u) = l(u+U) = l(U) = 0\text{, also } \varphi = U^0\text{.}
+		 \end{equation*}
+	\end{itemize}
+\end{enumerate}
+
+
+\newpage
+
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2015
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2015}
+
+\subsection{Aufgabe}
+Es seien \( V \) ein Vektorraum über einem Körper \( K \) und \( f \in \text{End}(V) \). Weiter seien \( U \subset V \) ein Untervektorraum und \( \pi: V \to V/U \) die kanonische Projektion. Zeigen Sie:
+\begin{enumerate}
+ 	\item Es existiert genau dann ein Endomorphismus \( \widetilde{f} \in \text{End}(V/U) \) mit \( \widetilde{f} \circ \pi = \pi \circ f \), wenn \\* \( f(U) \subset U \).
+ 	\item Im Fall \( U = \text{Kern}(f) \) gilt \( \widetilde{f} = \text{Id}_{V/U} \) genau dann, wenn \( f^2 = f \). 
+ \end{enumerate} 
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Zeige beide Richtungen getrennt und betrachte dabei \( \widetilde{f}: V/U \ni v+U \mapsto f(v) + U \in V/U \).
+	\item  
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Wir zeigen die beiden Richtungen einzeln.
+	\begin{itemize}
+	 	\item \( \Leftarrow \): Es gelte \( f(U) \subset U \). Betrachte die Abbildung
+	 	\begin{equation*}
+	 		\widetilde{f}: V/U \ni v+U \mapsto f(v) + U \in V/U\text{.}
+	 	\end{equation*}
+	 	\begin{itemize}
+	 		\item \emph{Wohldefiniertheit}: Seien \( v,w \in V \) mit \( v+U = w+U \), also \( v-w \in U \). Mit der Linearität von \( f \) gilt \( f(v) - f(w) = f(v-w) \in U \), also
+	 		\begin{equation*}
+	 		 	\widetilde{f}(v+U) = f(v) + U = f(w) + U = \widetilde{f}(w+U)\text{.}
+	 		 \end{equation*} 
+	 		 Damit gilt
+	 		 \begin{equation*}
+	 		 	(\widetilde{f} \circ \pi)(v) = \widetilde{f}(v+U) = f(v) + U = (\pi \circ f)(v) \quad (v \in V)\text{.}
+	 		 \end{equation*}
+	 		 \item \emph{Linearität}: Seien \( v+U, w+U \in V/U \) und \( \lambda \in K \) beliebig. Es gilt:
+	 		 \begin{align*}
+	 		 	\widetilde{f}((v+U) + (w+U)) &= f(v+w) + U = (f(v) + U) + (f(w) + U) \\
+	 		 		&= \widetilde{f}(v+U) + \widetilde{f}(w+U) \\
+	 		 	\widetilde{f}(\lambda(v+U)) &= \widetilde{f}(\lambda v + U) = \lambda f(v) + U = \lambda(f(v) + U) \\
+	 		 		&= \lambda\widetilde{f}(v+U)
+	 		 \end{align*}
+	 	\end{itemize}
+
+	 	\item \( \Rightarrow \): Sei \( \widetilde{f} \in \text{End}(V/U) \) mit \( \widetilde{f} \circ \pi = \pi \circ f \). Dann gilt für \( u \in U \) beliebig:
+	 	\begin{equation*}
+	 		f(u) + U = (\pi \circ f)(u) = (\widetilde{f} \circ \pi)(u) = \widetilde{f}(u+U) = \widetilde{f}(0+U) = 0+U \leadsto f(u) \in U
+	 	\end{equation*}
+	 \end{itemize} 
+
+	 \item Es ist nun \( U = \text{Kern}(f) \). \( \widetilde{f} = \text{Id}_{V/U} \Leftrightarrow \forall v \in U : f(v) + U = \widetilde{f}(v+U)=v+U \), also wenn
+	 \begin{equation*}
+	 	f(v)-v \in U = \text{Kern}(f)
+	 \end{equation*}
+	 gilt. Das ist der Fall gdw \( \forall v \in V: 0 = f(f(v) - v) = f^2(v)-f(v) \), also gdw \( f^2=f \).
+\end{enumerate}
+
+\newpage
+
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2015
+%----------------------------------------------------------------------------------------
+\section{Herbst 2015}
+
+\subsection{Aufgabe}
+Es seien \( K \) ein Körper, \( V \) ein endlichdimensionaler \( K \)-Vektorraum und \( B = \{ b_1, \dots, b_n \} \) eine Basis von \( V \). Weiter bezeichne \( V^\ast \) den Dualraum von \( V \).
+\begin{enumerate}
+	\item Durch welche Bedingung ist die zu \( B \) duale Basis \( B^\ast = \{ b_1^\ast, \dots, b_n^\ast \} \) von \( V^\ast \) definiert?
+	\item Zeigen Sie: Wenn \( \Phi \in \text{End}(V) \) und \( B \) aus Eigenvektoren von \( \Phi \) besteht, dann besteht \( B^\ast \) aus Eigenvektoren der dualen Abbildung \( \Phi^\ast: V^\ast \to V^\ast \).
+	\item Geben Sie im Fall \( n = 2 \) ein Beispiel an, bei dem \( b_1 \) ein Eigenvektor von \( \Phi \) ist, aber \( b_1^\ast \) kein Eigenvektor von \( \Phi^\ast \). 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Gib die Definition von \( B^\ast \) an.
+	\item \( B \) ist Basis aus Eigenvektoren, also existiert für jedes \( b_i \in B \) ein \( \lambda_i \in K \), sodass \( \Phi(b_i)=\lambda_ib_i \).
+		\\
+		Zeige damit, dass \( \Phi^\ast(b_i^\ast)(v) = \lambda_ib_i^\ast(v) \) für beliebiges \( v \in V \).
+	\item Betrachte \( \Phi \) als die lineare Fortsetzung von \( \Phi(b_1) = b_1 \), \( \Phi(b_2) = b_1 + b_2 \) mit \( \langle \{ b_1, b_2 \} \rangle = V \).
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Die zu \( B \) duale Basis \( B^\ast = \{ b_1^\ast, \dots, b_n^\ast \} \) besteht aus den linearen Fortsetzungen \( b_i^\ast: V \to K \) der Vorschriften \( b_i^\ast(b_j) = \delta_{ij} \).
+	\item Sei \( \Phi \in \text{End}(V) \) und \( B \) eine Basis aus Eigenvektoren von \( \Phi \). Für jedes \( i \leq n  \) existiert also ein \( \lambda_i \in K \) mit \( \Phi(b_i) = \lambda_ib_i \). 
+	\\
+	Dann ist \( b_i^\ast \) Eigenvektor von \( \Phi^\ast \) zum Eigenwert \( \lambda_i \), denn für beliebiges \( v = \sum_{k=1}^n \alpha_kb_k \) gilt:
+	\begin{align*}
+	 	\Phi^\ast(b_i^\ast)(v) &= (b_i^\ast \circ \Phi)\left( \sum_{k=1}^n \alpha_kb_k \right) \\
+	 	 &= \sum_{k=1}^n \alpha_kb_i^\ast(\Phi(b_k)) \\
+	 	 &= \sum_{k=1}^n \alpha_kb_i^\ast(\lambda_kb_k) \\
+	 	 &= \sum_{k=1}^n \alpha_k\lambda_k\delta_{ik} \\
+	 	 &= \lambda_i\alpha_i \\
+	 	 &= \lambda_ib_i^\ast \left( \sum_{k=1}^n \alpha_kb_k \right) \\
+	 	 &= \lambda_ib_i^\ast(v)
+	 \end{align*} 
+
+	 \item Es sei \( \{ b_1, b_2 \} \) Basis von \( V \) und \( \Phi \) die lineare Fortsetzung von \( \Phi(b_1) = b_1 \), \( \Phi(b_2) = b_1 + b_2 \).
+	 	\\
+	 	Dann ist \( b_1^\ast \) kein Eigenvektor von \( \Phi^\ast \), denn es gilt:
+	 	\begin{equation*}
+	 		\Phi^\ast(b_1^\ast)(b_2) = b_1^\ast(b_1 + b_2) = 1 \neq 0 = b_1^\ast(b_2)
+	 	\end{equation*}
+\end{enumerate}
+
+\newpage

@@ -1,0 +1,659 @@
+\chapter{Aufgabe 5}
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2007
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2007}
+
+\subsection{Aufgabe}
+Es seien \( V = \{ (x_k)_{k \in \N} \mid x_k \in \R \} \) der reelle Vektorraum der reellen Folgen und \( \Phi \in \text{End}(V) \) der durch \( (x_k)_{k \in \N} \mapsto (x_{k+1})_{k \in \N} \) definierte Endomorphismus.
+\\
+Bestimmen Sie die Eigenwerte und die Eigenräume von \( \Phi \).
+
+\subsection{Ansatz}
+Stelle eine Bedingung für die Eigenwerte auf (hierbei kann vollständige Induktion benutzt werden). Finde eine Darstellung für die zu einem Eigenwert gehörigen Eigenvektoren (= Folge).
+
+\subsection{Lösung}
+Für \( c \in \R \) gilt: \( c \in \text{Spec}(\Phi) \), falls eine von der Nullfolge verschiedene Folge \( (x_k)_{k \in \N} \) existiert mit
+\begin{equation*}
+	\Phi((x_k)_{k \in \N}) = c(x_k)_{k \in \N}\text{.}
+\end{equation*}
+Das ist nach Definition von \( \Phi \) der Fall gdw \( \forall k \in \N: x_{k+1} = cx_k \). Durch Induktion erhalten wir
+\begin{equation}
+	\label{gl1}
+	\forall k \in \N: x_{k+1} = c^kx_1
+\end{equation}
+Setzen wir \( x_1 = 1 \), so sehen wir, dass jedes \( c \in \R \) Eigenwert von \( \Phi \) ist.
+\\
+Ein zum Eigenwert \( c \in \R \) gehörender Eigenvektor ist die Folge \( (1, c, c_2, \dots) \).
+\\
+Andererseits folgt aus ~\ref{gl1}, dass jeder Eigenvektor zum Eigenwert \( c \) die Form \( (ac^{k-1})_{k \in \N}, a \in \R \) hat. Damit folgt für den zugehörigen Eigenraum:
+\begin{equation*}
+	E_c = \left[ (c^{k-1})_{k \in \N} \right] = [(1,c,c^2,\dots)]
+\end{equation*}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2007
+%----------------------------------------------------------------------------------------
+\section{Herbst 2007}
+
+\subsection{Aufgabe}
+In Abhängigkeit vom \( t \in \R \) sei folgende Matrix gegeben:
+\begin{equation*}
+	A_t \coloneqq \begin{pmatrix}
+		t+4 & 0 & 5 & 1 \\
+		0 & 2 & 0 & t \\
+		1 & 0 & t & 1 \\
+		0 & 0 & 0 & 2
+	\end{pmatrix} \in \R^{4 \times 4}\text{.}
+\end{equation*}
+\begin{enumerate}
+	\item Bestimmen Sie alle \( t \in \R \), für die \( A_t \) diagonalisierbar ist.
+	\item Berechnen Sie eine reguläre Matrix \( S \in \R^{4 \times 4} \), für die \( S^{-1}A_0S \) diagonal ist. 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Damit \( A_t \) diagonalisierbar ist muss \( \text{CP}(A_t, X) \) in Linearfaktoren zerfallen und für jeden Eigenwert geometrische und algebraische Vielfachheit übereinstimmen.
+	\item Betrachte die Matrix als Abbildung und transformiere sie durch eine Basiswechselmatrix \( S \) so, dass sie Diagonalform hat.
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Damit \( A_t \) diagonalisierbar ist, muss das charakteristische Polynom in Linearfaktoren zerfallen und für jeden Eigenwert die geometrische und algebraische Vielfachheit übereinstimmen.
+	\begin{itemize}
+	 	\item \emph{Charakteristisches Polynom}: Entwickelt man \( \text{det}(XI_4 - A_t) \) nach der letzten Zeile und dann nochmal nach der letzten Zeile, so erhält man
+	 	\begin{equation*}
+	 	 	\text{CP}(A_t, X) = (X-2)^2((X-t-5)(X-t)-5) = (X-2)^2(X^2-(2t+4)X + t^2 + 4t -5)
+	 	 \end{equation*} 
+	 	 Mit der Mitternachtsformel formt man um zu
+	 	 \begin{equation*}
+	 	 	\text{CP}(A_t, X) = (X - 2)^2(X - (t+5))(X - (t - 1))
+	 	 \end{equation*}
+
+	 	 \item \emph{Vielfachheiten}: Es muss nur die geometrische Vielfachheit von \( X=2 \) bestimmt werden, da für die anderen Nullstellen offensichtlich \( \mu_a = \mu_g \). \\
+	 	 \( \mu_a(2) \geq 2 \), also muss auch \( \mu_g(2) \geq 2 \) sein, also \( \text{Rang}(A_t - 2I_4) \leq 4-2 = 2 \):
+	 	 \begin{equation*}
+	 	 	A_t-2I_4 = \begin{pmatrix}
+	 	 		t+2 & 0 & 5 & 1 \\
+	 	 		0 & 0 & 0 & t \\
+	 	 		1 & 0 & t-2 & 1 \\
+	 	 		0 & 0 & 0 & 0
+	 	 	\end{pmatrix} \leadsto \begin{pmatrix}
+	 	 		0 & 0 & 9-t^2 & -t-1 \\
+	 	 		0 & 0 & 0 & t \\
+	 	 		1 & 0 & t-2 & 1 \\
+	 	 		0 & 0 & 0 & 0
+	 	 	\end{pmatrix}
+	 	 \end{equation*}
+	 	 Es ist also \( \text{Rang}(A_t - 2I_4) = 2 \), wenn \( t \in \{ 0, 3, -3 \} \), also ist \( A_t \) höchstens für diese \( t \) diagonalisierbar.
+	 	 \begin{itemize}
+	 	 	\item \( t = 0 \): \( A_t \) ist diagonalisierbar, da hier \( \mu_g(2) = \mu_a(2) \).
+	 	 	\item \( t = \pm 3 \): \( A_t \) ist nicht diagonalisierbar, da hier \( \mu_a(2)=3 \), aber \( \mu_g(2) = 2 \). 
+	 	 \end{itemize}
+	 \end{itemize}
+	 Also ist \( A_t \) nur für \( t = 0 \) diagonalisierbar.
+
+	 \item Es ist \( t = 0 \). Wir bestimmen Basen für alle Eigenräume:
+	 \begin{itemize}
+	 	\item \( \lambda = 2 \): Wir lösen \( (A_0-2I_4)v = 0 \) und erhalten \( b_1 \coloneqq \begin{pmatrix}
+	 	 		0 & 1 & 0 & 0 
+	 	 	\end{pmatrix}^\top, \ b_2 \coloneqq \begin{pmatrix}
+	 	 		-7 & 0 & 1 & 9
+	 	 	\end{pmatrix}^\top \).
+	 	 \item \( \lambda = 5 \): Wir verfahren analog zu \( \lambda = 2 \) und erhalten \( b_3 \coloneqq \begin{pmatrix}
+	 	 		5 & 0 & 1 & 0
+	 	 	\end{pmatrix}^\top \).
+	 	 \item \( \lambda = -1 \): Wir verfahren analog zu \( \lambda = 2 \) und erhalten \( b_4 \coloneqq \begin{pmatrix}
+	 	 		1 & 0 & -1 & 0
+	 	 	\end{pmatrix}^\top \).
+	 \end{itemize}
+	 Daher ist \( \{ b_1, b_2, b_3, b_4 \} \) eine Basis aus Eigenvektoren. Die Matrix \( S \coloneqq (b_1, b_2, b_3, b_4) \) ist regulär und erfüllt die geforderte Bedingung: \( S^{-1}A_0S = \text{diag}(2, 2, 5, -1) \).
+\end{enumerate}
+
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2010
+%----------------------------------------------------------------------------------------
+\section{Herbst 2010}
+
+\subsection{Aufgabe}
+Gegeben seien die zwei reellen Matrizen
+\begin{equation*}
+	A = \begin{pmatrix}
+		1 & 1 & -1 \\
+		-2 & 2 & 1 \\
+		-2 & 1 & 2
+	\end{pmatrix}, \qquad B = \begin{pmatrix}
+		1 & 0 & 0 \\
+		-2 & 1 & 2 \\
+		-2 & 0 & 3
+	\end{pmatrix}\text{.}
+\end{equation*}
+\begin{enumerate}
+	\item Zeigen Sie, dass \( A \) und \( B \) dasselbe charakteristische Polynom haben.
+	\item Welche der Matrizen sind diagonalisierbar?
+	\item Bestimmen Sie für eine der Matrizen eine Basis des \( \R^3 \), die aus Eigenvektoren besteht.
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Bestimme \( \text{CP}_A(X) \) und \( \text{CP}_B(X) \).
+	\item Eine Matrix ist dann diagonalisierbar, wenn das charakteristische Polynom in Linearfaktoren zerfällt und für jeden Eigenwert algebraische und geometrische Vielfachheit übereinstimmen.
+	\item Löse je Eigenwert \( \lambda \in \text{Spec}(M) \): \( \text{Kern}(M - \lambda I_3) \) (\( M \in \{ A, B \} \)). 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Wir bestimmen jeweils das charakteristische Polynom:
+	\begin{itemize}
+	 	\item \( A \): \( \text{CP}_A(X) = \text{det}\begin{pmatrix}
+	 		X-1 & -1 & 1 \\
+	 		2 & X-2 & -1 \\
+	 		2 & -1 & X-2
+	 	\end{pmatrix} = (X-1)^2(X-3) \). 
+
+	 	\item \( B \): \( \text{CP}_B(X) = \text{det}\begin{pmatrix}
+	 		X-1 & 0 & 0 \\
+	 		2 & X-1 & -2 \\
+	 		2 & 0 & X-3
+	 	\end{pmatrix} = (X-1)^2(X-3) \).
+	 \end{itemize} 
+
+	 \item Es ist \( \text{Spec}(M) = \{ 1, 3 \} \), \( \mu_a(1) = 2 \), \( \mu_a(3) = 1 \) für \( M \in \{ A, B \} \).
+	 \begin{itemize}
+	 	\item \( A \): Der Eigenraum zum Eigenwert \( 1 \) ist:
+	 	\begin{equation*}
+	 	 	\text{Kern}(A-I_3) = \begin{pmatrix}
+	 	 		0 & 1 & -1 \\
+	 	 		-2 & 1 & 1 \\
+	 	 		-2 & 1 & 1
+	 	 	\end{pmatrix}\text{.}
+	 	 \end{equation*}
+	 	 Diese Matrix hat Rang \( 2 \), also ist \( \text{dim}(\text{Eig}(A, 1)) = 1 \), also \( \mu_a(1) \neq \mu_g(1) \). Also ist \( A \) nicht diagonalisierbar.
+
+	 	 \item \( B \):
+	 	 \begin{itemize}
+	 	  	\item \( \lambda = 1 \): \( \text{Kern}(B - I_3) = \text{Kern}\begin{pmatrix}
+	 	  		0 & 0 & 0 \\
+	 	  		-2 & 0 & 2 \\
+	 	  		-2 & 0 & 2
+	 	  	\end{pmatrix} = \langle \begin{pmatrix}
+	 	  		0 \\ 1 \\ 0
+	 	  	\end{pmatrix}, \begin{pmatrix}
+	 	  		1 \\ 0 \\ 1
+	 	  	\end{pmatrix} \rangle \) 
+
+	 	  	\item \( \lambda = 3 \): \( \text{Kern}(B - 3I_3) = \text{Kern}\begin{pmatrix}
+	 	  		-2 & 0 & 0 \\
+	 	  		-2 & -2 & 2 \\
+	 	  		-2 & 0 & 0
+	 	  	\end{pmatrix} = \langle \begin{pmatrix}
+	 	  		0 \\ 1 \\ 1
+	 	  	\end{pmatrix} \rangle \)
+	 	  \end{itemize} 
+	 	  Also ist \( B \) diagonalisierbar.
+	 \end{itemize}
+
+	 \item Nur für diagonalisierbare Matrizen kann eine solche Basis besimmt werden, also nur für \( B \).
+	 	\\
+	 	Eine solche Basis ist nach Rechnung oben
+	 	\begin{equation*}
+	 		\left \{ \begin{pmatrix}
+	 			0 \\ 1 \\ 0
+	 		\end{pmatrix}, \begin{pmatrix}
+	 			1 \\ 0 \\ 1
+	 		\end{pmatrix}, \begin{pmatrix}
+	 			0 \\ 1 \\ 1
+	 		\end{pmatrix} \right \}\text{.}
+	 	\end{equation*}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2013
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2013}
+
+\subsection{Aufgabe}
+Im Vektorraum \( \R^4 \) sei für \( t \in \R \) ein Endomorphismus \( \Phi_t: \R^4 \ni x \mapsto A_tx \in \R^4 \) gegeben mit
+\begin{equation*}
+	A_t = \begin{pmatrix}
+		2+t & 4 & 2+t & 2+t \\
+		t-2 & 0 & -6+t & -2-t \\
+		-t+2 & -4 & -t+2 & -2-t \\
+		0 & 0 & 0 & 2t
+	\end{pmatrix}\text{.}
+\end{equation*}
+\begin{enumerate}
+	\item Berechnen Sie alle Eigenwerte von \( \Phi_t \).
+	\item Bestimmen Sie alle \( t \in \R \), für die \( \Phi_t \) diagonalisierbar ist.
+	\item Berechnen Sie für \( t = 2 \) eine Basis von \( \R^4 \) aus Eigenvektoren von \( \Phi_t \).  
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Bestimme das charakteristische Polynom von \( \Phi_t \).
+	\item Bestimme alle \( t \in \R \), für die \( \text{CP}_{\Phi_t}(X) \) in Linearfaktoren zerfällt und für jeden Eigenwert geometrische und algebraische Vielfachheit übereinstimmen.
+	\item Nutze hierfür die Basisvektoren der Eigenräume aus dem zweiten Teil. 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Wir bestimmen \( \text{CP}_{\Phi_t}(X) \):
+	\begin{equation*}
+	 	\text{CP}_{\Phi_t}(X) = \text{det}(A_t - XI_4) = (X - 2t)(X - 4)^2(X+4)
+	 \end{equation*} 
+	 Es ist also \( \text{Spec}(\Phi_t) = \{ 2t, -4, 4 \} \).
+
+	 \item Das charakteristische Polynom zerfällt offensichtlich in Linearfaktoren. Wir betrachten die Vielfachheiten vom Eigenwert \( 4 \): 
+	 \begin{equation*}
+	 	\text{Rang}(A_t - 4I_4) = \text{Rang}\begin{pmatrix}
+	 		-2+t & 4 & 2+t & 2+t \\
+	 		0 & -8 & -8 & -4-2t \\
+	 		0 & 0 & 0 & 0 \\
+	 		0 & 0 & 0 & -4+2t
+	 	\end{pmatrix} = \begin{cases}
+	 		1, \quad \text{falls } t = 2 \\
+	 		0, \quad \text{sonst}
+	 	\end{cases}
+	 \end{equation*}
+	 \begin{itemize}
+	 	\item \( t \neq 2 \): \( \text{dim}(\text{Eig}(A_t, 4)) = 4 - 3 = 1 < 2 \), also ist \( A_t \) für \( t \neq 2 \) nicht diagonalisierbar.
+	 	\item \( t = 2 \): \( \text{dim}(\text{Eig}(A_t, 4)) = 4 - 1 = 3 = \mu_a(4) \quad \checkmark \)  
+	 \end{itemize}
+	 Es ist \( \text{dim}(\text{Eig}(A_2, -4)) = 1 = \mu_a(-4) \). Also ist \( A_2 \) diagonalisierbar.
+
+	 \item Wir berechnen zu den beiden Eigenwerten Basen der zugehörigen Eigenräume:
+	 	\begin{itemize}
+	 		\item \( X = 4 \): \( \text{Eig}(A_2, 4) = \text{Kern}(A_2 - 4 I_4) = \text{Kern}\begin{pmatrix}
+	 			0 & 0 & 0 & 0 \\
+	 			0 & 1 & 1 & 1 \\
+	 			0 & 0 & 0 & 0 \\
+	 			0 & 0 & 0 & 0
+	 		\end{pmatrix} = \left [  \begin{pmatrix}
+	 			1 \\ 0 \\ 0 \\ 0 
+	 		\end{pmatrix}, \begin{pmatrix}
+	 			0 \\ 1 \\ -1 \\ 0 
+	 		\end{pmatrix}, \begin{pmatrix}
+	 			0 \\ 1 \\ 0 \\ -1
+	 		\end{pmatrix} \right ] \)
+
+	 		\item \( X = -4 \): \( \text{Eig}(A_2, -4) = \text{Kern}(A_2 + 4I_4) = \text{Kern}\begin{pmatrix}
+	 			1 & 0 & 1 & 0 \\
+	 			0 & 1 & -1 & 0 \\
+	 			0 & 0 & 0 & 0 \\
+	 			0 & 0 & 0 & 1
+	 		\end{pmatrix} = \left [ \begin{pmatrix}
+	 			1 \\ -1 \\ -1 \\ 0
+	 		\end{pmatrix} \right ] \)
+	 	\end{itemize}
+	 	Eine Basis aus Eigenvektoren von \( A_2 \) ist also
+	 	\begin{equation*}
+	 		\left\{ \begin{pmatrix}
+	 			1 \\ 0 \\ 0 \\ 0
+	 		\end{pmatrix}, \begin{pmatrix}
+	 			0 \\ 1 \\ -1 \\ 0
+	 		\end{pmatrix}, \begin{pmatrix}
+	 			0 \\ 1 \\ 0 \\ -1
+	 		\end{pmatrix}, \begin{pmatrix}
+	 			1 \\ -1 \\ -1 \\ 0
+	 		\end{pmatrix} \right\}\text{.}
+	 	\end{equation*}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2013
+%----------------------------------------------------------------------------------------
+\section{Herbst 2013}
+
+\subsection{Aufgabe}
+Sei \( n \in \N \) und \( A \in \C^{n \times n} \) eine Matrix, für die es ein \( k \in \N \) gibt mit \( A_k = I_n \) gibt.
+\begin{enumerate}
+	\item Geben Sie ein von Null verschiedenes annullierendes Polynom für \( A \) an.
+	\item Weisen Sie nach, dass \( A \) diagonalisierbar ist.
+\end{enumerate}
+\begin{remark}
+	\emph{Hinweis}: \\
+	Jedes nicht konstante komplexe Polynom ist ein Produkt von Linearfaktoren.
+\end{remark}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Finde ein Polynom \( p \in \C[X] \), sodass \( p(A) = 0 \).
+	\item \( A \) ist diagonalisierbar, wenn das Minimalpolynom in einfache Linearfaktoren zerfällt. Zeige, dass das der Fall ist, indem du eine Nullstelle \( z \) annimmst, das annullierende Polynom aus dem ersten Teil durch \( (X-z) \) teilst und zeigst, dass bei Einsetzen von \( z \) in das resultierende Polynom ein Ergebnis \( \neq 0 \) vorliegt.
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Wegen \( A^k = I_n \) ist \( X^k-1 \) ein annullierendes Polynom vom Grad \( k > 0 \), also \( \neq 0 \).
+	\item \( \text{MP}_A(\lambda) \) teilt \( X^k-1 \) und zerfällt in Linearfaktoren. Damit \( A \) diagonalisierbar ist darf also keine mehrfache Nullstelle in \( \text{MP}_A(\lambda) \) vorkommen.
+		\\
+		Sei \( z \) Nullstelle des Minimalpolynoms (\( z^k = 1 \leadsto z \neq 0 \)). Wenn \( z \) mehrfache Nullstelle von \( \text{MP}_A(\lambda) \) wäre, dann auch von \( X^k-1 \). Wir teilen \( X^k-1 \) durch \( X-z \): 
+		\begin{equation*}
+			(X^k-1):(X-z) = X^{k-1} + zX^{k-2} + \cdots + z^{k-2}X + z^{k-1} = \sum_{i = 0}^{k-1} z^iX^{k-1-i} 
+		\end{equation*}
+		Setzt man rechts \( z \) ein, so erhält man \( k*z^{k-1} \neq 0 \), also ist \( z \) einfache Nullstelle von \( \text{MP}_A(\lambda) \).
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2014
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2014}
+
+\subsection{Aufgabe}
+In Abhängigkeit von \( b \in \R \) sei folgende reelle Matrix gegeben:
+\begin{equation*}
+	A_b = \begin{pmatrix}
+		b & b -1 & 0 \\
+		-3 & -2 & 0 \\
+		b+1 & b-1 & -1
+	\end{pmatrix}
+\end{equation*}
+\begin{enumerate}
+	\item Für welche \( b \in \R \) ist \( A_b \) diagonalisierbar?
+	\item Bestimmen Sie für \( b = 2 \) eine invertierbare reelle Matrix \( S \) und eine Diagonalmatrix \( D \), sodass \( D = S^{-1}A_2S \). 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Eine Matrix ist genau dann diagonalisierbar, wenn ihr charakteristisches Polynom in Linearfaktoren zerfällt und für jeden Eigenwert geometrische und algebraische Vielfachheit übereinstimmen.
+	\item Konstruiere \( S \) aus Basisvektoren der Eigenräume der Eigenwerte von \( A_2 \). 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Zuerst bestimmen wir das charakteristische Polynom von \( A_b \):
+	\begin{equation*}
+	 	\text{CP}_{A_b}(\lambda) = -\text{det}(A_b - \lambda I_3) = (\lambda + 1)(\lambda - 1)(\lambda - (b-3))
+	 \end{equation*} 
+	 \begin{itemize}
+	 	\item \( b \not \in \{ 2, 4 \} \): \( A_b \) hat drei verschiedene Eigenwerte \( \leadsto \) \( A_b \) diagonalisierbar.
+	 	\item \( b = 2 \): \( \mu_a(-1) = 2 \). Wir berechnen \( \mu_g(-1) \):
+	 	\begin{equation*}
+	 	 	\text{Kern}(A_2 + I_3) = \text{Kern}\begin{pmatrix}
+	 	 		3 & 1 & 0 \\
+	 	 		-3 & -1 & 0 \\
+	 	 		3 & 1 & 0 \\
+	 	 	\end{pmatrix} = \langle \begin{pmatrix}
+	 	 		0 \\ 0 \\ 1
+	 	 	\end{pmatrix}, \begin{pmatrix}
+	 	 		1 \\ -3 \\ 0
+	 	 	\end{pmatrix} \rangle
+	 	 \end{equation*} 
+	 	 Also ist hier \( \mu_a(-1) = \mu_g(-1) \) und \( A_2 \) somit diagonalieierbar.
+
+	 	 \item \( b = 4 \): \( \mu_a(1) = 2 \). Wir berechnen \( \mu_g(1) \):
+	 	 \begin{equation*}
+	 	 	\text{Kern}(A_4-I_3) = \text{Kern}\begin{pmatrix}
+	 	 		1 & 0 & -1 \\
+	 	 		0 & 1 & 1 \\
+	 	 		0 & 0 & 0 
+	 	 	\end{pmatrix} = \langle \begin{pmatrix}
+	 	 		-1 \\ 1 \\ -1
+	 	 	\end{pmatrix} \rangle
+	 	 \end{equation*}
+	 	 Da \( \mu_g(1) = 1 \) ist \( A_4 \) nicht diagonalisierbar.
+	 \end{itemize}
+
+	 \item Wir können \( S \) und \( D \) direkt angeben, da wir eben schon alle Basen der Eigenräume von \( A_2 \) berechnet haben:
+	 \begin{equation*}
+	 	S = \begin{pmatrix}
+	 		-1 & 0 & 1 \\
+	 		1 & 0 & -3 \\
+	 		-1 & 1 & 0
+	 	\end{pmatrix}, \quad D = \begin{pmatrix}
+	 		1 & 0 & 0 \\
+	 		0 & -1 & 0 \\
+	 		0 & 0 & -1
+	 	\end{pmatrix}
+	 \end{equation*}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2014
+%----------------------------------------------------------------------------------------
+\section{Herbst 2014}
+
+\subsection{Aufgabe}
+Für \( s \in \R \) sei folgende reelle Matrix gegeben:
+\begin{equation*}
+	A_s = \begin{pmatrix}
+		s & 0 & 0 & s-2 \\
+		2 & s+1 & -1 & 0 \\
+		2s & s(s+1) & -s & 3 \\
+		0 & 0 & 0 & s
+	\end{pmatrix}
+\end{equation*}
+\begin{enumerate}
+	\item Berechne \( \spec(A_s) \) für alle \( s \in \R \).
+	\item Für welche \( s \in \R \) ist \( A_s \) diagonalisierbar?
+	\item Bestimme eine \( \R^4 \)-Basis aus \( A_2 \)-Eigenvektoren. 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Bestimme das charakteristische Polynom von \( A_s \) und lese die Eigenwerte ab.
+	\item Eine Matrix ist genau dann diagonalisierbar, wenn das charaktieristische Polynom in Linearfaktoren zerfällt und für jeden Eigenwert algebraische und geometrische Vielfachheit übereinstimmen.
+	\item Konstruiere die Basis aus Basisvektoren der Eigenräume. 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Wir berechnen \( \cp_{A_s}(\lambda) \):
+	\begin{equation*}
+	 	\cp_{A_s}(\lambda) = \det \begin{pmatrix}
+	 		s - \lambda & 0 & 0 & s-2 \\
+	 		2 & 2+1-\lambda & -1 & 0 \\
+	 		2s & s(s+1) & -s-\lambda & 3 \\
+	 		0 & 0 & 0 & s-\lambda
+	 	\end{pmatrix} = X(X-1)(X-s)^2
+	 \end{equation*} 
+	 Also ist \( \spec(A_s) = \{ 0, 1, s \} \).
+
+	 \item Offensichtlich zerfällt \( \cp_{A_s}(\lambda) \) in Linearfaktoren. Es bleibt zu bestimmen, für welche \( s \in \R \) die algebraischen und geometrischen Vielfachheiten aller Eigenwerte gleich sind.
+	 \begin{itemize}
+	 	\item \( \lambda = s \): Wir bestimmen \( \dim(\kr(A_s - sI_4)) \):  
+ 		\begin{equation*}
+ 			\kr(A_s - sI_4) = \begin{pmatrix}
+ 				0 & 0 & 0 & s-2 \\
+ 				2 & 1 & -1 & 0 \\
+ 				2s & s(s+1) & -2s & 3 \\
+ 				0 & 0 & 0 & 0
+ 			\end{pmatrix} \leadsto \begin{pmatrix}
+ 				1 & \tfrac{1}{2} & -\tfrac{1}{2} & 0 \\
+ 				0 & s^2 & -s & 3 \\
+ 				0 & 0 & 0 & 0 \\
+ 				0 & 0 & 0 & s-2
+ 			\end{pmatrix}
+ 		\end{equation*}
+ 		Es ist also \( \dim(\eig(A_s, s)) = \begin{cases}
+ 			2, \quad \text{falls } s \in \{ 0, 2 \} \\
+ 			1, \quad \text{sonst}
+ 		\end{cases} \). \\ Somit ist \( A_s \) höchstens für \( s \in \{ 0, 2 \} \) diagonalisierbar.
+	 \end{itemize}
+	 Ist \( s = 0 \), so ist \( \mu_a(s) = 3 \) und \( A_s \) somit nicht diagonalisierbar. \\
+	 Ist \( s = 2 \), so ist \( \mu_a(s) = \mu_g(s) \). Für die anderen Eigenwerte gilt das sowieso, also ist \( A_s \) genau für \( s = 2 \) diagonalisierbar.
+
+	 \item Wir berechnen eine Basis für jeden Eigenraum \( E_\lambda = \kr(A_2 - \lambda I_4) \), indem wir jeweils \( (A_2 - \lambda I_4)v = 0 \) lösen. Wir erhalten die Vektoren
+	 \begin{equation*}
+	 	\begin{pmatrix}
+	 		1 \\ 2 \\ 4 \\ 0
+	 	\end{pmatrix}, \begin{pmatrix}
+	 		3 \\ -6 \\ 0 \\ 8
+	 	\end{pmatrix}, \begin{pmatrix}
+	 		0 \\ 1 \\ 2 \\ 0
+	 	\end{pmatrix}, \begin{pmatrix}
+	 		0 \\ 1 \\ 3 \\ 0
+	 	\end{pmatrix}\text{.}
+	 \end{equation*}
+	 Diese bilden eine \( \R^4 \)-Basis aus \( A_2 \)-Eigenvektoren.
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2015
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2015}
+
+\subsection{Aufgabe}
+Für \( s \in \R \) sei folgende reelle Matrix gegeben:
+\begin{equation*}
+	A_s = \begin{pmatrix}
+		s-1 & 0 & s \\
+		s-2 & 1 & s \\
+		3 & 0 & 2
+	\end{pmatrix}
+\end{equation*}
+\begin{enumerate}
+	\item Bestimme \( \spec(A_s) \) für alle \( s \in \R \).
+	\item Bestimme alle \( s \in \R \), für die \( A_s \) diagonalisierbar ist.
+	\item Bestimme für \( s = -1 \) eine \( \R^3 \)-Basis aus \( A_{-1} \)-Eigenvektoren. 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Bestimme das charakteristische Polynom von \( A_s \) und lese die Eigenwerte ab.
+	\item Eine Matrix ist genau dann diagonalisierbar, wenn ihr charakteristisches Polynom in Linearfaktoren zerfällt und für jeden Eigenwert algebraische und geometrische Vielfachheit übereinstimmen.
+	\item Eine solche Basis besteht aus den Basisvektoren der Eigenräume. 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Wir bestimmen das charakteristische Polynom von \( A_s \):
+	\begin{equation*}
+	 	\cp_{A_s}(\lambda) = \det \begin{pmatrix}
+	 		s - 1 - \lambda & 0 & s \\
+	 		s-2 & 1 - \lambda & s \\
+	 		3 & 0 & 2-\lambda
+	 	\end{pmatrix} = (1-\lambda)(-1-\lambda)((2+s) - \lambda)
+	 \end{equation*} 
+	 Es ist also \( \spec(A_s) = \{ 1, -1, 2+s \} \).
+
+	 \item Für \( s \in \R \setminus \{ -1 , -3 \} \) hat \( A_s \) drei verschiedene Eigenwerte und ist also diagonalisierbar.
+	 \begin{itemize}
+	 	\item \( s = -1 \): Hier ist \( \mu_a(1) = 2 \). Wir bestimmen \( \mu_g(1) \):
+	 	\begin{equation*}
+	 	 	\mu_g(1) = \dim(\kr(A_{-1} - I_3)) = \dim \begin{pmatrix}
+	 	 		1 & 0 & \tfrac{1}{3} \\
+	 	 		0 & 0 & 0 \\
+	 	 		0 & 0 & 0 
+	 	 	\end{pmatrix} = 2\text{.}
+	 	 \end{equation*} 
+	 	 Also ist \( A_{-1} \) diagonalisierbar.
+
+	 	 \item \( s = -3 \): Hier ist \( \mu_a(-1) = 2 \). Wir bestimmen \( \mu_g(-1) \):
+	 	 \begin{equation*}
+	 	 	\mu_g(-1) = \dim(\kr(A_{-3} + I_3)) = \dim \begin{pmatrix}
+	 	 		1 & 0 & 1 \\
+	 	 		0 & 2 & 2 \\
+	 	 		0 & 0 & 0 
+	 	 	\end{pmatrix} = 1\text{.}
+	 	 \end{equation*}
+	 	 Also ist \( A_{-3} \) nicht diagonalisierbar.
+	 \end{itemize}
+	 Insgesamt ist \( A_s \) für \( s \in \R \setminus \{ -3 \} \) diagonalisierbar.
+
+	 \item Eine solche Basis ist die Basis aus den Basisvektoren der Eigenräume, die man aus den beiden obigen Matrizen erhält:
+	 \begin{equation*}
+	 	\langle \begin{pmatrix}
+	 		0 \\ 1 \\ 0
+	 	\end{pmatrix}, \begin{pmatrix}
+	 		1 \\ 0 \\ -3
+	 	\end{pmatrix}, \begin{pmatrix}
+	 		1 \\ 1 \\ -1
+	 	\end{pmatrix} \rangle = \R^3
+	 \end{equation*}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2015
+%----------------------------------------------------------------------------------------
+\section{Herbst 2015}
+
+\subsection{Aufgabe}
+In Abhänigkeit von \( t \in \R \) sei folgende reelle Matrix gegeben:
+\begin{equation*}
+ A_t = \begin{pmatrix}
+ 	1+t & 1 & 1-t \\
+ 	-1 & t-1 & t-1 \\
+ 	1 & 2-2t & 2-2t
+ \end{pmatrix}
+\end{equation*}
+\begin{enumerate}
+	\item Für welche \( t \in \R \) ist \( A_t \) diagonalisierbar?
+	\item Gebe für \( t = \tfrac{1}{2} \) eine \( \R^3 \)-Basis aus \( A_t \)-Eigenvektoren an. 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Eine Matrix ist genau dann diagonalisierbar, wenn ihr charakteristisches Polynom in Linearfaktoren zerfällt und für jeden Eigenwert algebraische und geometrische Vielfachheit übereinstimmen.
+	\item Eine solche Basis besteht beispielsweise aus den Basisvektoren der Eigenräume. 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Wir bestimmen die Eigenwerte von \( A_t \) über das charakteristische Polynom:
+	\begin{equation*}
+		\cp_{A_t}(\lambda) = \det(A_t - I_3) = (t-\lambda)((1-t)-\lambda)(1-\lambda) 
+	\end{equation*}
+	Also ist \( \spec(A_t) = \{ t, 1-t, 1 \} \) und \( A_t \) diagonalisierbar für \( t \in \R \setminus \{ 1, 0, \tfrac{1}{2} \} \).
+	\begin{itemize}
+		\item \( t = 1 \): Es ist hier \( \mu_a(1) = 2 \). Wir berechnen \( \mu_g(1) \):
+		\begin{equation*}
+		 	\mu_g(1) = 3 - \rk(A_1 - I_3) = \rk \begin{pmatrix}
+		 		1 & 0 & 1 \\
+		 		0 & 1 & -1 \\
+		 		0 & 0 & 0
+		 	\end{pmatrix} = 3-2 = 1\text{.}
+		 \end{equation*} 
+		 Also ist \( A_1 \) nicht diagonalisierbar.
+
+		 \item \( t = 0 \): Es ist hier \( \mu_a(1) = 2 \). Wie oben:
+		 \begin{equation*}
+		 	\mu_g(1) = 3 - \rk(A_0 - I_3) = \rk \begin{pmatrix}
+		 		1 & 0 & -1 \\
+		 		0 & 1 & 1 \\
+		 		0 & 0 & 0
+		 	\end{pmatrix} = 3-2 = 1
+		 \end{equation*}
+		 Also ist auch \( A_0 \) nicht diagonalisierbar.
+
+		 \item \( t = \tfrac{1}{2} \): \( \mu_a(\tfrac{1}{2}) = 2 \). Wir berechnen \( \mu_g(\tfrac{1}{2}) = \dim(\kr(A_{1/2} - \tfrac{1}{2}I_3)) \):
+		 \begin{equation*}
+		 	 \dim(\kr(A_{1/2} - \tfrac{1}{2}I_3)) = \dim \left( \kr\begin{pmatrix}
+		 	 	1 & 1 & \tfrac{1}{2} \\
+		 	 	0 & 0 & 0 \\
+		 	 	0 & 0 & 0
+		 	 \end{pmatrix} \right) = \left| \langle \begin{pmatrix}
+		 	 	1 \\ 0 \\ -2
+		 	 \end{pmatrix}, \begin{pmatrix}
+		 	 	0 \\ 1 \\ -2
+		 	 \end{pmatrix} \rangle \right| = 2
+		 \end{equation*}
+		 Wir verfahren analog für den \( E_1 = \langle \begin{pmatrix}
+		 	1 & -1 & 1
+		 \end{pmatrix}^\top \rangle \) und erhalten so die Basis
+		 \begin{equation*}
+		 	\left\{ \begin{pmatrix}
+		 		1 \\ 0 \\ -2
+		 	\end{pmatrix}, \begin{pmatrix}
+		 		0 \\ 1 \\ -2
+		 	\end{pmatrix}, \begin{pmatrix}
+		 		1 \\ -1 \\ 1
+		 	\end{pmatrix} \right\}\text{. Insgesamt ist also \( A_{t \in \R \setminus \{ 0, 1 \} } \) diagonalisierbar.}
+		 \end{equation*}
+	\end{itemize}
+\end{enumerate}

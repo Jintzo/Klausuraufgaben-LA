@@ -1,0 +1,585 @@
+\chapter{Aufgabe 6}
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2007
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2007}
+
+\subsection{Aufgabe}
+Es seien \( V \) ein reeller endlichdimensionaler Vektorraum mit \( \dim(V) = n \geq 2 \) und \( \{ b_1, \dots, b_n \} \) eine Basis von \( V \). Weiter sei \( \Phi \in \text{End}(V) \) so definiert:
+\begin{equation*}
+	\Phi(b_i) \coloneqq \sum_{k = 1, k \neq i}^n b_k \quad (i = 1, \dots, n)\text{.}
+\end{equation*}
+\begin{enumerate}
+	\item Berechnen Sie das charakteristische Polynom von \( \Phi \).
+	\item Zeigen Sie, dass \( \Phi \) diagonalisierbar ist und geben Sie eine Abbildungsmatrix von \( \Phi \) in Diagonalform an. 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Forme die Matrix bei Bestimmung von \( \cp_\Phi(\lambda) \) so um, dass eine Dreiecksmatrix entsteht.
+	\item Zeige, dass \( \forall \lambda \in \spec(\Phi): \mu_a(\lambda) = \mu_g(\lambda) \).
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Die Abbildungsmatrix von \( \Phi \) bezüglich obiger Basis ist
+	\begin{equation*}
+	 	A = \begin{pmatrix}
+	 		0 & 1 & \cdots & 1 \\
+	 		1 & \ddots & \ddots & \vdots \\
+	 		\vdots & \ddots & \ddots & 1 \\
+	 		1 & \cdots & 1 & 0
+	 	\end{pmatrix}\text{.}
+	 \end{equation*} 
+	 Das charakteristiche Polynom ist
+	 \begin{align*}
+	 	\cp_\Phi(\lambda) &= \det \begin{pmatrix}
+	 		-x & 1 & \cdots & 1 \\
+	 		1 & \ddots & \ddots & \vdots \\
+	 		\vdots & \ddots & \ddots & 1 \\
+	 		1 & \cdots & 1 & -x
+	 	\end{pmatrix} = \det \begin{pmatrix}
+	 		(n-1)-x & 1 & \cdots & \cdots & 1 \\
+	 		0 & -1-x & 0 & \cdots & 0 \\
+	 		\vdots & \ddots & \ddots & \ddots & \vdots \\
+	 		\cdots & \ddots & \ddots & 0 \\
+	 		0 & \cdots & \cdots & 0 & -1-x
+	 	\end{pmatrix} \\
+	 	 &= (-1)^n(x-(n-1))(x+1)^{n-1}\text{.}
+	 \end{align*}
+	 Dazu wurde die erste Zeile von allen abgezogen und dann alle Spalten auf die erste aufaddiert.
+
+	 \item Um zu zeigen, dass \( \Phi \) diagonalisierbar ist, müssen wir zeigen, dass die algebraischen und geometrischen Vielfachheiten der Eigenwerte übereinstimmen.
+	 \begin{itemize}
+	 	\item \( (n-1) \): Für die Abbildungsmatrix \( A \) ist \( \begin{pmatrix}
+	 		1 & \cdots & 1
+	 	\end{pmatrix}^\top \) ein Eigenvektor für \( \lambda = n-1 \), also ist \( b_1 + \cdots + b_n \) ein Eigenvektor von \( \Phi \) zu \( \lambda = n-1 \). Also ist \( \mu_a(n-1) = \mu_g(n-1) \).
+
+	 	\item \( -1 \): Wir bestimmen \( \mu_g(-1) \):
+	 	\begin{equation*}
+	 	 	\mu_g(-1) = \dim(\kr(\Phi + \text{Id})) = \left( \begin{smallmatrix}
+	 	 		1 & \cdots & 1 \\
+	 	 		0 & \cdots & 0 \\
+	 	 		\vdots & \ddots & \vdots \\
+	 	 		0 & \cdots & 0
+	 	 	\end{smallmatrix} \right) = \dim(\langle b_1 - b_2, \dots, b_1 - b_n \rangle) = n-1
+	 	 \end{equation*} 
+	 \end{itemize}
+	 \( \Phi \) ist also diagonalisierbar und besitzt bezüglich der Basis aus den Basisvektoren der Eigenräume die Abbildungsmatrix
+	 \begin{equation*}
+	 	A' \coloneqq \begin{pmatrix}
+	 		n-1 & 0 & \cdots & 0 \\
+	 		0 & -1 & \vdots & 0 \\
+	 		\vdots & \ddots & \ddots & 0 \\
+	 		0 & \cdots & 0 & -1
+	 	\end{pmatrix}\text{.}
+	 \end{equation*}
+\end{enumerate}
+
+\newpage
+
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2007
+%----------------------------------------------------------------------------------------
+\section{Herbst 2007}
+
+\subsection{Aufgabe}
+Es sei \( \alpha \in \R \) und \( A = (a_{ij}) \in \R^{n \times n} \) gegeben durch
+\begin{equation*}
+	a_{ij} = \begin{cases}
+		\alpha \quad \text{falls } |i-j| = 1 \\
+		0 \quad \text{sonst}
+	\end{cases}\text{.}
+\end{equation*}
+Berechne \( \det(A) \).
+
+\subsection{Ansatz}
+Bestimme die Determinante von \( A \) für kleine \( n \) und konstruiere anschließend eine Rekursionsformel.
+
+\subsection{Lösung}
+Wir bestimmen die Determinante von \( A \) für \( n = 0, 1, 2, 3 \) und erhalten so \( 1, 0 -\alpha^2, 0 \).
+\\
+Sei nun \( n \geq 2 \). Bestimmt man \( \det(A) \) durch Entwicklung nach der letzten Zeile, so erhält man:
+\begin{equation*}
+	\det(A) = -\alpha * \det \left( 
+	\begin{array}{cccc|c}
+		\multicolumn{4}{c|}{\multirow{3}{*}{\( A' \)}} & 0 \\
+		\multicolumn{4}{c|}{} & \vdots \\
+		\multicolumn{4}{c|}{} & 0 \\
+		\hline 
+		0 & \cdots & 0 & \alpha & \alpha
+	\end{array}
+	 \right) = -\alpha^2\det(A')\text{.}
+\end{equation*}
+\( A' \in \R^{(n-2) \times (n-2)} \) ist gebildet wie \( A \). Also kann die Determinante von \( A \) rekursiv auf \( n = 0 \) oder \( n = 1 \) zurückgeführt werden. Wir erhalten:
+\begin{equation*}
+	\det(A) = \begin{cases}
+		(-\alpha^2)^k &\text{falls } n = 2k, \ k \in \N \\
+		0 &\text{sonst}
+	\end{cases}
+\end{equation*}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2010
+%----------------------------------------------------------------------------------------
+\section{Herbst 2010}
+
+\subsection{Aufgabe}
+Für \( n \in \N \) sei \( A_n = (a_{ij}) \in \R^{n \times n} \) mit Einträgen
+\begin{equation*}
+	 a_{ij} = \begin{cases}
+	 	1 \quad \text{falls } |i - j| \leq 1 \\
+	 	0 \quad \text{sonst}
+	 \end{cases}\text{.}
+\end{equation*}
+\begin{enumerate}
+	\item Finden Sie eine Rekursionsformel für \( \det(A_n) \).
+	\item Berechnen Sie \( \det(A_n) \) für \( n \in \{ 1, 2, 3, 4, 5, 6, 7, 8 \} \) .
+	\item Verifizieren Sie für alle \( n \in \N \) die Gleichung
+	\begin{equation*}
+		\det(A_{n+6}) = \det(A_n) 
+	\end{equation*}
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Versuche, beim Entwickeln von \( \det(A_n) \) auf \( \det(A_{n-1}) \) und \( \det(A_{n-2}) \) zurückzugreifen.
+	\item Berechne \( \det(A_1) \) und \( \det(A_2) \) von Hand und verwende die Rekursionsformel aus dem ersten Teil, um die restlichen Determinanten zu bestimmen.
+	\item Betrachte die Rekursionsformel für \( \det(A_{n+6}) \) und verwende die Rekursion so lange, bis du bei \( \det(A_n) \) ankommst.
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item \( A_n \) hat folgende Gestalt:
+		\begin{equation*}
+			A_n = \begin{pmatrix}
+				1 & 1 & 0 & \cdots & 0 \\
+				1 & \ddots & \ddots & \ddots & \vdots \\
+				0 & \ddots & \ddots & \ddots & 0 \\
+				\vdots & \ddots & \ddots & \ddots & 1 \\
+				0 & \cdots & 0 & 1 & 1
+			\end{pmatrix}\text{.}
+		\end{equation*}
+		Sei \( n \geq 3 \). Entwicklung nach der ersten Spalte liefert
+		\begin{equation*}
+			\det(A_n) = \det(A_{n-1}) - \det \left( 
+			\begin{array}{c|ccc}
+				1 & 0 & \cdots & 0 \\
+				\hline
+				1 & \multicolumn{3}{|c}{\multirow{3}{*}{\( A_{n-2} \)}} \\
+				0 & \multicolumn{3}{|c}{} \\
+				\vdots & \multicolumn{3}{|c}{}
+			\end{array}
+			 \right) = \det(A_{n-1}) - \det(A_{n-2})\text{.}
+		\end{equation*}
+	\item Wir berechnen \( \det(A_1) \) und \( \det(A_2) \) von Hand und erhalten die Werte \( 1 \) und \( 0 \). Somit ist \( d_3 = d_2 - d_1 = -1 \) usw.
+
+	\item Wir rechnen nach:
+	\begin{align*}
+		\det(A_{n+6}) &= \det(A_{n+5}) - \det(A_{n+4}) \\
+		 &= \det(A_{n+4}) - \det(A_{n+3}) - \det(A_{n+4}) \\
+		 &= -\det(A_{n+3}) \\
+		 &= -(\det(A_{n+2}) - \det(A_{n+1})) \\
+		 &= -(\det(A_{n+1}) - \det(A_n) - \det(A_{n+1})) \\
+		 &= \det(A_n)
+	\end{align*}
+
+	\begin{remark}
+		\textbf{Hinweis}: \\
+		In der Musterlösung wird ein Beweis durch vollständige Induktion geführt, der wesentlich hässlicher ist. Keine Ahnung wieso...
+	\end{remark}
+
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2013
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2013}
+
+\subsection{Aufgabe}
+Für \( 1 \leq n \in \N \) sei \( A_n = (a_{ij}) \in \R^{n \times n} \) gegeben durch
+\begin{equation*}
+	a_{ij} = \begin{cases}
+		-1 &\text{falls } i = j-1 \\
+		1 &\text{falls } i = j \\
+		j^2 &\text{falls } i = j+1 \\
+		0 &\text{sonst}
+	\end{cases}\text{.}
+\end{equation*}
+Zeigen Sie, dass \( \det(A_n) = n! \).
+
+\subsection{Ansatz}
+Berechne \( \det(A_n) \) für ein paar kleine \( n \) und führe dann einen Induktionsbeweis.
+
+\subsection{Lösung}
+\( A_n \) hat folgende Gestalt:
+\begin{equation*}
+	\begin{pmatrix}
+		1 & -1 & 0 & \cdots & 0 \\
+		1^2 & \ddots & \ddots & \ddots & \vdots \\
+		0 & \ddots & \ddots & \ddots & 0 \\
+		\vdots & \ddots & \ddots & \ddots & -1 \\
+		0 & \cdots & 0 & (n-1)^2 & 1
+	\end{pmatrix}\text{.}
+\end{equation*}
+Wir berechnen \( \det(A_1) = |1| = 1! \) und \( \det(A_2) = \left| \begin{smallmatrix}
+	1 & -1 \\
+	1 & 1
+\end{smallmatrix} \right| = 2 = 2! \). \\
+Wir führen einen Beweis durch vollständige Induktion.
+\begin{enumerate}
+	\item \textbf{IA}: Für ein gewisses \( n \in \N \) gelten die Aussagen
+	\begin{equation*}
+	 	\det(A_{n-2}) = (n-2)! \quad \text{und} \quad \det(A_{n-1}) = (n-1)!
+	 \end{equation*} 
+	 \item \textbf{IV}: Es gilt \( \det(A_n) = n! \).
+	 \item \textbf{IS}: Wir entwickeln nach der letzten Zeile:
+	 \begin{align*}
+	 	\det(A_n) &= -(n-1)^2 \det \left( \begin{smallmatrix}
+	 		1 & -1 & 0 & \cdots & 0 \\
+	 		1^2 & \ddots & \ddots & \ddots & \vdots \\
+	 		0 & \ddots & \ddots & \ddots & \vdots \\
+	 		\vdots & \ddots & \ddots & 1 & 0 \\
+	 		0 & \cdots & 0 & (n-2)^2 & -1
+	 	\end{smallmatrix} \right) + \det(A_{n-1}) \\
+	 	 &= (n-1)^2 \det(A_{n-2}) + \det(A_{n-1}) \\
+	 	 &\overset{\text{IV}}{=} (n-1)^2 (n-2)! + (n-1)! \\
+	 	 &= (n-1)(n-1)! + (n-1)! \\
+	 	 &= (n-1)!((n-1) + 1) \\
+	 	 &= n!
+	 \end{align*}
+
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2013
+%----------------------------------------------------------------------------------------
+\section{Herbst 2013}
+
+\subsection{Aufgabe}
+Sei \( n \in \N \) und \( A_n = (a_{i,j}) \in \R^{n \times n} \) gegeben durch
+\begin{equation*}
+	a_{i,j} = \begin{cases}
+		1 &\text{falls } i = 1 \vee j = 1 \\
+		a_{i-1,j}+a_{i,j-1} &\text{sonst}
+	\end{cases} 
+\end{equation*}
+\begin{enumerate}
+	\item Berechnen Sie \( \det(A_1) \), \( \det(A_2) \), \( \det(A_3) \).
+	\item Berechnen Sie \( \det(A_n) \) für jedes \( n \in \N \). 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Rechne die Determinanten aus.
+	\item Versuche eine Umformungsregel zu finden (Spalten von anderen Spalten abziehen), sodass \( A_n \) zu einer unteren Dreiecksmatrix umgeformt werden kann. 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Es ist \( \det(A_1) = |1| = 1 \), \( \det(A_2) = \left| \begin{smallmatrix}
+		1 & 1 \\
+		1 & 2
+	\end{smallmatrix} \right| = 1 \), \( \det(A_3) = \left| \begin{smallmatrix}
+		1 & 1 & 1 \\
+		1 & 2 & 3 \\
+		1 & 3 & 6
+	\end{smallmatrix} \right| = 1 \).
+
+	\item Wir formen \( A_n \) um.
+	\begin{enumerate}
+		\item \textbf{Schritt 1}: Wir ziehen die \( (j-1) \)-te Spalte von der \( j \)-ten Spalte ab (für alle \( 2 \leq j \leq n \)).
+		\item \textbf{Schritt 2}: Wir ziehen die \( (j-1) \)-te Spalte von der \( j \)-ten Spalte ab (für alle \( 3 \leq j \leq n \)).
+		\item \dots
+	\end{enumerate}
+	Dabei wird die Matrix jeweils um eine Zeile nach unten geschoben, es kommen Nullen von oben nach (außer für die Spalten, die von der Umformung nicht betroffen waren) und die unterste Zeile fällt weg.
+	\\
+	Wir erhalten eine Matrix der Form
+	\begin{equation*}
+		\begin{pmatrix}
+			1 & 0 & \cdots & 0 \\
+			\ast & \ddots & \ddots & \vdots \\
+			\vdots & \ddots & \ddots & 0 \\
+			\ast & \cdots & \ast & 1
+		\end{pmatrix}
+	\end{equation*}
+	und es gilt offensichtlich \( \det(A_n) = 1 \).
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2014
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2014}
+
+\subsection{Aufgabe}
+Sei \( n \in \N \) und \( x_1, \dots, x_n \in \R \). Die Matrix \( A_n = (a_{i,j}) \in \R^{n \times n} \) sei gegeben durch
+\begin{equation*}
+	a_{i,j} = \begin{cases}
+		x_i &\text{falls } i \leq j \\
+		x_j &\text{falls } i > j
+	\end{cases}\text{.}
+\end{equation*}
+\begin{enumerate}
+	\item Berechnen Sie \( \det(A_1) \), \( \det(A_2) \), \( \det(A_3) \).
+	\item Berechnen Sie \( \det(A_n) \) allgemein. 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Berechne die Determinanten.
+	\item Nutze die Ergebnisse aus dem ersten Teil, um eine Vermutung über \( \det(A_n) \) aufzustellen und zeige diese durch vollständige Induktion. 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Es ist 
+	\begin{align*}
+		\det(A_1) &= |x_1| = x_1\text{,} \\
+		\det(A_2) &= \left| \begin{smallmatrix}
+			x_1 & x_1 \\
+			x_1 & x_2
+		\end{smallmatrix} \right| = x_1(x_2-x_1)\text{,} \\
+		\det(A_3) &= \left| \begin{smallmatrix}
+			x_1 & x_1 & x_1 \\
+			x_1 & x_2 & x_2 \\
+			x_1 & x_2 & x_3
+		\end{smallmatrix} \right| = \left| \begin{smallmatrix}
+			x_1 & x_1 & x_1 \\
+			0 & x_2-x_1 & x_2-x_1 \\
+			0 & x_2-x_2 & x_3-x_1
+		\end{smallmatrix} \right| = x_1(x_2-x_1)(x_3-x_2)\text{.}
+	\end{align*}
+
+	\item Allgemein hat \( A_n \) die Form
+	\begin{equation*}
+		\left( \begin{smallmatrix}
+			x_1 & \cdots & \cdots & x_1 \\
+			\vdots & x_2 & \cdots & x_2 \\
+			\vdots & \vdots & \ddots & \vdots \\
+			x_1 & x_2 & \cdots & x_n
+		\end{smallmatrix} \right) \text{.}
+	\end{equation*}
+	Wir behaupten aufgrund der Ergebnisse aus dem ersten Teil:
+	\begin{equation*}
+		\det(A_n) = x_1 \prod_{i=2}^{n-1}(x_i - x_{i-1})
+	\end{equation*}
+	Wir beweisen diese Behauptung durch vollständige Induktion.
+	\begin{enumerate}
+		\item \textbf{IA}: Das wurde im ersten Teil erledigt.
+		\item \textbf{IV}: Es gelte obige Behauptung.
+		\item \textbf{IS}: Wir berechnen
+		\begin{align*}
+			\det(A_n) &= \det \begin{gmatrix}[p]
+				x_1 & \cdots & \cdots & x_1 \\
+				\vdots & x_2 & \cdots & x_2 \\
+				\vdots & \vdots & \ddots & \vdots \\
+				x_1 & x_2 & \cdots & x_n
+				\rowops
+					\add[-1]{2}{3}
+			\end{gmatrix} = \det \left( 
+			\begin{array}{ccc|c}
+				\multicolumn{3}{c|}{\multirow{3}{*}{ \( A_{n-1} \) }} & x_1 \\
+				\multicolumn{3}{c|}{} & \vdots \\
+				\multicolumn{3}{c|}{} & x_{n-1} \\
+				\hline
+				0 & \cdots & 0 & x_n - x_{n-1}
+			\end{array}
+			 \right) \\
+			  &= (x_n-x_{n-1})\det(A_{n-1}) \\
+			  &\overset{\text{IV}}{=} x_1 \prod_{i=2}^{n-1}(x_i - x_{i-1})\text{.}
+		\end{align*}
+	\end{enumerate}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2014
+%----------------------------------------------------------------------------------------
+\section{Herbst 2014}
+
+\subsection{Aufgabe}
+Es seien \( K \) ein Körper, \( n \in \N \) und \( A \in K^{n \times (n+1)} \) eine Matrix mit \( \rk(A) = n \).
+\\
+Für \( j \in 1, \dots, n+1 \) sei \( A_j \in \R^{n \times n} \) die Matrix, die man durch Streichen der \( j \)-ten Spalte erhält.
+\\
+Weiter sei \( w \in K^{n+1} \) der Vektor mit den Komponenten
+\begin{equation*}
+	w_j \coloneqq (-1)^j\det(A_j) \quad j \in \{ 1, \dots, n+1 \}\text{.}
+\end{equation*}
+Zeigen Sie, dass die Lösungsmenge des LGS \( Ax = 0 \) gleich \( \langle w \rangle \leq K^{n+1} \) ist.
+
+\subsection{Ansatz}
+
+\subsection{Lösung}
+Für die Lösungsmenge \( \mathcal{L} = \kr(A) \) gilt:
+\begin{equation*}
+	\dim(\mathcal{L}) = \dim(\kr(A)) = \dim(K^{n+1}) - \rk(A) = (n+1) - n = 1\text{.}
+\end{equation*}
+Wir müssen also nur zeigen, dass \( w \) das LGS \( Ax = 0 \) löst. \\
+Wir rechnen die \( i \)-te Gleichung des LGS aus:
+\begin{equation*}
+	\sum_{j=1}^{n+1}a_{i,j}w_j = \sum_{j=1}^{n+1} a_{i,j}(-1)^j\det(A_j)
+\end{equation*}
+Da dieser Term einer Laplace-Entwicklung ähnelt ergänzen wir:
+\begin{equation*}
+	= \sum_{j=1}^{n+1}(-1)^{i+j}a_{i,j}\det(A_j) = \sum_{j=1}^{n+1}(-1)^{i+j}a_{i,j}\det(A'_{i,j})
+\end{equation*}
+Wir müssen also eine Matrix \( A' \) konstruieren mit \( \det(A') = 0 \) und \( A'_{i,j} = A_j \). Eine solche Matrix ist
+\begin{equation*}
+	A' \coloneqq A'(i) = \begin{pmatrix}
+		a_{1,1} & \cdots & a_{1, n+1} \\
+		\vdots & \ddots & \vdots \\
+		a_{i,1} & \cdots & a_{i,n+1} \\
+		a_{i,1} & \cdots & a_{i,n+1} \\
+		\vdots & \ddots & \vdots \\
+		a_{n,1} & \cdots & a_{n,n+1}
+	\end{pmatrix} \in K^{(n+1) \times (n+1)}\text{.}
+\end{equation*}
+Offensichtlich ist \( \det(A') = 0 \), da zwei Zeilen übereinstimmen. Obige Gleichung entspricht nun der Entwicklung nach der \( i \)-ten Zeile mit \( A_j = A'_{i,j} \). \\
+Insgesamt ist also \( 0 \neq w \in \mathcal{L} \), also \( \langle w \rangle = \mathcal{L} \).
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	FRÜHAHR 2015
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2015}
+
+\subsection{Aufgabe}
+Für \( 1 \geq n \in \N \) und \( t \in \R \) sei die Matrix \( A_n = (a_{i,j}) \in \R^{n \times n} \) gegeben durch
+\begin{equation*}
+	a_{i,j} = \begin{cases}
+		t^2+1 &\text{falls } i = j \\
+		t &\text{falls } |i-j| = 1 \\
+		0 &\text{sonst}
+	\end{cases}
+\end{equation*}
+\begin{enumerate}
+	\item Bestimmen Sie \( \det(A_1) \) und \( \det(A_2) \).
+	\item Bestimmen Sie über vollständige Induktion die Determinante \( \det(A_n) \). 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Berechne die Determinanten.
+	\item Stelle anhand der Ergebnisse aus dem ersten Teil eine Vermutung für \( \det(A_n) \) auf und zeige diese Vermutung durch vollständige Induktion. 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Es ist \( \det(A_1) = |t^2-1| = t^2-1 \), \( \det(A_2) = \left| \begin{smallmatrix}
+		t^2+1 & t \\
+		t & t^2+1
+	\end{smallmatrix} \right| = t^4+t^2+1 \)
+
+	\item Wir behaupten:
+	\begin{equation*}
+		\det(A_n) = \sum_{i = 0}^n t^{2i}
+	\end{equation*}
+	Wir zeigen die Behauptung durch vollständige Induktion:
+	\begin{enumerate}
+		\item \textbf{IA}: Das wurde im ersten Teil erledigt.
+		\item \textbf{IV}: Es gelte \( A_{n-1} = \sum_{i = 0}^{n-1}t^{2k} \) und \( A_{n-2} = \sum_{i = 0}^{n-2}t^{2k} \) für ein  \( \N \ni n \geq 3 \).
+		\item \textbf{IS}: Es ist
+		\begin{align*}
+			\det(A_n) &= \left| \begin{smallmatrix}
+				t^2+1 & t & 0 & \cdots & 0 \\
+				t & \ddots & \ddots & \ddots & \vdots \\
+				0 & \ddots & \ddots & \ddots & 0 \\
+				\vdots & \ddots & \ddots & \ddots & t \\
+				0 & \cdots & 0 & t & t^2+1
+			\end{smallmatrix} \right| = (t^2+1)A_{n-1} - t \left| \begin{smallmatrix}
+				t & t & 0 & \cdots & 0 \\
+				0 & 1+t^2 & \ddots & \ddots & \vdots \\
+				0 & t & \ddots & \ddots & 0 \\
+				\vdots & \ddots & \ddots & \ddots & t \\
+				0 & \cdots & 0 & t & t^2+1
+			\end{smallmatrix} \right| \\
+			 &= (t^2+1)A_{n-1} - t^2A_{n-2} \\
+			 &= \sum_{k = 0}^{n-1} t^{2k} + t^2\sum_{k = 0}^{n-1}t^{2k} - t^2\sum_{k = 0}^{n-2}t^{2k} \\
+			 &= \sum_{k = 0}^n t^{2k}
+		\end{align*}
+	\end{enumerate}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2015
+%----------------------------------------------------------------------------------------
+\section{Herbst 2015}
+
+\subsection{Aufgabe}
+Berechnen Sie für alle \( n \in \N \) \( \det(A_n) \) wobei \( A_n = (a_{i,j}) \in \R^{n \times n} \) definiert ist durch
+\begin{equation*}
+	a_{i,j} = \min(i,j)^2\text{.} 
+\end{equation*}
+
+\subsection{Ansatz}
+Berechne \( \det(A_n) \) für ein paar kleine \( n \in \N \), stelle eine Vermutung für \( \det(A_n) \) für beliebige \( n \in \N \) auf und zeige die Behauptung durch vollständige Induktion.
+
+\subsection{Lösung}
+\begin{remark}
+	\textbf{Hinweis}: Ich fande die in der Lösung vorgestellten Wege nicht instruktiv, deswegen hier mein Lösungsweg.
+\end{remark}
+Wir berechnen
+\begin{align*}
+	\det(A_1) &= |1| = 1 \\
+	\det(A_2) &= \left| \begin{smallmatrix}
+		1 & 1 \\
+		1 & 4
+	\end{smallmatrix} \right| = \left| \begin{smallmatrix}
+		1 & 1 \\
+		0 & 3
+	\end{smallmatrix} \right| = 3 \det(A_1) = 3 \\
+	\det(A_3) &= \left| \begin{smallmatrix}
+		1 & 1 & 1 \\
+		1 & 4 & 4 \\
+		1 & 4 & 9
+	\end{smallmatrix} \right| = \left| \begin{smallmatrix}
+		1 & 1 & 0 \\
+		1 & 4 & 0 \\
+		1 & 4 & 5
+	\end{smallmatrix} \right| = 5 \det(A_2) = 15
+\end{align*}
+Behauptung: \( \det(A_n) = \prod_{i=1}^{n-1}(2k+1) \). Wir zeigen diese Behauptung durch vollständige Induktion:
+\begin{enumerate}
+	\item \textbf{IA}: Das wurde bereits erledigt.
+	\item \textbf{IV}: Für ein \( n \in \N \) gelte \( \det(A_{n}) = \prod_{i=1}^{n-1}(2k+1) \).
+	\item \textbf{IS}: Wir berechnen \( \det(A_{n+1}) \):
+	\begin{align*}
+		\det(A_{n+1}) &= \begin{gmatrix}[p]
+				1 & \cdots & \cdots & 1 \\
+				\vdots & 4 & \cdots & 4 \\
+				\vdots & \vdots & \ddots & \vdots \\
+				1 & 4 & \cdots & (n+1)^2
+				\rowops
+					\add[-1]{2}{3}
+			\end{gmatrix} = \left( 
+			\begin{array}{ccc|c}
+				\multicolumn{3}{c|}{\multirow{3}{*}{ \( A_{n} \) }} & 1 \\
+				\multicolumn{3}{c|}{} & \vdots \\
+				\multicolumn{3}{c|}{} & n^2 \\
+				\hline
+				0 & \cdots & 0 & (n+1)^2 - n^2
+			\end{array}
+			 \right) \\
+			  &= ((n+1)^2-n^2) \det(A_n) \\
+			  &= (n^2+2n+1-n^2) \det(A_n) \\
+			  &\overset{\text{IV}}{=} (2n+1)\prod_{i=1}^{n-1}(2k+1) \\
+			  &= \prod_{i=1}^{n}(2k+1)
+	\end{align*}
+\end{enumerate}
+
+\newpage

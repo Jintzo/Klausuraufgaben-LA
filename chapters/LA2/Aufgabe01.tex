@@ -1,0 +1,760 @@
+\chapter{Aufgabe 1}
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2007
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2007}
+
+\subsection{Aufgabe}
+Gegeben sei die reelle Matrix
+\begin{equation*}
+	A = \begin{pmatrix}
+		-1 & 0 & -1 & 0 \\
+		1 & -1 & 1 & 2 \\
+		1 & 0 & 1 & 1 \\
+		0 & 0 & 1 & -1
+	\end{pmatrix}\text{.}
+\end{equation*}
+\begin{enumerate}
+	\item Berechnen Sie die JNF von \( A \).
+	\item Zeigen Sie, dass es keine Matrix \( B \) mit folgenden Eigenschaften gibt:
+	\begin{enumerate}
+	 	\item \( A \) und \( B \) sind ähnlich.
+	 	\item Es ist \( B^2 = \left( \begin{smallmatrix}
+	 		1 & 0 & 0 & 0 \\
+	 		1 & 1 & 0 & 0 \\
+	 		0 & 0 & 1 & 0 \\
+	 		0 & 0 & 0 & 1
+	 	\end{smallmatrix} \right) \) 
+	 \end{enumerate} 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Berechne \( \cp_A(\lambda) \). Berechne  \( \mu_a(\lambda) \) und \( \mu_g(\lambda) \) für alle \( \lambda \in \spec(A) \) und konstruiere so \( A' \coloneqq \jnf(A) \).
+	\item Für eine solche Matrix \( B \) muss \( \jnf(A'^2) \sim \jnf(B^2) \) gelten (dies ist zuerst zu zeigen). Zeige, dass die Anzahl der Jordankästchen zu einem Eigenwert unterschiedlich ist.
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Es ist
+	\begin{equation*}
+	 	\cp_A(\lambda) = (-1-\lambda)^3(1-\lambda)\text{.}
+	 \end{equation*}
+	 Wir bestimmen \( \mu_g(-1) \):
+	 \begin{equation*}
+	 	\mu_g(-1) = \dim(\eig(A, -1)) = \dim(\kr(A + I_4)) = \dim\left( \kr \left( \begin{smallmatrix}
+	 		0 & 0 & -1 & 0 \\
+	 		1 & 0 & 1 & 2 \\
+	 		1 & 0 & 2 & 1 \\
+	 		0 & 0 & 1 & 0
+	 	\end{smallmatrix} \right) \right) = 1
+	 \end{equation*}
+	 Also gibt es zu \( \lambda = -1 \) genau ein Jordankästchen und wir erhalten die JNF:
+	 \begin{equation*}
+	 	A' \coloneqq \left( \begin{smallmatrix}
+	 		-1 & 0 & 0 & 0 \\
+	 		1 & -1 & 0 & 0 \\
+	 		0 & 1 & -1 & 0 \\
+	 		0 & 0 & 0 & 1
+	 	\end{smallmatrix} \right)\text{.}
+	 \end{equation*}
+
+	 \item Existiert ein solches \( B \), so gilt
+	 \begin{equation*} 
+	 	A \sim B \Rightarrow A'^2 \sim B^2 \Rightarrow \jnf(A'^2) \sim \jnf(B^2) = \left( \begin{smallmatrix}
+	 		1 & 0 & 0 & 0 \\
+	 		1 & 1 & 0 & 0 \\
+	 		0 & 0 & 1 & 0 \\
+	 		0 & 0 & 0 & 1
+	 	\end{smallmatrix} \right)\text{.}
+	 \end{equation*}
+	 Nun ist aber \( \mu_g(1) = 2 \) in \( A'^2 = \left( \begin{smallmatrix}
+	 	1 & 0 & 0 & 0 \\
+	 	-2 & 1 & 0 & 0 \\
+	 	1 & -2 & 1 & 0 \\
+	 	0 & 0 & 0 & 1 \\
+	 \end{smallmatrix} \right) \), also hat \( \jnf(A'^2) \) genau zwei Jordankästchen zum Eigenwert \( 1 \), \( \jnf(B^2) \) aber drei, also kann es eine solche Matrix \( B \) nicht geben.
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2007
+%----------------------------------------------------------------------------------------
+\section{Herbst 2007}
+
+\subsection{Aufgabe}
+Es seien \( V \) ein \( n \)-dimensionaler komplexer Vektorraum und \( \Phi \in \text{End}(\Phi) \).
+\begin{enumerate}
+	\item Zeigen Sie, dass \( V \) die direkte Summe der Untervektorräume \( \kr(\Phi^n) \) und \( \bild(\Phi^n) \) ist. 
+	\item Geben Sie ein Beispiel dafür an, dass \( V \) i.A. nicht die direkte Summe von \( \kr(\Phi) \) und \( \bild(\Phi) \) ist.
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Betrachte den Dimensionssatz und \( \kr(\Phi^n) \cap \im(\Phi^n) \).
+	\item Konstruiere ein \( \Phi \in \text{End}(\C^2) \), für die \( \kr(\Phi) = \im(\Phi) \) gilt. 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Wir müssen zeigen, dass \( \kr(\Phi^n) \cap \im(\Phi^n) = \{ 0 \} \), denn dann folgt aus der Dimensionsformel, dass \( \im(\Phi^n) + \kr(\Phi^n) = \im(\Phi^n) \oplus \kr(\Phi^n) = V \). \\
+		Es ist \( \kr(\Phi^n) = \hau(\Phi, 0) = \{ v \in V \mid \exists k \in \N: \Phi^k(v) = 0 \} \). Es liege \( v \in \kr(\Phi^n) \cap \im(\Phi^n) \). Also gilt
+		\begin{equation*}
+			\exists w \in V: \Phi^n(w) = v \wedge \Phi^n(v) = 0 \quad \leadsto \quad \Phi^n(\Phi^n(w)) = \Phi^{2n}(w) = 0
+		\end{equation*}
+		Daraus folgt
+		\begin{equation*}
+			\Phi^n(w) = 0 = v \in \kr(\Phi^n)
+		\end{equation*}
+		und damit ist die Behauptung gezeigt. 
+
+	\item Betrachte die Abbildung
+		\begin{equation*}
+			\text{End}(\C^2) \ni \Phi\left( \begin{pmatrix}
+				x \\ y
+			\end{pmatrix} \right) \mapsto \begin{pmatrix}
+				y \\ 0
+			\end{pmatrix}\text{.}
+		\end{equation*}
+		Es gilt
+		\begin{equation*}
+			\kr(\Phi) = \C e_1 = \im(\Phi)\text{,}
+		\end{equation*}
+		also kann die Summe nicht direkt sein.
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2010
+%----------------------------------------------------------------------------------------
+\section{Herbst 2010}
+
+\subsection{Aufgabe}
+Es sei \( A \in \C^{n \times n} \) gegeben und \( M \in \C^{(2n) \times (2n)} \) die Blockmatrix
+\begin{equation*}
+	M \coloneqq \begin{pmatrix}
+		0 & 0 \\
+		A & 0 
+	\end{pmatrix}\text{.}
+\end{equation*}
+\begin{enumerate}
+	\item Bestimme \( \spec(M) \).
+	\item Wie lang sind die längsten Jordankästchen in \( \jnf(M) \)?
+	\item Bestimme \( \jnf(M) \) in Abhängigkeit von \( \rk(A) \).
+	\item Bestimme für \( A = \left( \begin{smallmatrix}
+		1 & 2 \\
+		0 & 1
+	\end{smallmatrix} \right) \) eine Basiswechselmatrix \( S \in \gl_4(\C) \) mit \( S^{-1}MS = \jnf(M) \).
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Betrachte die Diagonale der Matrix.
+	\item Die länge \( p \) des längsten Jordankästchens zum Eigenwert \( \lambda \) ist \\* \( \min\{ e \in \N \mid \kr((M  - \lambda I_{2n})^e) = \kr((M - \lambda I_{2n})^{e+1}) \} \).
+	\item Verwende \( \mu_g(\lambda) = 2n - \rk(M-\lambda I_{2n}) \).
+	\item Bestimme für jeden Eigenwert eine Basis der Kerne von \( (M - \lambda I_{2n})^k \) (\( 1 \leq k \leq p \), siehe 2.) und füge die Vektoren \( (M - \lambda I_{2n})^kv \) (\( 1 \leq k \leq p \), \( v \in (\kr((M - \lambda I_{2n})^p) \setminus \kr((M - \lambda I_{2n})^{p-1})) \)) der Matrix hinzu.
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item \( M \) ist eine strikte untere Dreiecksmatrix, also ist \( \spec(M) = \{ 0 \} \).
+
+	\item Da \( \lambda = 0 \) der einzige Eigenwert ist, ist die Länge des größten Jordankästchens das kleinste \( k \in \N \) mit \( M^k = 0 \). Es ist
+		\begin{equation*}
+		 	k = \begin{cases}
+		 		2 &\text{falls } A \neq 0 \\
+		 		1 &\text{sonst}
+		 	\end{cases}
+		 \end{equation*} 
+	\item Die Anzahl der Jordankästchen zu \( 0 \) ist \( \mu_g(0) \). Es ist
+		\begin{equation*}
+			\mu_g(0) = \dim(\eig(M, 0)) = 2n - \rk(M - 0*I_{2n}) = 2n - \rk(A)\text{.}
+		\end{equation*}
+		Die Summe der Kästchenlängen ist offensichtlich \( 2n \).
+		\begin{itemize}
+			\item Anzahl \( 2 \)er-Kästchen: \( = \rk(A) \) (damit \( 2n-\rk(M) = 2n-\rk(A) \) Kästchen eine Gesamtlänge von \( 2n \) haben)
+			\item Anzahl \( 1 \)er-Kästchen: \( = \underbrace{2n-\rk(A)}_{\text{= \# Kästchen ges.}} - \underbrace{\rk(A)}_{\text{\#2er-Kästchen}} = 2n - 2\rk(A) \)
+		\end{itemize}
+		Also ist \( \jnf(M) \) bis auf die Reihenfolge der Kästchen eindeutig bestimmt.
+
+	\item Wir bestimmen Basen für folgende Kerne (\( \lambda = 0 \) ist einziger Eigenwert und \( M^2 = 0 \), deswegen nur die zwei):
+		\begin{equation*}
+			\kr(M - 0*I_4)=\kr(M), \quad \kr((M-0*I_4)^2) = \kr(M^2)\text{.}
+		\end{equation*}
+		Wir erhalten
+		\begin{equation*}
+			\kr(M) = \langle \left( \begin{smallmatrix}
+				0 \\ 0 \\ 1 \\ 0
+			\end{smallmatrix} \right), \left( \begin{smallmatrix}
+				0 \\ 0 \\ 0 \\ 1
+			\end{smallmatrix} \right) \rangle, \quad \kr(M^2) = \langle \left( \begin{smallmatrix}
+				1 \\ 0 \\ 0 \\ 0
+			\end{smallmatrix} \right), \left( \begin{smallmatrix}
+				0 \\ 1 \\ 0 \\ 0
+			\end{smallmatrix} \right), \left( \begin{smallmatrix}
+				0 \\ 0 \\ 1 \\ 0
+			\end{smallmatrix} \right), \left( \begin{smallmatrix}
+				0 \\ 0 \\ 0 \\ 1
+			\end{smallmatrix} \right) \rangle\text{.}
+		\end{equation*}
+		Wir wählen die Basisvektoren von \( \kr(M^2) \setminus \kr(M) \), also \( v_1 = \left( \begin{smallmatrix}
+			1 \\ 0 \\ 0 \\ 0
+		\end{smallmatrix} \right) \) und \( v_2 = \left( \begin{smallmatrix}
+			0 \\ 1 \\ 0 \\ 0
+		\end{smallmatrix} \right) \).
+		\begin{equation*}
+			S = \left( v_1, (A - 0*I_4)v_1, v_2, (A-0*I_4)v_2 \right) = \left( \left( \begin{smallmatrix}
+			1 \\ 0 \\ 0 \\ 0
+		\end{smallmatrix} \right), \left( \begin{smallmatrix}
+			0 \\ 0 \\ 1 \\ 0
+		\end{smallmatrix} \right), \left( \begin{smallmatrix}
+			0 \\ 1 \\ 0 \\ 0
+		\end{smallmatrix} \right), \left( \begin{smallmatrix}
+			0 \\ 0 \\ 2 \\ 1
+		\end{smallmatrix} \right) \right)\text{.}
+		\end{equation*}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2013
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2013}
+
+\subsection{Aufgabe}
+Gegeben sei
+\begin{equation*}
+	A \coloneqq \begin{pmatrix}
+		1 & 0 & -1 & -1 \\
+		-1 & 0 & 0 & 0 \\
+		0 & 0 & 2 & 1 \\
+		1 & 1 & 0 & 1
+	\end{pmatrix} \in \R^{4 \times 4}\text{.}
+\end{equation*}
+\begin{enumerate}
+	\item Bestimme \( \widetilde{A} \coloneqq \jnf(A) \).
+	\item Geben Sie eine invertierbare Matrix \( S \in \R^{4 \times 4} \) an, sodass \( \widetilde{A} = S^{-1}AS \). 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Berechne \( \cp_A(\lambda) \), dann \( \mu_a(\lambda) \) und \( \mu_g(\lambda) \) für alle \( \lambda \in \spec(A) \) und konstruiere so \( \jnf(A) \).
+	\item Füge für das \( k \) große Kästchen zu \( \lambda \) Basisvektoren \( b_1,\dots \) aus \( \kr((A- \lambda I_4)^k) \) \\* (bzw. \( (A-\lambda I_4)^lb_i \), \( 0 \leq l \leq (k-1) \)) zur Basis hinzu.
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item  Wir berechnen das charakteristische Polynom:
+		\begin{equation*}
+			\cp_A(X) = \det \left( \begin{smallmatrix}
+				1-X & 0 & -1 & -1 \\
+				-1 & -X & 0 & 0 \\
+				0 & 0 & 2-X & 1 \\
+				1 & 1 & 0 & 1-X
+			\end{smallmatrix} \right) = (X-1)^4\text{.}
+		\end{equation*}
+		Es ist also \( \spec(A)= \{ 1 \} \). Die Anzahl an Jordankästchen für den Eigenwert \( \lambda = 1 \) ist
+		\begin{equation*}
+			\mu_g(1) = \dim(\eig(A,1)) = 4 - \rk(A-I_4) = 4-2 = 2\text{.}
+		\end{equation*}
+		Um das größte Jordankästchen zu bestimmen berechnen wir
+		\begin{align*}
+			\dim\kr(A-I_4) =\dim\kr\left( \begin{smallmatrix}
+				0 & 0 & -1 & -1 \\
+				-1 & -1 & 0 & 0 \\
+				0 & 0 & 1 & 1 \\
+				1 & 1 & 0 & 0
+			\end{smallmatrix} \right) = \dim \langle \left( \begin{smallmatrix}
+				1 \\ -1 \\ 0 \\ 0
+			\end{smallmatrix} \right), \left( \begin{smallmatrix}
+				0 \\ 0 \\ 1 \\ -1
+			\end{smallmatrix} \right) \rangle &= 2\text{,} \\
+			\dim\kr((A-I_4)^2) = \dim\kr\left( \begin{smallmatrix}
+				-1 & -1 & -1 & -1 \\
+				1 & 1 & 1 & 1 \\
+				1 & 1 & 1 & 1 \\
+				-1 & -1 & -1 & -1
+			\end{smallmatrix} \right) = \dim \langle \left( \begin{smallmatrix}
+				1 \\ 0 \\ 0 \\ -1
+			\end{smallmatrix} \right), \left( \begin{smallmatrix}
+				1 \\ 0 \\ -1 \\ 0
+			\end{smallmatrix} \right), \left( \begin{smallmatrix}
+				1 \\ -1 \\ 0 \\ 0
+			\end{smallmatrix} \right) \rangle &= 3\text{,} \\
+			\dim\kr((A-I_4)^3) = \dim\kr\left( \begin{smallmatrix}
+				0 & 0 & 0 & 0 \\
+				0 & 0 & 0 & 0 \\
+				0 & 0 & 0 & 0 \\
+				0 & 0 & 0 & 0
+			\end{smallmatrix} \right) = \dim(\R^4) &= 4\text{.}
+		\end{align*}
+		Das größte Jordankästchen hat also die Größe \( 3 \) und somit
+		\begin{equation*}
+			\widetilde{A} = \left( \begin{array}{ccc|c}
+				1 & 0 & 0 & 0 \\
+				1 & 1 & 0 & 0 \\
+				0 & 1 & 1 & 0 \\
+				\hline
+				0 & 0 & 0 & 1
+
+			\end{array} \right)\text{.}
+		\end{equation*}
+
+	\item Für das \( 3 \)er-Kästchen nehmen wir einen Vektor aus \( \kr((A-I_4)^3) \setminus \kr((A-I_4)^2) \), also z.B. \( e_1 \), und fügen \( e_1 \), \( (A-I_4)e_1 \) und \( (A-I_4)^2e_1 \) der Basis hinzu.
+		\\*
+		Für das \( 1 \)er-Kästchen nehmen wir einen Vektor aus \( \kr(A-I_4) \), der noch nicht in der Basis liegt, also z.B. \( \left( \begin{smallmatrix}
+			1 \\ -1 \\ 0 \\ 0
+		\end{smallmatrix} \right) \).
+		Wir erhalten 
+		\begin{equation*}
+			S = \begin{pmatrix}
+				1 & 0 & -1 & 1 \\
+				0 & -1 & 1 & -1 \\
+				0 & 0 & 1 & 0 \\
+				0 & 1 & -1 & 0
+			\end{pmatrix}\text{.}
+		\end{equation*}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2013
+%----------------------------------------------------------------------------------------
+\section{Herbst 2013}
+
+\subsection{Aufgabe}
+Gegeben sei
+\begin{equation*}
+	A \coloneqq \begin{pmatrix}
+		1 & 0 & 0 & 1 \\
+		3 & 1 & -3 & 1 \\
+		3 & 0 & -2 & 1 \\
+		0 & -1 & 1 & 1 
+	\end{pmatrix} \in \R^{4 \times 4}\text{.}
+\end{equation*}
+\begin{enumerate}
+	\item Bestimmem Sie \( \widetilde{A} \coloneqq \jnf(A) \).
+	\item Geben Sie \( S \in \gl_4(\R) \) an, sodass \( \widetilde{A} = S^{-1}AS \).
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Berechne \( \cp_A(\lambda) \), dann \( \mu_a(\lambda) \) und \( \mu_g(\lambda) \) für alle \( \lambda \in \spec(A) \) und konstruiere so \( \jnf(A) \).
+	\item Füge für das \( k \) große Kästchen zu \( \lambda \) Basisvektoren \( b_1,\dots \) aus \( \kr((A-\lambda I_4)^k) \) \\* (bzw. \( (A-\lambda I_4)^lb_i \), \( 0 \leq l \leq (k-1) \)) zur Basis hinzu.
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Wir bestimmen
+		\begin{equation*}
+		 	\cp_A(\lambda) = (\lambda + 2)(\lambda - 1)^3 \leadsto \spec(A) = \{ -2, 1 \}, \ \mu_a(-2) = \mu_g(-2)=1, \ \mu_a(1)=3\text{,}
+		 \end{equation*}
+		 anschließend noch
+		 \begin{equation*}
+		 	\mu_g(1) = \dim\kr(A-I_4) = \dim\kr\left( \begin{smallmatrix}
+		 		1 & 0 & -1 & 0 \\
+		 		0 & 1 & -1 & 0 \\
+		 		0 & 0 & 0 & 0 \\
+		 		0 & 0 & 0 & 1
+		 	\end{smallmatrix} \right) = \dim \langle \left( \begin{smallmatrix}
+		 		1 \\ 1 \\ 1 \\ 0
+		 	\end{smallmatrix} \right) \rangle = 1\text{.}
+		 \end{equation*}
+		 Es gibt zu jedem Eigenwert also genau ein Jordankästchen und wir erhalten
+		 \begin{equation*}
+		 	\widetilde{A} = \left( \begin{array}{ccc|c}
+		 		1 & 0 & 0 & 0 \\
+		 		1 & 1 & 0 & 0 \\
+		 		0 & 1 & 1 & 0 \\
+		 		\hline
+		 		0 & 0 & 0 & -2
+		 	\end{array} \right)
+		 \end{equation*}
+	\item Das größte Jordankästchen zu \( \lambda = 1 \) ist \( 3 \) groß, also berechnen Basen folgender Kerne:
+		\begin{align*}
+			\kr((A-I_4)^2) &= \kr\left( \begin{smallmatrix}
+				0 & -1 & 1 & 0 \\
+				-9 & -1 & 10 & 0 \\
+				-9 & -1 & 10 & 0 \\
+				0 & 0 & 0 & 0
+			\end{smallmatrix} \right) = \langle \left( \begin{smallmatrix}
+				1 \\ 1 \\ 1 \\ 0
+			\end{smallmatrix} \right), \left( \begin{smallmatrix}
+				0 \\ 0 \\ 0 \\ 1
+			\end{smallmatrix} \right) \rangle \\
+			\kr((A-I_4)^3) &= \kr\left( \begin{smallmatrix}
+				0 & 0 & 0 & 0 \\
+				27 & 0 & -27 & 0 \\
+				27 & 0 & -27 & 0 \\
+				0 & 0 & 0 & 0
+			\end{smallmatrix} \right) = \langle \left( \begin{smallmatrix}
+				1 \\ 0 \\ 1 \\ 0
+			\end{smallmatrix} \right), \left( \begin{smallmatrix}
+				0 \\ 1 \\ 0 \\ 0
+			\end{smallmatrix} \right), \left( \begin{smallmatrix}
+				0 \\ 0 \\ 0 \\ 1
+			\end{smallmatrix} \right) \rangle
+		\end{align*}
+		Wir fügen für das \( 3 \)er-Jordankästchen \( b_1 \coloneqq \left( \begin{smallmatrix}
+			0 \\ 1 \\ 0 \\ 0
+		\end{smallmatrix} \right) \), \( (A-I_4)b_1 \) und \( (A-I_4)^2b_1 \) zur Basis hinzu.
+		\\*
+		Für \( -2 \) wählen wir einen Vektor aus \( \kr(A+2I_4) \):
+		\begin{equation*}
+			\kr(A+2I_2) = \kr\left( \begin{smallmatrix}
+				3 & 0 & 0 & 1 \\
+				3 & 3 & -3 & 1 \\
+				3 & 0 & 0 & 1 \\
+				0 & -1 & 1 & 3
+			\end{smallmatrix} \right) = \langle \left( \begin{smallmatrix}
+				0 \\ 1 \\ 1 \\ 0
+			\end{smallmatrix} \right) \rangle\text{.}
+		\end{equation*}
+		Wir erhalten somit
+		\begin{equation*}
+			S = \begin{pmatrix}
+				0 & 0 & -1 & 0 \\
+				1 & 0 & -1 & 1 \\
+				0 & 0 & -1 & 1 \\
+				0 & -1 & 0 & 0 
+			\end{pmatrix}\text{.}
+		\end{equation*}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2014
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2014}
+
+\subsection{Aufgabe}
+Sei \( A \in \C^{5 \times 5} \) mit \( \rk(A)= \spur(A)=3 \) und höchstens zwei Eigenwerten. Es sei \( J = \jnf(A) \).
+\begin{enumerate}
+	\item Wie viele Jordankästchen zum Eigenwert \( 0 \) besitzt \( J \)? 
+	\item Wieso hat \( A \) einen Eigenwert \( \neq 0 \)?
+	\item Welche Zahlen können als Dimension des Hauptraums zum von \( 0 \) verschiedenen Eigenwert auftreten?
+	\item Bestimmen Sie alle Möglichkeiten für \( J \) unter den gegebenen Einschränkungen.
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Benutze die Dimensionsformel.
+	\item Betrachte die Spur von \( A \) und \( J \).
+	\item Ermittle die Dimension des Hauptraums von \( 0 \) und beachte, dass die Summe der Haupträume \( 5 \) sein muss.
+	\item Gehe die verschiedenen Möglichkeiten für die Dimensionen der Haupträume (oder der algebraischen Vielfachheiten der Eigenwerte) durch. 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Die Anzahl an Jordankästchen ist
+		\begin{align*}
+			\mu_g(0) &= \dim(\eig(A,0)) = \dim\kr(A-0I_5) = \dim\kr(A) = 5 - \dim\bild(A) \\
+			 &= 5 - \rk(A) = 2\text{.}
+		\end{align*}
+	\item Es ist \( \spur(A) = \spur(J) = 3 \). Da bei \( J \) (Dreiecksmatrix) die Spur aus den Eigenwerten besteht, muss es einen Eigenwert \( \neq 0 \) geben.
+	\item Der Hauptraum zum Eigenwert \( 0 \) ist mindestens zweidimensional (weil es zwei Jordankästchen gibt), also muss der Hauptraum zum verbleibenden Eigenwert \( \lambda \) zwischen \( 1 \) und \( 3 \) Dimensionen haben.
+	\item Wir gehen die verschiedenen Möglichkeiten für die algebraischen Vielfachheiten durch.
+		\begin{enumerate}
+			\item \underline{Fall 1}: \( \mu_a(1)=4 \). Es gibt zwei Möglichkeiten:
+			\begin{equation*}
+				J = \left( \begin{array}{cccc|c}
+					0 & & & &  \\
+					 & 0 & 0 & 0 &  \\
+					 & 1 & 0 & 0 &  \\
+					 & 0 & 1 & 0 &  \\
+					\hline
+					 & & & & 3
+
+				\end{array} \right) \quad \text{oder} \quad J= \left( \begin{array}{cccc|c}
+					0 & 0 & & &  \\
+					1 & 0 & & &  \\
+					 & & 0 & 0 &  \\
+					 & & 1 & 0 &  \\
+					\hline
+					 & & & & 3 
+				\end{array} \right)
+			\end{equation*}
+			\item \underline{Fall 2}: \( \mu_a(1)=3 \). Es gibt zwei Möglichkeiten:
+			\begin{equation*}
+				J = \left( \begin{array}{ccc|cc}
+					0 & & & &  \\
+					 & 0 & 0 & &  \\
+					 & 1 & 0 & &  \\
+					\hline
+					 & & & \tfrac{3}{2} & 0 \\
+					 & & & 1 & \tfrac{3}{2}
+				\end{array} \right) \quad \text{oder} \quad J = \left( \begin{array}{ccc|cc}
+					0 & & & &  \\
+					 & 0 & 0 & &  \\
+					 & 1 & 0 & &  \\
+					\hline
+					 & & & \tfrac{3}{2} &  \\
+					 & & & & \tfrac{3}{2}
+				\end{array} \right)
+			\end{equation*}
+			\item \underline{Fall 3}: \( \mu_a(1)=2 \). Es gibt drei Möglichkeiten:
+			\begin{equation*}
+				J = \left( \begin{array}{cc|ccc}
+					0 & & & &  \\
+					 & 0 & & &  \\
+					\hline
+					 & & 1 & 0 & 0 \\
+					 & & 1 & 1 & 0 \\
+					 & & 0 & 1 & 1 
+				\end{array} \right), \quad J = \left( \begin{array}{cc|ccc}
+					0 & & & &  \\
+					 & 0 & & &  \\
+					\hline
+					 & & 1 &  &  \\
+					 & &  & 1 & 0 \\
+					 & &  & 1 & 1 
+				\end{array} \right), \quad J = \left( \begin{array}{cc|ccc}
+					0 & & & &  \\
+					 & 0 & & &  \\
+					\hline
+					 & & 1 &  &  \\
+					 & &  & 1 & \\
+					 & &  & & 1 
+				\end{array} \right)
+			\end{equation*}
+		\end{enumerate}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2014
+%----------------------------------------------------------------------------------------
+\section{Herbst 2014}
+
+\subsection{Aufgabe}
+Gegeben sei
+\begin{equation*}
+	A \coloneqq \begin{pmatrix}
+		9 & -7 & 0 & 2 \\
+		7 & -5 & 0 & 2 \\
+		4 & -4 & 2 & 1 \\
+		0 & 0 & 0 & 2 
+	\end{pmatrix} \in \R^{4 \times 4}\text{.}
+\end{equation*}
+\begin{enumerate}
+	\item Bestimmen Sie \( \widetilde{A} \coloneqq \jnf(A) \).
+	\item Geben Sie \( S \in \gl_4(\R) \) an, sodass \( \widetilde{A} = S^{-1}AS \).
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Berechne \( \cp_A(\lambda) \), dann \( \mu_a(\lambda) \) und \( \mu_g(\lambda) \) für alle \( \lambda \in \spec(A) \) und konstruiere so \( \jnf(A) \).
+	\item Füge für das \( k \) große Kästchen zu \( \lambda \) Basisvektoren \( b_1,\dots \) aus \( \kr((A-\lambda I_4)^k) \) \\* (bzw. \( (A-\lambda I_4)^lb_i \), \( 0 \leq l \leq (k-1) \)) zur Basis hinzu.
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Wir berechnen
+		\begin{equation*}
+			\cp_A(\lambda) = (2 - \lambda)^4 \leadsto \spec(A) = \{ 2 \}, \ \mu_a(2) = 4
+		\end{equation*}
+		und anschließend
+		\begin{equation*}
+			\mu_g(2) = \dim(\eig(A,2)) = \dim(\kr(A - 2I_4)) = \dim\ker\left( \begin{smallmatrix}
+				7 & -7 & 0 & 2 \\
+				7 & -7 & 0 & 2 \\
+				4 & -4 & 0 & 1 \\
+				0 & 0 & 0 & 0
+			\end{smallmatrix} \right) = \dim\langle \left( \begin{smallmatrix}
+				1 \\ 1 \\ 0 \\ 0
+			\end{smallmatrix} \right), \left( \begin{smallmatrix}
+				0 \\ 0 \\ 1 \\ 0
+			\end{smallmatrix} \right) \rangle = 2\text{.}
+		\end{equation*}
+		Es gibt also \( 2 \) Jordankästchen. Um das größte Jordankästchen zu ermitteln berechnen wir
+		\begin{equation*}
+			\dim(\kr((A - I_4)^2)) = \dim\kr\left( \begin{smallmatrix}
+				0 & 0 & 0 & 0 \\
+				0 & 0 & 0 & 0 \\
+				0 & 0 & 0 & 0 \\
+				0 & 0 & 0 & 0
+			\end{smallmatrix} \right) = \dim(\R^4) = 4\text{,}
+		\end{equation*}
+		also ist das größte Kästchen ein \( 2 \)er-Kästchen und wir erhalten
+		\begin{equation*}
+			\widetilde{A} = \begin{pmatrix}
+				2 & 0 & &  \\
+				1 & 2 & &  \\
+				 & & 2 & 0 \\
+				 & & 1 & 2 
+			\end{pmatrix}\text{.}
+		\end{equation*}
+	\item Wir wählen für die beiden \( 2 \)er-Kästchen Basisvektoren aus \( \kr((A-2I_4)^2)=\R^4 \). Da \( (A-2I_4)e_1=(A-2I_4)e_2 \) und \( (A-2I_4)e_3=0 \) ist
+	\begin{equation*}
+		C = \{ e_1, \ (A-2I_4)e_1, \ e_4, (A-2I_4)e_4 \}
+	\end{equation*}
+	eine mögliche Jordanbasis und wir erhalten
+	\begin{equation*}
+		S = \begin{pmatrix}
+			7 & 1 & 2 & 0 \\
+			7 & 0 & 2 & 0 \\
+			4 & 0 & 1 & 0 \\
+			0 & 0 & 0 & 1
+		\end{pmatrix}\text{.}
+	\end{equation*}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2015
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2015}
+
+\subsection{Aufgabe}
+Es sei \( A \in \C^{5 \times 5} \) mit höchstens zwei verschiedenen Eigenwerten \( \lambda, \mu \in \C \) und \( \widetilde{A}=\jnf(A) \). Weiter gelte \( \rk(A)=3 \) und \( \spur(A)=6 \).
+\begin{enumerate}
+	\item Wie viele Jordankästchen zum Eigenwert \( \lambda = 0 \) besitzt \( \widetilde{A} \)?
+	\item Wieso hat \( A \) einen Eigenwert \( \mu \neq 0 \)?
+	\item Welche Zahlen können als Dimension des Hauptraums zum Eigenwert \( \mu \) auftreten?
+	\item Bestimmen Sie alle Möglichkeiten für \( \widetilde{A} \) unter den gegebenen Einschränkungen. 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Nutze die Dimensionsformel.
+	\item Betrachte die Spur von \( A \) und \( \widetilde{A} \).
+	\item Ermittle die Möglichkeiten für \( \dim(\hau(A,0)) \) und beachte, dass die Summe der Dimensionen der Haupträume \( 5 \) sein muss.
+	\item Gehe die möglichen Kombinationsmöglichkeiten für die Hauptraumdimensionen durch. 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Die Anzahl an Jordankästchen ist \( \mu_g(0) \), also
+		\begin{align*}
+		 	\mu_g(0) &= \dim(\eig(A,0)) = \dim(\kr(A-0I_5)) = \dim(\kr(A)) = 5 - \dim(\bild(A)) \\
+		 	 &= 5 - \rk(A) = 2\text{.}
+		 \end{align*}
+	\item Es ist \( \spur(A) = \spur(\widetilde{A}) \). Da auf der Diagonalen von \( \widetilde{A} \) die Eigenwerte stehen muss es einen weiteren Eigenwert \( \neq 0 \) geben.
+	\item Die Matrix hat zwei Eigenwerte und die Dimension des Hauptraums zu \( 0 \) ist mindestens \( 2 \), also ist die Dimension des Hauptraums zu \( \mu \) zwischen \( 1 \) und \( 3 \).
+	\item Wir gehen die verschiedenen Möglichkeiten für die Dimensionen der Haupträume durch:
+		\begin{enumerate}
+			\item \underline{Fall 1}: \( \dim(\hau(A,0))=4 \). Es gibt zwei Möglichkeiten:
+				\begin{equation*}
+				 	\widetilde{A} = \left( \begin{array}{cccc|c}
+				 		0 & 0 & 0 & &  \\
+				 		1 & 0 & 0 & &  \\
+				 		0 & 1 & 0 & &  \\
+				 		 & & & 0 &  \\
+				 		\hline
+				 		 & & & & 6
+				 	\end{array} \right), \quad \widetilde{A} = \left( \begin{array}{cccc|c}
+				 		0 & 0 & & &  \\
+				 		1 & 0 & & &  \\
+				 		 & & 0 & 0 &  \\
+				 		 & & 1 & 0 &  \\
+				 		\hline
+				 		 & & & & 6
+				 	\end{array} \right)
+				 \end{equation*} 
+			\item \underline{Fall 2}: \( \dim(\hau(A,0)) = 3 \). Es gibt zwei Möglichkeiten:
+				\begin{equation*}
+				 	\widetilde{A} = \left( \begin{array}{ccc|cc}
+				 		0 & 0 & & &  \\
+				 		1 & 0 & & &  \\
+				 		 & & 0 & &  \\
+				 		\hline
+				 		 & & & 3 & 0 \\
+				 		 & & & 1 & 3
+				 	\end{array} \right), \quad \widetilde{A} = \left( \begin{array}{ccc|cc}
+				 		0 & 0 & & &  \\
+				 		1 & 0 & & &  \\
+				 		 & & 0 & &  \\
+				 		\hline
+				 		 & & & 3 & \\
+				 		 & & & & 3
+				 	\end{array} \right)
+				 \end{equation*} 
+			\item \underline{Fall 3}: \( \dim(\hau(A,0)) = 2 \). Es gibt drei Möglichkeiten:
+				\begin{equation*}
+				 	\widetilde{A} = \left( \begin{array}{cc|ccc}
+				 		0 & & & &  \\
+				 	     & 0 & & &  \\
+				 		\hline
+				 		 & & 2 & 0 & 0 \\
+				 		 & & 1 & 2 & 0 \\
+				 		 & & 0 & 1 & 2
+				 	\end{array} \right), \quad \widetilde{A} = \left( \begin{array}{cc|ccc}
+				 		0 & & & &  \\
+				 	     & 0 & & &  \\
+				 		\hline
+				 		 & & 2 & 0 & \\
+				 		 & & 1 & 2 & \\
+				 		 & & & & 2
+				 	\end{array} \right), \quad \widetilde{A} = \left( \begin{array}{cc|ccc}
+				 		0 & & & &  \\
+				 	     & 0 & & &  \\
+				 		\hline
+				 		 & & 2 & & \\
+				 		 & & & 2 & \\
+				 		 & & & & 2
+				 	\end{array} \right)\text{.}
+				 \end{equation*} 
+		\end{enumerate}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2015
+%----------------------------------------------------------------------------------------
+\section{Herbst 2015}
+
+\subsection{Aufgabe}
+Es sei \( \Phi \) ein Endomorphismus eines fünfdimensionalen komplexen Vektorraums \( V \) mit 
+\begin{equation*}
+	\cp_\Phi(X)=X^5-9X^3\text{.}
+\end{equation*}
+Ferner sei \( \dim(\kr(\Phi))=1 \). Bestimmen Sie \( \jnf(\Phi \circ \Phi) \).
+
+\subsection{Ansatz}
+Ermittle \( \jnf(\Phi) \) und nutze \( (\jnf(\Phi))^2 \) als Abbildungsmatrix von \( \Phi^2 \). Bestimme anschließend \( \jnf(\Phi \circ \Phi) = \jnf((\jnf(\Phi))^2) \).
+
+\subsection{Lösung}
+Wir formen um:
+\begin{equation*}
+	\cp_\Phi(X) = X^5-9X^3 = X^3(X-3)(X+3) \leadsto \spec(\Phi) = \{ 0, 3, -3 \}, \ \mu_a(0)=3, \ \mu_a(\pm 3) = \mu_g(\pm 3) = 1
+\end{equation*}
+Wir ermitteln die Anzahl an Jordankästchen zum Eigenwert \( 0 \):
+\begin{equation*}
+	\mu_g(0) = \dim(\eig(\Phi,0)) = \dim(\kr(\Phi-0I_5)) = \dim\kr(\Phi) = 1
+\end{equation*}
+und somit
+\begin{equation*}
+	A \coloneqq \jnf(\Phi) = \begin{pmatrix}
+		3 & & & &  \\
+		 & -3 & & &  \\
+		 & & 0 & 0 & 0 \\
+		 & & 1 & 0 & 0 \\
+		 & & 0 & 1 & 0 
+	\end{pmatrix}\text{,}
+\end{equation*}
+also hat \( \Phi^2 \) die Abbildungsmatrix \( A^2 = \left( \begin{smallmatrix}
+	9 & 0 & 0 & 0 & 0 \\
+	0 & 9 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0 & 0 \\
+	0 & 0 & 1 & 0 & 0 
+\end{smallmatrix} \right) \). Wir ermitteln wie oben \( \cp_{A^2}(X) = (X-9)^2X^3 \) und anschließend \( \mu_g(9) = \dim(\kr(A^2-9I_5))=2 \), \( \mu_g(0) = \dim(\kr(A^2)) = 2 \). Somit ist
+\begin{equation*}
+	\jnf(\Phi \circ \Phi) = \left( \begin{array}{cc|ccc}
+		9 & 0 &   &   &   \\
+		1 & 9 &   &   &   \\
+		\hline
+		  &   & 0 &   &   \\
+		  &   &   & 0 & 0 \\
+		  &   &   & 1 & 0 
+	\end{array} \right)
+\end{equation*}

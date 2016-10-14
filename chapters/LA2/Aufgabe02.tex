@@ -1,0 +1,631 @@
+\chapter{Aufgabe 2}
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2007
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2007}
+
+\subsection{Aufgabe}
+Auf dem Vektorraum \( V = \R^3 \) sei mit der symmetrischen Matrix
+\begin{equation*}
+	A = \begin{pmatrix}
+		1 & 1 & -2 \\
+		1 & 2 & -3 \\
+		-2 & -3 & 5
+	\end{pmatrix}
+\end{equation*}
+eine symmetrische Bilinearform \( F \) durch \( F(x,y) = x^\top Ay \) definiert.
+\begin{enumerate}
+	\item Sei \( \{ e_1, e_2, e_3 \} \) die Standardbasis von \( V \). Zeigen Sie, dass zwar die Einschränkung von \( F \) auf die zweidimensionalen Unterräume
+		\begin{equation*}
+		 	\langle e_1, e_2 \rangle, \ \langle e_1, e_3 \rangle, \ \langle e_2, e_3 \rangle
+		 \end{equation*}
+		 ein Skalarprodukt ist, aber \( F \) selbst nicht.
+	\item Sei \( U = \langle \left( \begin{smallmatrix}
+		1 \\ 1 \\ 1
+	\end{smallmatrix} \right) \rangle \subset V \). Zeigen Sie, dass durch \( \widetilde{F}(x+U,y+U) \coloneqq F(x,y) \) ein Skalarprodukt auf dem Faktorraum \( V/U \) definiert wird. Vergessen Sie nicht, die Wohldefiniertheit zu überprüfen!
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Weise Symmetrie, Bilinearität und positive Definitheit von \( F \) auf den Unterräumen nach. Finde außerhalb der Unterräume ein Gegenbeispiel für eine der Eigenschaften.
+	\item Wähle \( x,x',y,y' \) derart, dass \( x+U = x'+U \) und \( y + U = y' + U \). Zeige, dass \( \widetilde{F}(x'+U, y' + U) = \widetilde{F}(x+U,y+U) \). Betrachte dabei \( \kr(A) \).
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Wir zeigen Symmetrie, Bilinearität und positive Definitheit auf den Unterräumen:
+		\begin{enumerate}
+		 	\item \underline{Symmetrie}: Klar, da \( A \) symmetrisch ist.
+		 	\item \underline{Bilinearität}: Klar, da \( A \) bilinear ist.
+		 	\item \underline{positive Definitheit}: Wir berechnen die Fundamentalmatrizen von \( F \) auf den Unterräumen:
+		 		\begin{equation*}
+		 			G_{12} = \begin{pmatrix}
+		 				1 & 1 \\
+		 				1 & 2
+		 			\end{pmatrix}, \quad G_{13} = \begin{pmatrix}
+		 				1 & -2 \\
+		 				-2 & 5
+		 			\end{pmatrix}, \quad G_{23} = \begin{pmatrix}
+		 				2 & -3 \\
+		 				-3 & 5
+		 			\end{pmatrix}\text{,}
+		 		\end{equation*}
+		 		wobei \( G_{ij} \) die Fundamentalmatrix zu \( F \) auf \( \langle e_i, e_j \rangle \) ist. Diese Matrizen sind alle nach dem Hurwitz-Kriterium positiv definit.
+		 \end{enumerate} 
+		 Also ist \( F \) ein Skalarprodukt auf den Unterräumen. Auf \( V \) ist \( F \) aber kein Skalarprodukt, denn für \( x \coloneqq \left( \begin{smallmatrix}
+		 	1 \\ 1 \\ 1
+		 \end{smallmatrix} \right) \neq 0 \) ist \( F(x,x) = 0 \).
+	\item Zuerst überprüfen wir die Wohldefiniertheit. Dazu gelte \( x+U = x'+U \), \( y+U = y'+U \), also existieren \( u_x, u_y \in U \) sodass \( x'=u_x+x \) und \( y' = u_y+y \). Da \( U = \kr(A) \) gilt
+		\begin{align*}
+			\widetilde{F}(x'+U, y'+U) &= F(x',y') = (x')^\top Ay' = (x+u_x)^\top A(y+u_y) = x^\top Ay + u_x^\top Ay + x^\top Au_y + u_x^\top Au_y \\
+			 &= x^\top Ay = \widetilde{F}(x+U, y+U)\text{.}
+		\end{align*}
+		Nun zeigen wir, dass \( \widetilde{F} \) ein Skalarprodukt auf dem Faktorraum ist.
+		\begin{enumerate}
+			\item \underline{Symmetrie}, \underline{Bilinearität}: Folgen aus der von \( F \).
+			\item \underline{positive Definitheit}: Bezüglich der Basis \( \{ e_1+U,e_2+U \} \) hat \( \widetilde{F} \) die Fundamentalmatrix \( \left( \begin{smallmatrix}
+				1 & 1 \\
+				1 & 2
+			\end{smallmatrix} \right) \), welche positiv definit ist (nach Teil 1).
+		\end{enumerate}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2007
+%----------------------------------------------------------------------------------------
+\section{Herbst 2007}
+
+\subsection{Aufgabe}
+Auf \( V = \R^3 \) sei mit
+\begin{equation*}
+	F \coloneqq \begin{pmatrix}
+		3 & 1 & 0 \\
+		1 & 2 & 0 \\
+		0 & 0 & 1
+	\end{pmatrix}
+\end{equation*}
+durch die Formel \( \langle v,w \rangle \coloneqq v^\top Fw \) eine symmetrische Bilinearform festgelegt.
+\begin{enumerate}
+	\item Zeigen Sie, dass \( \langle \cdot, \cdot \rangle \) ein Skalarprodukt auf \( V \) ist.
+	\item Normieren Sie \( e_1 \) bezüglich \( \langle \cdot, \cdot \rangle \) und ergänzen Sie den so entstandenen Vektor zu einer Orthonormalbasis von \( V \) bezüglich \( \langle \cdot, \cdot \rangle \).
+	\item Bestimmen Sie den bezüglich \( \langle \cdot, \cdot \rangle \) orthogonalen Komplementärraum zu \( \langle \left( \begin{smallmatrix}
+		0 \\ 1 \\ 2
+	\end{smallmatrix} \right), \left( \begin{smallmatrix}
+		1 \\ -2 \\ -3
+	\end{smallmatrix} \right) \rangle \leq V \).
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Weise die Eigenschaften nach, die eine symmetrische Bilinearform haben muss, um ein Skalarprodukt zu sein. 
+	\item Normiere \( e_1 \) bezüglich \( \langle \cdot, \cdot \rangle \) und bestimme mithilfe des Gram-Schmidt-Verfahrens die übrigen Vektoren.
+	\item Für jeden Vektor \( v \) des Komplementärraums muss gelten: \\* \( \begin{pmatrix}
+		0 & 1 & 2
+	\end{pmatrix}Fv = \begin{pmatrix}
+		1 & -2 & -3
+	\end{pmatrix}Fv = 0 \).
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item \( F \) legt eine symmetrische Bilinearform fest, also muss nur noch die positive Definitheit nachgewiesen werden, um zu zeigen, dass \( F \) ein Skalarprodukt auf \( V \) ist. \( F \) ist nach dem Hurwitz-Kriterium positiv definit, also legt \( F \) ein Skalarprodukt auf \( V \) fest.
+	\item Es ist \( \widetilde{e}_1 \coloneqq \tfrac{1}{||e_1||}e_1 = \tfrac{1}{\sqrt{3}}e_1 \) der zu \( e_1 \) normierte Vektor. Mit dem Orthogonalisierungsverfahren nach Gram-Schmidt erhalten wir
+	\begin{align*}
+		b_1 &= e_1 \\
+		b_2 &= e_2 - \tfrac{\langle b_1, e_2 \rangle}{\langle b_1, b_1 \rangle}b_1 = e_2 - \tfrac{1}{3}e_1 = \left( \begin{smallmatrix}
+			-\tfrac{1}{3} \\ 1 \\ 0
+		\end{smallmatrix} \right) \\
+		b_3 &= e_3 - \tfrac{\langle b_1, e_3 \rangle}{\langle b_1, b_1 \rangle}b_1 - \tfrac{\langle b_2, e_3 \rangle}{\langle b_2,b_2 \rangle}b_2 = e_3
+	\end{align*}
+	Zu normieren ist nur noch \( b_2 \). Es ist \( ||b_2|| = \sqrt{\langle b_2,b_2 \rangle} = \sqrt{\tfrac{5}{3}} \), also ist \( \widetilde{b}_2 = \sqrt{\tfrac{3}{5}}b_2 \) der zu \( b_2 \) gehörende normierte Vektor.
+	\item Für jeden Vektor \( v \) im Komplementärraum muss gelten:
+	\begin{equation*}
+		\begin{pmatrix}
+			0 & 1 & 2
+		\end{pmatrix}Fv = \begin{pmatrix}
+			1 & -2 & -3
+		\end{pmatrix}Fv = 0\text{, also } \begin{pmatrix}
+			1 & 2 & 2
+		\end{pmatrix}v = \begin{pmatrix}
+			1 & -3 & -3
+		\end{pmatrix}v = 0\text{.}
+	\end{equation*}
+	Der Raum dieser Vektoren ist \( \langle \left( \begin{smallmatrix}
+		0 \\ 1 \\ -1
+	\end{smallmatrix} \right) \rangle \).
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2010
+%----------------------------------------------------------------------------------------
+\section{Herbst 2010}
+
+\subsection{Aufgabe}
+Es sei \( B = \{ b_1, \dots, b_n \} \) eine Basis von \( \R^n \). Zeigen Sie:
+\begin{enumerate}
+	\item Durch
+		\begin{equation*}
+		 	P(v,w) \coloneqq \sum_{i=1}^n (b_i^\top v)(b_i^\top w)
+		 \end{equation*} 
+		 wird ein Skalarprodukt auf \( \R^n \) definiert.
+	\item Wenn \( B \) eine Orthonormalbasis bezüglich des Standardskalarproduktes ist, dann ist \( P \) das Standardskalarprodukt.
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Zeige, dass \( P \) symmetrisch, bilinear und positiv definit ist.
+	\item Betrachte die Fundamentalmatrix von \( P \) bezüglich \( B \) und zeige, dass es dieselbe Matrix ist wie die Fundamentalmatrix des Standardskalarprodukts bezüglich \( B \). 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Wir zeigen die nötigen Eigenschaften:
+		\begin{enumerate}
+		 	\item \underline{Symmetrie}: Aufgrund der Kommutativität der Multiplikation auf \( \R \) ist \( P \) symmetrisch.
+		 	\item \underline{Bilinearität}: Es reicht die Linearität im ersten Argument zu zeigen. \\* Dafür seien \( w \in \R^n \) fest, \( v_1, v_2 \in \R^n \), \( \alpha \in \R \):
+		 		\begin{align*}
+		 			P(v_1 + \alpha v_2, w) &= \sum_{i=1}^n(b_i^\top(v_1 + \alpha v_2))(b_i^\top w) = \sum_{i=1}^n\left( (b_i^\top v_1) + (b_i^\top \alpha v_2) \right)(b_i^\top w) \\
+		 			 &= \sum_{i=1}^n \left( (b_i^\top v_1)(b_i^\top w) \right)\left( \alpha(b_i^\top v_2)(b_i^\top w) \right) = P(v_1, w) + \alpha P(v_2,w)
+		 		\end{align*}
+		 	\item \underline{Positive Definitheit}: Es ist
+		 		\begin{equation*}
+		 			P(v,v) = \sum_{i=1}^n (b_i^\top v)^2\text{.}
+		 		\end{equation*}
+		 		Für jedes \( 0 \neq v \in \R^n \) existiert nun ein \( i' \in \{ 1, \dots, n \} \), sodass \( b_{i'}^\top v \neq 0 \), da \( v \) eine Linearkombination der Basisvektoren ist. Also ist \( (b_{i'}^\top v)^2 > 0 \) und somit \( P(v,v) > 0 \). 
+		 \end{enumerate} 
+
+	\item Die Fundamentalmatrix von \( P \) bezüglich \( B \) ist
+	\begin{equation*}
+		P(b_k, b_l), \ 1 \leq k,l \leq n \quad \text{mit} \quad P(b_k,b_l) = \sum_{i=1}^n (b_i^\top b_k)(b_i^\top b_l)\text{.}
+	\end{equation*}
+	Da \( B \) Orthonormalbasis ist, sind alle Einträge \( =0 \), außer für \( i=k=l \), in welchem Fall der Summand \( 1*1=1 \) ist. Folglich ist die Matrix die Einheitsmatrix, was aber auch die Fundamentalmatrix des Standardskalarproduktes bezüglich \( B \) ist.
+	\\*
+	Also stimmen die beiden Skalarprodukte überein.
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2013
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2013}
+
+\subsection{Aufgabe}
+Es seien \( V \) ein euklidischer Vektorraum mit Skalarprodukt \( \langle \cdot, \cdot \rangle \) und \( \Phi \in \text{End}(V) \).
+\begin{enumerate}
+	\item Geben Sie die Definition der adjungierten Abbildung \( \Phi^\ast \) von \( \Phi \) an.
+	\item Zeigen Sie, dass die folgenden beiden Aussagen äquivalent sind:
+		\begin{enumerate}
+		 	\item Die adjungierte Abbildung \( \Phi^\ast \) existiert, und es gilt \( \Phi^\ast = - \Phi \).
+		 	\item \( \forall x \in V : \langle \Phi(x), x \rangle = 0 \) 
+		 \end{enumerate} 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Gib die Definition an.
+	\item Zeige beide Richtungen einzeln. \\* Berücksichtige bei der Rückrichtung, dass \( \langle x+y, \Phi(x+y) \rangle = 0 \). 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Ist \( V \) ein euklidischer Vektorraum mit Skalarprodukt \( \langle \cdot, \cdot \rangle \) und \( \Phi \in \text{End}(V) \), so heißt \( \Phi^\ast \) die zu \( \Phi \) adjungierte Abbildung, falls gilt:
+		\begin{equation*}
+		 	\forall x,y \in V : \langle \Phi(x),y \rangle = \langle x, \Phi^\ast(y) \rangle\text{.}
+		 \end{equation*}
+	\item \underline{\( \Rightarrow \)}: \( \langle \Phi(x),x \rangle = \langle x, \Phi^\ast(x) \rangle = - \langle x, \Phi(x) \rangle = - \langle \Phi(x),x \rangle \).
+		\\*
+		Somit gilt die zweite Aussage.
+	\item \underline{\( \Leftarrow \)}: Zu zeigen ist: \( \langle \Phi(x), y \rangle = \langle x, (-\Phi)(y) \rangle \). Das ist genau dann der Fall, wenn
+		\begin{align*}
+			&\langle \Phi(x),y \rangle = \langle x, (-\Phi)(y) \rangle \\
+			\Leftrightarrow &\langle \Phi(x),y \rangle = - \langle x, \Phi(y) \rangle \\
+			\Leftrightarrow &\langle \Phi(x),y \rangle + \langle x, \Phi(y) \rangle = 0 \\
+			\Leftrightarrow &\underbrace{\langle \Phi(x),x \rangle}_{=0} + \langle \Phi(x),y \rangle + \langle x, \Phi(y) \rangle + \underbrace{\langle y, \Phi(y) \rangle}_{=0} = 0 \\
+			\Leftrightarrow &\langle x+y, \Phi(x+y) \rangle = 0
+		\end{align*}
+		Das ist gegeben, somit gilt die erste Aussage.
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2013
+%----------------------------------------------------------------------------------------
+\section{Herbst 2013}
+
+\subsection{Aufgabe}
+Sei \( V = \{ A \in \R^{3 \times 3} \mid A^\top = A \} \). Dies ist ein reeller Vektorraum der Dimension \( 6 \). Wir definieren auf \( V \times V \) die Abbildung
+\begin{equation*}
+	\langle \cdot, \cdot \rangle : V \times V \ni (A,B) \mapsto \spur(AB) \in \R\text{.}
+\end{equation*}
+\begin{enumerate}
+	\item Weisen Sie nach, dass \( \langle \cdot, \cdot \rangle \) ein Skalarprodukt ist.
+	\item Es sei \( U \leq V \) der aus Diagonalmatrizen bestehende Untervektorraum. Bestimmen Sie eine Orthonormalbasis von \( U^\perp \).
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Weise Symmetrie, Bilinearität und positive Definitheit nach.
+	\item Wie sieht \( U^\perp \) aus? Bestimme eine Basis von \( U^\perp \) und bestimme daraus eine Orthonormalbasis von \( U^\perp \). 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Wir weisen Symmetrie, Bilinearität und positive Definitheit nach:
+		\begin{enumerate}
+		 	\item \underline{Symmetrie}: \( \spur(AB)=\spur(BA) \) ist bekannt.
+		 	\item \underline{Bilinearität}: Wir rechnen nach:
+		 		\begin{align*}
+		 		 	\forall A_1, A_2,B \in V: \quad &\langle A_1 + A_2, B \rangle = \spur((A_1+A_2)B) = \spur(A_1B+A_2B) \\
+		 		 	 &= \spur(A_1B)+\spur(A_2B) = \langle A_1,B \rangle + \langle A_2,B \rangle \\
+		 		 	\forall A,B \in V, c \in \R: \quad &\langle cA,B \rangle = \spur(cAB)=c\spur(AB) = c\langle A,B \rangle
+		 		 \end{align*} 
+		 	\item \underline{Positive Definitheit}: Es sei \( 0 \neq A = \left( \begin{smallmatrix}
+		 		a & b & c \\
+		 		b & d & e \\
+		 		c & e & f
+		 	\end{smallmatrix} \right) \in \R^{3 \times 3} \). Dann ist
+		 		\begin{equation*}
+		 			\langle A,A \rangle = \spur(A^2) = \spur\left( \begin{smallmatrix}
+		 				a^2+b^2+c^2 & \ast & \ast \\
+		 				\ast & b^2+d^2+e^2 & \ast \\
+		 				\ast & \ast & c^2+e^2+f^2 
+		 			\end{smallmatrix} \right) > 0
+		 		\end{equation*}
+		 \end{enumerate}
+	\item \( D \coloneqq \diag(x,y,z) \in \R^{3 \times 3} \). Damit \( A = \left( \begin{smallmatrix}
+		a & b & c \\
+		b & d & e \\
+		c & e & f
+	\end{smallmatrix} \right) \perp D \) muss gelten:
+	\begin{equation*}
+		0 = \langle D,A \rangle = \spur(DA) = xa+yd+zf
+	\end{equation*}
+	Damit diese Bedingung für alle \( D \) erfüllt ist, muss \( a=d=f=0 \) gelten. Also ist
+	\begin{equation*}
+		U^\perp = \left\{ \left( \begin{smallmatrix}
+			0 & b & c \\
+			b & 0 & e \\
+			c & e & 0
+		\end{smallmatrix} \right) \mid b,c,e \in \R \right\} = \langle \left( \begin{smallmatrix}
+			0 & 1 & 0 \\
+			1 & 0 & 0 \\
+			0 & 0 & 0 
+		\end{smallmatrix} \right),\left( \begin{smallmatrix}
+			0 & 0 & 1 \\
+			0 & 0 & 0 \\
+			1 & 0 & 0 
+		\end{smallmatrix} \right),\left( \begin{smallmatrix}
+			0 & 0 & 0 \\
+			0 & 0 & 1 \\
+			0 & 1 & 0
+		\end{smallmatrix} \right) \rangle \text{.}
+	\end{equation*}
+	Das Skalarprodukt zweier Matrizen aus \( U^\perp \) ist
+	\begin{equation*}
+		\langle \left( \begin{smallmatrix}
+			0 & b_1 & c_1 \\
+			b_1 & 0 & e_1 \\
+			c_1 & e_1 & 0
+		\end{smallmatrix} \right),\left( \begin{smallmatrix}
+			0 & b_2 & c_2 \\
+			b_2 & 0 & e_2 \\
+			c_2 & e_2 & 0 
+		\end{smallmatrix} \right) \rangle = 2(b_1b_2+c_1c_2+e_1e_2)\text{,}
+	\end{equation*}
+	also bildet die Basis oben bereits eine Orthogonalbasis. Man erhält als Orthonormalbasis
+	\begin{equation*}
+		\left\{ \tfrac{1}{\sqrt{2}}\left( \begin{smallmatrix}
+			0 & 1 & 0 \\
+			1 & 0 & 0 \\
+			0 & 0 & 0 
+		\end{smallmatrix} \right), \tfrac{1}{\sqrt{2}}\left( \begin{smallmatrix}
+			0 & 0 & 1 \\
+			0 & 0 & 0 \\
+			1 & 0 & 0
+		\end{smallmatrix} \right), \tfrac{1}{\sqrt{2}}\left( \begin{smallmatrix}
+			0 & 0 & 0 \\
+			0 & 0 & 1 \\
+			0 & 1 & 0 
+		\end{smallmatrix} \right) \right\}\text{.}
+	\end{equation*}
+
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2014
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2014}
+
+\subsection{Aufgabe}
+Für \( a,b \in \R \) sei die folgende Matrix \( F_{a,b} \in \R^{4 \times 4} \) gegeben:
+\begin{equation*}
+	F_{a,b} = \begin{pmatrix}
+		1 & 0 & b & 0 \\
+		0 & 2 & 0 & 0 \\
+		1 & 0 & a & 2 \\
+		0 & 0 & 2 & 4
+	\end{pmatrix}
+\end{equation*}
+\begin{enumerate}
+	\item Für welche \( a,b \in \R \) ist \( F_{a,b} \) die Fundamtentalmatrix eines Skalarproduktes auf \( \R^4 \)?
+	\item Sei nun \( a=3 \) und \( b=1 \). Bestimmen Sie eine Orthonormalbasis von \( \R^4 \) bezüglich des Skslarprodukts, das für \( x,y \in \R^4 \) durch
+		\begin{equation*}
+		 	\langle x,y \rangle = x^\top F_{3,1}y
+		 \end{equation*} 
+		 definiert ist.
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Bestimme, für welche \( a,b \in \R \) \( F \) die für ein Skalarprodukt nötigen Eigenschaften erfüllt.
+	\item Orthogonalisiere die Standardbasis des \( \R^4 \) mit dem Gram-Schmidt-Verfahren und normiere sie. 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Jede Matrix \( F \in \R^{4 \times 4} \) definiert eine Bilinearform auf \( \R^4 \). Diese ist genau dann ein Skalarprodukt, wenn \( F \) positiv definit und symmetrisch ist.
+		\begin{enumerate}
+			\item \underline{Symmetrisch}: \( F \) ist genau dann symmetrisch, wenn \( b = 1 \).
+			\item \underline{Positive Definitheit}: Wir verwenden das Hurwitz-Kriterium und bestimmen die Determinanten der Hauptminoren:
+				\begin{enumerate}
+				 	\item \( \det((1)) = 1 > 0 \)
+				 	\item \( \det\left( \begin{smallmatrix}
+				 		1 & 0 \\
+				 		0 & 2
+				 	\end{smallmatrix} \right) = 2 > 0 \) 
+				 	\item \( \det\left( \begin{smallmatrix}
+				 		1 & 0 & 1 \\
+				 		0 & 2 & 0 \\
+				 		1 & 0 & a
+				 	\end{smallmatrix} \right) = 2(a-1) > 0 \Leftrightarrow a > 1 \)
+				 	\item \( \det\left( \begin{smallmatrix}
+				 		1 & 0 & 1 & 0 \\
+				 		0 & 2 & 0 & 0 \\
+				 		1 & 0 & a & 2 \\
+				 		0 & 0 & 2 & 4
+				 	\end{smallmatrix} \right) = 8(a-2) > 0 \Leftrightarrow a > 2 \)
+				 \end{enumerate} 
+				 Also ist \( F_{a,b} \) genau dann positiv definit, wenn \( b = 1 \) und \( a > 2 \).
+		\end{enumerate}
+	\item Wir wählen die Standardbasis des \( \R^4 \) und orthogonalisieren sie mit dem Gram-Schmidt-Verfahren:
+		\begin{enumerate}
+			\item \( b_1 \coloneqq e_1 = \left( \begin{smallmatrix}
+				1 \\ 0 \\ 0 \\ 0
+			\end{smallmatrix} \right) \)
+			\item \( b_2 \coloneqq e_2 - \tfrac{\langle b_1, e_2 \rangle}{\langle b_1,b_1 \rangle}b_1 = e_2 \)
+			\item \( b_3 \coloneqq e_3 - \tfrac{\langle b_1, e_3 \rangle}{\langle b_1,b_1 \rangle}b_1 - \tfrac{\langle b_2, e_2 \rangle}{\langle b_2,b_2 \rangle}b_2 = e_3 - e_1 = \left( \begin{smallmatrix}
+				-1 \\ 0 \\ 1 \\ 0
+			\end{smallmatrix} \right) \) 
+			\item \( b_4 \coloneqq e_4 - \tfrac{\langle b_1, e_4 \rangle}{\langle b_1,b_1 \rangle}b_1 - \tfrac{\langle b_2,e_4 \rangle}{\langle b_2,b_2 \rangle} - \tfrac{\langle b_3,e_4 \rangle}{\langle b_3,b_3 \rangle}b_3 = e_4-b_3 = \left( \begin{smallmatrix}
+				1 \\ 0 \\ -1 \\ 1
+			\end{smallmatrix} \right) \)
+		\end{enumerate}
+		Durch Normierung erhalten wir die Orthonormalbasis
+		\begin{equation*}
+			\left\{ \begin{pmatrix}
+				1 \\ 0 \\ 0 \\ 0
+			\end{pmatrix}, \frac{1}{\sqrt{2}}\begin{pmatrix}
+				0 \\ 1 \\ 0 \\ 0
+			\end{pmatrix}, \frac{1}{\sqrt{2}}\begin{pmatrix}
+				-1 \\ 0 \\ 1 \\ 0
+			\end{pmatrix}, \frac{1}{\sqrt{2}}\begin{pmatrix}
+				1 \\ 0 \\ -1 \\ 1
+			\end{pmatrix} \right\}\text{.}
+		\end{equation*}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2014
+%----------------------------------------------------------------------------------------
+\section{Herbst 2014}
+
+\subsection{Aufgabe}
+Es sei \( V = \{ p \in \R[X] \mid \grad(p) \leq 2 \} \). Für \( p = a_0+a_1X+a_2X^2 \), \( q = b_0+b_1X+b_2X^2 \) sei
+\begin{equation*}
+	s(p,q) = 3a_0b_0+2a_0b_2+2a_1b_1+2a_2b_0+2a_2b_2 \in \R
+\end{equation*}
+\begin{enumerate}
+	\item Zeigen Sie, dass die Abbildung \( s: V \times V \ni (p,q) \mapsto s(p,q) \in \R \) ein Skalarprodukt ist und geben Sie dessen Fundamentalmatrix bezüglich der Basis \( C=(1,X,X^2) \) von \( V \) an.
+	\item Bestimmen Sie die Orthogonalprojektion von \( p=X^2 \) auf \( U = \langle \{ 1,X \} \rangle \subset V \) sowie den Abstand von \( p \) zu \( U \) (je bezüglich \( s \)). 
+	\item Geben Sie eine Orthonormalbasis von \( V \) bezüglich \( s \) an.
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Weise Symmetrie, Bilinearität und positive Definitheit nach.
+	\item Berechne eine Orthonormalbasis bezüglich \( s \) auf dem Unterraum und berechne anschließend die Orthogonalprojektion und den Abstand.
+	\item Ergänze die Basis aus dem zweiten Teil um einen dritten Vektor mithilfe des Gram-Schmidt-Verfahrens.
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Bilinearität und Symmetrie sieht man aufgrund der Struktur von \( s \) leicht ein, da \( s(\lambda(p+r),q) \) sich in Teile zerteilen lässt, die man auch durch Zerteilung von \( \lambda s(p,q) + \lambda s(r,q) \) erhält. Für die positive Definitheit bestimmen wir die Fundamentalmatrix
+		\begin{equation*}
+			F_C(s) = \left( \begin{smallmatrix}
+				s(1,1) & s(1,X) & s(1,X^2) \\
+				s(X,1) & s(X,X) & s(X,X^2) \\
+				s(X^2,1) & s(X^2,X) & s(X^2,X^2)
+			\end{smallmatrix} \right) = \begin{pmatrix}
+				3 & 0 & 2 \\
+				0 & 2 & 0 \\
+				2 & 0 & 2
+			\end{pmatrix}\text{.}
+		\end{equation*}
+		Wir nutzen das Hurwitz-Kriterium und bestimmen deswegen die Determinanten der Hauptminoren:
+		\begin{enumerate}
+			\item \( \det((3)) = 3 > 0 \) \\
+			\item \( \det\left( \begin{smallmatrix}
+				3 & 0 \\
+				0 & 2
+			\end{smallmatrix} \right) = 6 > 0 \)
+			\item \( \det(F_C(s)) = 4 > 0 \)
+		\end{enumerate}
+	\item Es ist \( F_{\{ 1,X \}}(s) = \left( \begin{smallmatrix}
+		3 & 0 \\
+		0 & 2
+	\end{smallmatrix} \right) \), also ist \( \{ 1,X \} \) bereits eine Orthogonalbasis. Um später weniger Aufwand betreiben zu müssen normieren wir die Basis noch und erhalten so \( \{ \tfrac{1}{\sqrt{3}}, \tfrac{1}{\sqrt{2}}X \} \).
+	Also ist die Orthogonalprojektion von \( p \in V \) auf \( U \):
+	\begin{equation*}
+		\Pi_U(p) = s(p,\tfrac{1}{\sqrt{3}})\tfrac{1}{\sqrt{3}} + s(p,\tfrac{1}{\sqrt{2}}X)\tfrac{1}{\sqrt{2}}X
+	\end{equation*}
+	Wir erhalten so \( \Pi_U(X^2) = \tfrac{2}{3} \).
+	\\*
+	Für den Abstand \( d(p,U) \) gilt:
+	\begin{align*}
+		d(p,U)^2 &= ||p-\Pi_U(p)||^2 = s(X^2-\tfrac{2}{3},X^2-\tfrac{2}{3}) = \tfrac{2}{3} \leadsto d(p,U) = \sqrt{\tfrac{2}{3}}
+	\end{align*}
+
+	\item Wir ergänzen die Orthonormalbasis aus dem zweiten Teil um einen dritten Vektor:
+	\begin{equation*}
+		v_3 = X^2-\tfrac{\langle v_1,X^2 \rangle}{\langle v_1,v_1 \rangle}v_1 - \tfrac{\langle v_2,X^2 \rangle}{\langle v_2,v_2 \rangle}v_2 = X^2-\tfrac{2}{3}
+	\end{equation*}
+	Die ersten beiden Vektoren sind bereits normiert, durch Normierung des dritten Vektors erhalten wir die Orthonormalbasis
+	\begin{equation*}
+		\left\{ \tfrac{1}{\sqrt{3}},\tfrac{1}{\sqrt{2}}X,\sqrt{\tfrac{3}{2}}X^2-\sqrt{\tfrac{2}{3}} \right\}\text{.}
+	\end{equation*}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2015
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2015}
+
+\subsection{Aufgabe}
+Für \( x = \left( \begin{smallmatrix}
+	x_1 \\ x_2 \\ x_3
+\end{smallmatrix} \right), \ y = \left( \begin{smallmatrix}
+	y_1 \\ y_2 \\ y_3
+\end{smallmatrix} \right) \in \R^3 \) setzt man
+\begin{equation*}
+	s(x,y) \coloneqq \tfrac{1}{3}(x_1y_1+x_2y_3+x_3y_2)+\tfrac{1}{5}x_2y_2+x_3y_3\text{.}
+\end{equation*}
+Die Vorschrift definiert eine symmetrische Bilinearform auf \( \R^3 \).
+\begin{enumerate}
+	\item Zeigen Sie, dass \( s \) positiv definit und damit ein Skalarprodukt ist.
+	\item Bestimmen Sie eine Orthonormalbasis von \( \left\{ \left( \begin{smallmatrix}
+		1 \\ 0 \\ 0
+	\end{smallmatrix} \right), \left( \begin{smallmatrix}
+		0 \\ 1 \\ 0
+	\end{smallmatrix} \right) \right\} \eqqcolon U \subset V \)
+	\item Bestimmen Sie eine Orthonormalbasis des orthogonalen Komplements \( U^\perp \) von \( U \) bzgl. \( s \).
+	\item Berechnen Sie den Abstand \( d\left( \left( \begin{smallmatrix}
+		0 \\ 8 \\ 15
+	\end{smallmatrix} \right),U \right) \) bezüglich \( s \).
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Zeige dass \( \forall x \in \R^3: s(x,x) > 0 \). 
+	\item Berechne eine Orghogonalbasis mit dem Gram-Schmidt-Verfahren und normiere sie.
+	\item Bestimme, wie \( U^\perp \) aussieht, bestimme eine Basis, orthogonalisiere sie wie in 2. und normiere sie.
+	\item Beachte die Dimenśion von \( U^\perp \), durch welche die Berechnung des Abstands sehr einfach wird.
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Es ist für \( x \in \R^3 \)
+		\begin{equation*}
+		 	s(x,x) = \tfrac{1}{3}x_1^2+\tfrac{4}{45}x_2^2+(\tfrac{1}{3}x_2+x_3)^2 \geq 0\text{,}
+		 \end{equation*} 
+		 außerdem ist \( s(x,x)  = 0 \Leftrightarrow x = \left( \begin{smallmatrix}
+		 	 0 \\ 0 \\ 0
+		 \end{smallmatrix} \right) \), also ist \( s \) positiv definit.
+	\item Wir bestimmen eine Orthogonalbasis mittels Gram-Schmidt-Verfahren:
+		\begin{enumerate}
+			\item \( b_1 \coloneqq \left( \begin{smallmatrix}
+				1 \\ 0 \\ 0
+			\end{smallmatrix} \right) \) 
+			\item \( b_2 \coloneqq \left( \begin{smallmatrix}
+				0 \\ 1 \\ 0
+			\end{smallmatrix} \right) - \tfrac{\langle b_1, \left( \begin{smallmatrix}
+				0 \\ 1 \\ 0
+			\end{smallmatrix} \right) \rangle}{\langle b_1,b_1 \rangle}b_1 = \left( \begin{smallmatrix}
+				0 \\ 1 \\ 0
+			\end{smallmatrix} \right) \)
+		\end{enumerate}
+		Durch Normierung erhalten wir die Orthonormalbasis 
+		\begin{equation*}
+			\left\{ \begin{pmatrix}
+				\sqrt{3} \\ 0 \\ 0
+			\end{pmatrix}, \begin{pmatrix}
+				0 \\ \sqrt{5} \\ 0
+			\end{pmatrix} \right\}\text{.}
+		\end{equation*}
+	\item Nach dem Dimensionssatz ist \( U^\perp \) eindimensional. Für alle \( x \in U^\perp \) muss gelten:
+		\begin{align*}
+			s(b_1,x) &= \tfrac{1}{3}\sqrt{3}x_1 = 0 \\
+			s(b_2,x) &= \tfrac{1}{3}\sqrt{5}x_3 + \tfrac{1}{5}\sqrt{5}x_2 = 0
+		\end{align*}
+		Wir erhalten somit \( \left( \begin{smallmatrix}
+				0 \\ 5 \\ -3
+			\end{smallmatrix} \right) \) als Basisvektor von \( U^\perp \). Durch Normierung erhalten wir
+		\begin{equation*}
+			U^\perp = \langle \tfrac{1}{2} \left(\begin{smallmatrix}
+				0 \\ 5 \\ -3
+			\end{smallmatrix} \right) \rangle\text{.}
+		\end{equation*}
+	\item Da \( U^\perp \) eindimensional ist gilt
+		\begin{equation*}
+			d\left( \left(\begin{smallmatrix}
+				0 \\ 8 \\ 15
+			\end{smallmatrix} \right),U \right) = |s\left( \left(\begin{smallmatrix}
+				0 \\ 8 \\ 15
+			\end{smallmatrix} \right), \tfrac{1}{2}\left(\begin{smallmatrix}
+				0 \\ 5 \\ -3
+			\end{smallmatrix} \right) \right)| = 10\text{.}
+		\end{equation*}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2015
+%----------------------------------------------------------------------------------------
+\section{Herbst 2015}
+
+\subsection{Aufgabe}
+Es sei \( V = C^0([-1,1]) \) der reelle Vektorraum der auf dem Intervall \( [-1,1] \) stetigen Funktionen mit dem Skalarprodukt
+\begin{equation*}
+	\langle f,g \rangle \coloneqq \int_{-1}^1f(x)g(x)\dx\text{.}
+\end{equation*}
+Weiter sei \( U \) der Untervektorraum der Polynomfunktionen vom Grad \( \leq 2 \). Bestimmen Sie die orthogonale Projektion von \( f:[-1,1] \ni x \mapsto x^3+1 \in \R \) auf \( U \) und den Abstand von \( f \) und \( U \).
+
+\subsection{Ansatz}
+Bestimme eine Orthonormalbasis von \( U \) mithilfe des Gram-Schmidt-Verfahrens, wodurch die Berechnung von \( \Pi_U(f) \) vereinfacht wird. Nutze anschließend \( \Pi_U(f) \), um \( d(f,U) \) zu bestimmen.
+
+\subsection{Lösung}
+Es gilt
+\begin{equation*}
+	\Pi_U(x^3+1) = \Pi_U(x^3)+\Pi_U(\underbrace{1}_{\in U}) = \Pi_U(x^3) + 1\text{.}
+\end{equation*}
+Wir bestimmen nun eine Orthonormalbasis von \( U \), damit wir \( \Pi_U(x^3) \) bequem bestimmen können. Dazu orthogonalisieren wir die gegebene Basis von \( U \) mithilfe des Gram-Schmidt-Verfahrens (wobei \( p_i:[-1,1] \ni x \mapsto x^i \in \R \)):
+\begin{enumerate}
+	\item \( v_1 = p_0 \)
+	\item \( v_2 = p_1 - \tfrac{\langle v_1,p_1 \rangle}{\langle v_1,v_1 \rangle}v_1 = p_1 \)
+	\item \( v_3 = p_2 - \tfrac{\langle v_1,p_2 \rangle}{\langle v_1,v_1 \rangle}v_1 - \tfrac{\langle v_2,p_2 \rangle}{\langle v_2,v_2 \rangle}v_2 \eqqcolon \ast \) 
+\end{enumerate}
+Wir normieren \( v_1 \) und \( v_2 \) und erhalten so \( \tfrac{1}{\sqrt{2}} \) und \( \sqrt{\tfrac{3}{2}}x \). Also ist
+\begin{equation*}
+	\Pi_U(x^3) = \underbrace{\langle x^3,\tfrac{1}{\sqrt{2}} \rangle}_{=0} \tfrac{1}{\sqrt{2}} + \langle x^3,\sqrt{\tfrac{3}{2}}x \rangle\sqrt{\tfrac{3}{2}}x + \underbrace{\langle x^3,\tfrac{1}{||\ast||}\ast \rangle}_{=0} \tfrac{1}{||\ast||}\ast = \tfrac{3}{5}x
+\end{equation*}
+und somit
+\begin{equation*}
+	\Pi_U(f) = \tfrac{3}{5}x+1\text{.}
+\end{equation*}
+Somit ist
+\begin{equation*}
+	d(f,U) = ||f - \Pi_U(f)|| = ||x^3-\tfrac{3}{5}x|| = \tfrac{2}{35}\sqrt{14}\text{.}
+\end{equation*}

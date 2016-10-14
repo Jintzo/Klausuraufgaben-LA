@@ -1,0 +1,502 @@
+\chapter{Aufgabe 4}
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2007
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2007}
+
+\subsection{Aufgabe}
+Im euklidischen Standardvektorraum \( \R^4 \) sei bezüglich der Standardbasis eine Isometrie gegeben durch ihre Abbildungsmatrix
+\begin{equation*}
+	A = \frac{1}{4}\begin{pmatrix}
+		3 & - \sqrt{3} & -1 & \sqrt{3} \\
+		\sqrt{3} & 3 & \sqrt{3} & 1 \\
+		-1 & -\sqrt{3} & 3 & \sqrt{3} \\
+		-\sqrt{3} & 1 & -\sqrt{3} & 3
+	\end{pmatrix}\text{.}
+\end{equation*}
+\begin{enumerate}
+	\item Bestimmen Sie die Isometrienormalform \( \widetilde{A} \) von \( A \).
+	\item Bestimme \( S \in O(4) \) derart, dass \( \widetilde{A} = S^{-1}AS \).
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Betrachte \( B \coloneqq A + A^\top \), berechne \( \cp_B(X) \) und bestimme daraus die Normalform.
+	\item Bestimme Orthonormalbasen der Eigenräume von \( B \). Überprüfe noch die Reihenfolge der letzten beiden Vektoren und gebe anschließend \( S=(b_1,b_2,b_3,b_4) \) an.
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Wir berechnen
+	\begin{equation*}
+		\cp_{A+A^\top}(\lambda) = (\lambda - 2)^2(\lambda-1)^2 \leadsto \spec(A+A^\top) = \{ 1,2 \}\text{.}
+	\end{equation*}
+	Wir erhalten also
+	\begin{equation*}
+		\widetilde{A} = \begin{pmatrix}
+			1 & & & \\
+			& 1 & & \\
+			 & & \cos(\omega_1) & -\sin(\omega_1) \\
+			 & & \sin(\omega_1) & \cos(\omega_1)
+		\end{pmatrix} = \begin{pmatrix}
+			1 & & & \\
+			& 1 & & \\
+			& & \tfrac{1}{2} & -\tfrac{\sqrt{3}}{2} \\
+			& & \tfrac{\sqrt{3}}{2} & \tfrac{1}{2}
+		\end{pmatrix}\text{.}
+	\end{equation*}
+
+	\item Wir berechnen
+	\begin{equation*}
+		\eig(A+A^\top,2) = \langle \left( \begin{smallmatrix}
+			1 \\ 0 \\ -1 \\ 0
+		\end{smallmatrix} \right), \left( \begin{smallmatrix}
+			0 \\ 1 \\ 0 \\ 1
+		\end{smallmatrix} \right) \rangle \eqqcolon \langle c_1,c_2 \rangle \text{,} \quad \eig(A+A^\top,1) = \langle \left( \begin{smallmatrix}
+			1 \\ 0 \\ 1 \\ 0
+		\end{smallmatrix} \right), \left( \begin{smallmatrix}
+			0 \\ 1 \\ 0 \\ -1
+		\end{smallmatrix} \right) \rangle \eqqcolon \langle c_3,c_4 \rangle \text{,}
+	\end{equation*}
+	also sind \( \{ \tfrac{1}{\sqrt{2}}c_1 , \tfrac{1}{\sqrt{2}}c_2 \} \eqqcolon \{ b_1,b_2 \} \) und \( \{ \tfrac{1}{\sqrt{2}}c_3, \tfrac{1}{\sqrt{2}}c_4 \} \eqqcolon \{ b_3,b_4 \} \) Orthonormalbasen von des jeweiligen Eigenraums.
+	\\*
+	Es ist \( Ab_3 = \tfrac{1}{2}b_3 + \tfrac{\sqrt{3}}{2}b_4 \), also passt die Reihenfolge von \( b_3 \) und \( b_4 \) und wir erhalten
+	\begin{equation*}
+		S = \frac{1}{\sqrt{2}}\begin{pmatrix}
+			1 & 0 & 1 & 0 \\
+			0 & 1 & 0 & 1 \\
+			-1 & 0 & 1 & 0 \\
+			0 & 1 & 0 & -1
+		\end{pmatrix}\text{.}
+	\end{equation*}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2007
+%----------------------------------------------------------------------------------------
+\section{Herbst 2007}
+
+\subsection{Aufgabe}
+\begin{enumerate}
+	\item Zeigen Sie, dass für
+		\begin{equation*}
+			A = \frac{1}{4}\begin{pmatrix}
+				\sqrt{3}+2 & \sqrt{3}-2 & -\sqrt{2} \\
+				\sqrt{3}-2 & \sqrt{3}+2 & -\sqrt{2} \\
+				\sqrt{2} & \sqrt{2} & 2\sqrt{3}
+			\end{pmatrix}
+		\end{equation*}
+		die Abbildung \( \Phi: \R^3 \ni x \mapsto Ax \in \R^3 \) eine Isometrie des euklidischen Standardraums \( \R^3 \) ist.
+	\item Bestimmen Sie die Isometrienormalform \( B \) von \( A \).
+	\item Bestimmen Sie \( S \in O(3) \) derart, dass \( B = S^{-1}AS \).
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Zeige, dass \( A^\top A = I_3 \).
+	\item Bestimme, welche Struktur \( B \) haben muss und beachte, dass die Spur ähnlichkeitsinvariant ist.
+	\item Bestimme einen normierten Eigenvektor \( b_1 \) zu \( 1 \in \spec(A) \) und zwei weitere normierte Vektoren aus \( \langle b_1 \rangle^\perp \), sodass diese eine Orthonormalbasis des \( \R^3 \) bilden. Konstruiere aus ihnen \( S \).
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item \( \Phi \) ist eine Isometrie genau dann wenn \( A^\top A = I_3 \), was der Fall ist.
+	\item Es ist \( \spur(A) = 1+\sqrt{3} \), also muss das auch die Spur von \( B \) sein. \( B \) sieht folgendermaßen aus:
+	\begin{equation*}
+		B = \left(\begin{smallmatrix}
+			\pm 1 & & \\
+			 & b & -c \\
+			 & c & b
+		\end{smallmatrix}\right) \text{ mit } 2b \pm 1 = 1+\sqrt{3}\text{, } b^2+c^2=1\text{.}
+	\end{equation*}
+	Stünde \( -1 \) auf der Diagonalen, so müsste \( b > 1 \) sein, was wegen \( b^2+c^2=1 \) nicht geht, also ist mit \( (\tfrac{\sqrt{3}}{2})+c^2=1 \):
+	\begin{equation*}
+		B = \begin{pmatrix}
+			1 & & \\
+			& \tfrac{\sqrt{3}}{2} & -\tfrac{1}{2} \\
+			& \tfrac{1}{2} & \tfrac{\sqrt{3}}{2}
+		\end{pmatrix}\text{.}
+	\end{equation*}
+
+	\item Wir bestimmen einen normierten Eigenvektor zu \( 1 \in \spec(\Phi) \):
+	\begin{equation*}
+		(A - I_3) = \tfrac{1}{4}\left( \begin{smallmatrix}
+			\sqrt{3}-2 & \sqrt{3}-2 & -\sqrt{2} \\
+			\sqrt{3}-2 & \sqrt{3}-2 & -\sqrt{2} \\
+			\sqrt{2} & \sqrt{2} & 2\sqrt{3}-4
+		\end{smallmatrix} \right) \leadsto b_1 \coloneqq \tfrac{\sqrt{2}}{2}\left( \begin{smallmatrix}
+			1 \\ -1 \\ 0
+		\end{smallmatrix} \right)\text{.}
+	\end{equation*}
+	Aus dem orthogonalen Komplementärraum wählen wir
+	\begin{equation*}
+		b_2 \coloneqq \left( \begin{smallmatrix}
+			0 \\ 0 \\ 1
+		\end{smallmatrix} \right)\text{,} \quad \widetilde{b}_3 \coloneqq Ab_2 = \tfrac{1}{4} \left( \begin{smallmatrix}
+			-\sqrt{2} \\ -\sqrt{2} \\ 2\sqrt{3}
+		\end{smallmatrix} \right) \leadsto b_3 \coloneqq 2(Ab_2-\tfrac{\sqrt{3}}{2}b_2) = \tfrac{\sqrt{2}}{2}\left( \begin{smallmatrix}
+			1 \\ 1 \\ 0
+		\end{smallmatrix} \right)\text{}
+	\end{equation*}
+	Es ist \( Ab_2 = \tfrac{\sqrt{3}}{2}b_2 + \tfrac{1}{2}b_3 \), also passt die Reihenfolge der Basisvektoren und es ist
+	\begin{equation*}
+		S = (b_1,b_2,b_3) = \begin{pmatrix}
+			\tfrac{\sqrt{2}}{2} & 0 & \tfrac{\sqrt{2}}{2} \\
+			-\tfrac{\sqrt{2}}{2} & 0 & \tfrac{\sqrt{2}}{2} \\
+			0 & 1 & 0
+		\end{pmatrix}\text{.}
+	\end{equation*}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2010
+%----------------------------------------------------------------------------------------
+\section{Herbst 2010}
+
+\subsection{Aufgabe}
+Es sei \( \R^3 \) mit dem Standardskalarprodukt und \( \Phi: \R^3 \to \R^3 \) die orthogonale Spiegelung an der von
+\begin{equation*}
+	a = \begin{pmatrix}
+		1 \\ 1 \\ 1
+	\end{pmatrix}\text{,} \quad b = \begin{pmatrix}
+		2 \\ -1 \\ 0
+	\end{pmatrix}
+\end{equation*}
+aufgespannten Ebene durch den Ursprung.
+\begin{enumerate}
+	\item Bestimmen Sie die Abbildungsmatrix von \( \Phi \) bezüglich der Standardbasis des \( \R^3 \).
+	\item Bestimmen Sie \( \Phi\left( \left( \begin{smallmatrix}
+		-1 \\ 1 \\ 1
+	\end{smallmatrix} \right) \right) \).
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Bestimme einen Normalenvektor \( 0 \neq n \in \R^3 \) und verwende diesen in \( \Phi(x) = x - 2\tfrac{\langle x,n \rangle}{\langle n,n \rangle}n \). Bestimme so das Bild eines beliebigen \( x \in \R^3 \), woraus man die Abbildungsmatrix gewinnt.
+	\item Es ist \( \Phi(v) = D_{BB}(\Phi)v \) mit der Abbildungsmatrix aus dem ersten Teil.
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Sei \( 0 \neq n \in \R^3 \) ein Normalenvektor der Ebene. Dann ist die Spiegelung beschrieben durch
+	\begin{equation*}
+	 	\Phi(x) = x- 2\tfrac{\langle x,n \rangle}{\langle n,n \rangle}n\text{.}
+	 \end{equation*}
+	 Zur Bestimmung von \( n \) löst man das LGS \( a^\top n = b^\top n = 0 \). Eine mögliche Lösung ist \( n = \left( \begin{smallmatrix}
+	 	1 \\ 2 \\ -3
+	 \end{smallmatrix} \right) \). Durch Einsetzen von \( x = \left( \begin{smallmatrix}
+	 	x_1 \\ x_2 \\ x_3
+	 \end{smallmatrix} \right) \) in \( \Phi(x) \) erhält man
+	 \begin{equation*}
+	 	\Phi\left( \left( \begin{smallmatrix}
+	 		x_1 \\ x_2 \\ x_3
+	 	\end{smallmatrix} \right) \right) = \tfrac{1}{7}\left( \begin{smallmatrix}
+	 		6x_1-2x_2+3x_3 \\
+	 		-2x_1+3x_2+6x_3 \\
+	 		3x_1+6x_2-2x_3
+	 	\end{smallmatrix} \right)\text{,}
+	 \end{equation*}
+	 also ist die Abbildungsmatrix von \( \Phi \) (bzgl. Standardbasis \( B \) des \( \R^3 \)):
+	 \begin{equation*}
+	 	D_{BB}{\Phi} = \frac{1}{7} \begin{pmatrix}
+	 		6 & -2 & 3 \\
+	 		-2 & 3 & 6 \\
+	 		3 & 6 & -2
+	 	\end{pmatrix}\text{.}
+	 \end{equation*}
+	 \item Es ist
+	 \begin{equation*}
+	 	\Phi\left( \begin{pmatrix}
+	 		-1 \\ 1 \\ 1
+	 	\end{pmatrix} \right) = D_{BB}(\Phi)\begin{pmatrix}
+	 		-1 \\ 1 \\ 1
+	 	\end{pmatrix} = \frac{1}{7}\begin{pmatrix}
+	 		-5 \\ 11 \\ 1
+	 	\end{pmatrix}\text{.}
+	 \end{equation*}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2013
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2013}
+
+\subsection{Aufgabe}
+Es sei \( \Phi: \R^3 \to \R^3 \) eine Isometrie des euklidischen Standardraums \( \R^3 \) mit \( \det(\Phi) = -1 \).
+\begin{enumerate}
+	\item Zeigen Sie, dass \( -1 \in \spec(\Phi) \) und dass für jeden Eigenvektor \( v \) zum Eigenwert \( -1 \) gilt:
+	\begin{equation*}
+	 	\forall x \in \R^3: v \perp (\Phi(x)+x)\text{.}
+	 \end{equation*} 
+	 \item Für \( \Phi \) gelte zusätzlich
+	 \begin{equation*}
+	 	\Phi\left( \left( \begin{smallmatrix}
+	 		 1 \\ 2 \\ 3
+	 	\end{smallmatrix} \right) \right) = \left( \begin{smallmatrix}
+	 		\sqrt{2}+2 \\ \sqrt{2}-2 \\ \sqrt{2}
+	 	\end{smallmatrix} \right)\text{,} \quad \Phi\left( \left( \begin{smallmatrix}
+	 		-1 \\ 3 \\ 2
+	 	\end{smallmatrix} \right) \right) = \tfrac{1}{4}\left( \begin{smallmatrix}
+	 		\sqrt{2}+12 \\ 6\sqrt{2} -2 \\ \sqrt{2}
+	 	\end{smallmatrix} \right)\text{.}
+	 \end{equation*}
+	 Bestimme die Isometrienormalform von \( \Phi \).
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Weise \( -1 \in \spec(\Phi) \) über die Struktur der Isometrienormalform und der Spur von \( \Phi \), die ähnlichkeitsinvariant ist, nach. Zeige, dass \( \langle v,\Phi(x)+x \rangle = 0 \) gelten muss.
+	\item Bestimme den Eigenraum zu \( -1 \) darüber, dass die beiden angegebenen Vektoren offensichtlich im orthogonalen Komplement liegen. Bestimme anschließend \( \angle(y,\Phi(y)) \) und darüber die Isometrienormalform.
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Es ist \( -1 \in \spec(\Phi) \), denn wegen \( \det(\Phi) = -1 \) hat auch die Isometrienormalform von \( \Phi \) Determinante \( -1 \) und damit die Gestalt \( \left( \begin{smallmatrix}
+	 		-1 & & \\
+	 		& \cos(\omega) & -\sin(\omega) \\
+	 		& \sin(\omega) & \cos(\omega)
+	 	\end{smallmatrix} \right) \).
+	 \\* Sei \( v \) Eigenvektor zu \( -1 \), also \( \Phi(v) = -v \). Es ist zu zeigen
+	 \begin{align*}
+	 	\quad &\langle v,\Phi(x)+x \rangle = 0 \\
+	 	\Leftrightarrow \quad &\langle v,x \rangle + \langle v,\Phi(x) \rangle = 0 \\
+	 	\overset{\Phi \text{ Iso}}{\Leftrightarrow} \quad &\langle \Phi(v),\Phi(x) \rangle + \langle v,\Phi(x) \rangle = 0 \\
+	 	\Leftrightarrow \quad &-\langle v,\Phi(x) \rangle + \langle v,\Phi(x) \rangle = 0\text{.}
+	 \end{align*}
+	 Also gilt die Behauptung.
+
+	 \item Offensichtlich liegen \( y_1 \coloneqq \left( \begin{smallmatrix}
+	 	1 \\ 2 \\ 3
+	 \end{smallmatrix} \right) \) und \( y_2 \coloneqq \left( \begin{smallmatrix}
+	 	-1 \\ 3 \\ 2
+	 \end{smallmatrix} \right) \) nicht im Eigenraum zu \( -1 \) gilt für alle \( v \in \eig(\Phi, -1) \):
+	 \begin{equation*}
+	 	\langle v,\Phi(y_1)+y_1 \rangle = 0 \quad \text{und} \quad \langle v,\Phi(y_2)+y_2 \rangle = 0\text{.}
+	 \end{equation*}
+	 Als Lösung des LGS erhalten wir
+	 \begin{equation*}
+	 	v \in \langle \tfrac{1}{\sqrt{2}}\left( \begin{smallmatrix}
+	 		1 \\ 0 \\ -1
+	 	\end{smallmatrix} \right) \rangle\text{.}
+	 \end{equation*}
+	 Wir bestimen nun noch \( \omega = \angle(y,\Phi(y)) \) für \( y \in \langle v \rangle^\perp \):
+	 \begin{equation*}
+	 	y = \left( \begin{smallmatrix}
+	 		1 \\ 2 \\ 3
+	 	\end{smallmatrix} \right) - \langle \left( \begin{smallmatrix}
+	 		1 \\ 2 \\ 3
+	 	\end{smallmatrix} \right), \tfrac{1}{\sqrt{2}}\left( \begin{smallmatrix}
+	 		1 \\ 0 \\ -1
+	 	\end{smallmatrix} \right) \rangle \tfrac{1}{\sqrt{2}}\left( \begin{smallmatrix}
+	 		1 \\ 0 \\ -1
+	 	\end{smallmatrix} \right) = \left( \begin{smallmatrix}
+	 		2 \\ 2 \\ 2
+	 	\end{smallmatrix} \right)
+	 \end{equation*}
+	 Also ist
+	 \begin{equation*}
+	 	\cos\angle(y,\Phi(y)) = \tfrac{\langle y,\Phi(y) \rangle}{||y|| \ ||\Phi(y)||} = \tfrac{\sqrt{2}}{2}\text{.}
+	 \end{equation*}
+	 Also ist die Isometrienormalform von \( A \): 
+	 \begin{equation*}
+	 	\begin{pmatrix}
+	 		-1 & & \\
+	 		& \tfrac{\sqrt{2}}{2} & -\tfrac{\sqrt{2}}{2} \\
+	 		& \tfrac{\sqrt{2}}{2} & \tfrac{\sqrt{2}}{2}
+	 	\end{pmatrix}\text{.}
+	 \end{equation*}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2013
+%----------------------------------------------------------------------------------------
+\section{Herbst 2013}
+
+\subsection{Aufgabe}
+Seien \( V \) ein endlichdimensionaler euklidischer Vektorraum und \( \Phi, \Psi \in \text{End}(V) \). Für diese gelte \( \Phi \circ \Psi = \Psi \circ \Phi \). Zeigen Sie:
+\begin{enumerate}
+	\item Jeder \( \Phi \)-Eigenraum ist \( \Psi \)-invariant.
+	\item Wenn \( \Phi \) und \( \Psi \) selbstadjungiert sind, dann gibt es eine Orthonormalbasis von \( V \), die aus Eigenvektoren von \( \Phi \) und \( \Psi \) besteht. 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Zeige, dass für alle \( v \in \eig(\Phi,\lambda) \) auch \( \Psi(v) \in \eig(\Phi,\lambda) \).
+	\item Zeige, dass jeder \( \Phi \)-Eigenraum eine Orthonormalbasis aus \( \Psi \)-Eigenvektoren besitzt und die Summe dieser Basen eine Basis von \( V \) ist. 
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Sei \( \lambda \in \spec(\Phi) \). Für alle \( v \in \eig(\Phi,\lambda) \) gilt dann
+	\begin{equation*}
+	 	\Phi(\Psi(v)) = \Psi(\Phi(v)) = \Psi(\lambda v) = \lambda \Psi(v)\text{,}
+	 \end{equation*} 
+	 also ist auch \( \Psi(v) \in \eig(\Phi,\lambda) \) und damit \( \eig(\Phi,\lambda) \) \( \Psi \)-invariant.
+
+	 \item Da \( \Phi \) selbstadjungiert ist lässt sich \( V \) als orthogonale Summe von \( \Phi \)-Eigenräumen darstellen, welche nach dem ersten Teil \( \Psi \)-invariant sind. \\*
+	 	Es ist \( \Psi|_{\eig(\Phi, \lambda) } \) selbstadjungiert, also besitzt jeder Eigenraum eine Orthonormalbasis aus \( \Psi \)-Eigenvektoren, welche auch Eigenvektoren von \( \Phi \) sind. Die Summe dieser Orthonormalbasen ist eine Orthonormalbasis von \( V \).
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2014
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2014}
+
+\subsection{Aufgabe}
+Seien \( 2 \leq n \in \N \), \( V \) ein \( n \)-dimensionaler euklidischer Vektorraum mit Skalarprodukt \( \langle \cdot, \cdot \rangle \) und \( w_1, w_2 \in V \setminus \{ 0 \} \) mit \( \langle w_1,w_2 \rangle \neq 0 \). Weiter sei der Endomorphismus \( \Phi \) gegeben:
+\begin{equation*}
+	\Phi: V \ni v \mapsto \langle v,w_1 \rangle w_2 \in V
+\end{equation*}
+\begin{enumerate}
+	\item Geben Sie \( \bild(\Phi) \) und \( \rk(\Phi) \) an.
+	\item Bestimmen Sie alle \( \lambda \in \spec(\Phi) \) sowie die zugehörigen Eigenräume.
+	\item Bestimmen Sie die zu \( \Phi \) adjungierte Abbildung \( \Phi^\ast \).
+	\item Zeigen Sie: \( \Phi \) selbstadjungiert \( \Leftrightarrow \) \( w_1 \) und \( w_2 \) sind linear abhängig.
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Zeige, dass \( \bild(\Phi) \) nicht leer ist und von \( w_2 \) erzeugt wird. Beachte, dass \( \rk(\Phi) = \dim(\bild(\Phi)) \).
+	\item Berechne \( \kr(\Phi) \), woraus man \( 0 \in \spec(\Phi) \) erhält. Bestimme die übrigen Eigenwerte aus der Abbildungsvorschrift.
+	\item Forme \( \langle v_1, \Phi(v_2) \rangle \) um und konstruiere daraus eine Abbildung \( \Phi^\ast \).
+	\item Zeige die beiden Richtungen einzeln: Verwende von links nach rechts \( \Phi \overset{\text{!}}{=} \Phi^\ast \) aus Teil 3 und für die Rückrichtung \( w_1 = \lambda w_2 \) in \( \langle v,w_1 \rangle w_2 \).
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Wir können ablesen, dass \( \bild(\Phi) \) in \( \langle w_2 \rangle \) enthalten ist und \( 0 \neq \langle w_2,w_1 \rangle \in \bild(\Phi) \), also \( \bild(\Phi) = \langle w_2 \rangle \) und \( \rk(\Phi) = \dim(\bild(\Phi)) = 1 \).
+	\item Es ist \( \dim(\kr(\Phi)) = \dim(V) - \rk(\Phi) = n-1 \), also ist \( 0 \in \spec(\Phi) \) \( (n-1) \)-facher Eigenwert. Außerdem ist \( \Phi(w_2) = \langle w_2,w_1 \rangle w_2 \), also ist \( \langle w_1,w_2 \rangle \) einfacher Eigenwert von \( \Phi \). \\
+	Wir erhalten \( \eig(\Phi,0) = \langle w_1 \rangle^\perp \), \( \eig(\Phi,\langle w_1,w_2 \rangle) = \langle w_2 \rangle \).
+	\item Für \( v_1,v_2 \in V \) gilt
+	\begin{equation*}
+		\langle v_1, \Phi(v_2) \rangle = \langle v_1,\langle v_2,w_1 \rangle w_2 \rangle = \langle v_2,w_1 \rangle \langle v_1,w_2 \rangle = \langle v_2,w_1\langle v_1,w_2 \rangle \rangle = \langle \langle v_1,w_2 \rangle w_1,v_2 \rangle\text{.}
+	\end{equation*}
+	Also ist \( \Phi^\ast: V \ni v \mapsto \langle v,w_2 \rangle w_1 \in V \) die zu \( \Phi \) adjungierte Abbildung.
+
+	\item \( \Rightarrow \): \( \Phi \) ist selbstadjungiert genau dann, wenn \( \langle v,w_1 \rangle w_2 = \langle v,w_2 \rangle w_1 \), also muss dann \( w_1 = \tfrac{\langle w_1,w_1 \rangle}{\langle w_1,w_2 \rangle}w_2 \) sein, also sind \( w_1 \) und \( w_2 \) linear abhängig. \\*
+	\( \Leftarrow \): Ist \( w_1 = \lambda w_2 \), dann ist \( \langle v,w_1 \rangle w_2 = \lambda \langle v,w_2 \rangle w_2 = \langle v,w_2 \rangle w_1 \) und somit ist \( \Phi \) selbstadjungiert.
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	HERBST 2014
+%----------------------------------------------------------------------------------------
+\section{Herbst 2014}
+
+\subsection{Aufgabe}
+Es sei \( (V,\langle \cdot, \cdot \rangle) \) ein euklidischer Vektorraum der Dimension \( n \geq 1 \), und \( f \in \text{End}(V) \) mit der Eigenschaft
+\begin{equation*}
+	\forall x \in V: \langle f(x),x \rangle = 0\text{.}
+\end{equation*}
+Zeigen Sie:
+\begin{enumerate}
+	\item \( \forall x,y \in V : \langle f(x),y \rangle = -\langle x,f(y) \rangle \).
+	\item Ist \( U \leq V \) \( f \)-invariant, so ist auch \( U^\perp \) \( f \)-invariant.
+	\item Besitzt \( f \) einen Eigenwert \( \lambda \in \R \), so ist \( f \) nicht invertierbar.
+	\item Der Endomorphismus \( f^2: V \ni x \mapsto f(f(x)) \in V \) ist selbstadjungiert.
+	\item Es gibt eine Orthonormalbasis \( B \) von \( V \) und reelle Zahlen \( \mu_1, \dots, \mu_n \leq 0 \), sodass die Abbildungsmatrix von \( f^2 \) bezüglich \( B \) gegeben ist durch
+	\begin{equation*}
+	 	D_{BB}(f^2) = \begin{pmatrix}
+	 		\mu_1 & & \\
+	 		& \ddots & \\
+	 		& & \mu_n
+	 	\end{pmatrix}\text{,}
+	 \end{equation*} 
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Zeige durch Umformen, dass \( \langle f(y),x \rangle + \langle f(x),y \rangle = 0 \).
+	\item Zeige, dass für \( y \in U^\perp, u \in U \) gilt: \( \langle u,f(y) \rangle = 0 \).
+	\item Zeige, dass \( f \) nicht injektiv und somit nicht invertierbar ist.
+	\item Zeige \( \langle f^2(x),y \rangle = \langle x,f^2(y) \rangle \) durch Umformen.
+	\item Offensichtlich existiert eine \( V \)-ONB aus \( f^2 \)-Eigenvektoren, da \( f^2 \) selbstadjungiert ist. Zeige, dass die zugehörigen Eigenwerte \( \leq 0 \) sind.
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Sei \( x,y \in V \). Dann ist
+	\begin{align*}
+		\quad &\langle f(y),x \rangle = \langle f(x),y \rangle \\
+		\Leftrightarrow \quad &\langle f(y),x \rangle + \langle f(x),y \rangle = 0 \\
+		\Leftrightarrow \quad &\langle f(y),x \rangle + \langle f(x),y \rangle + \langle f(x),x \rangle + \langle f(y),y \rangle = 0 \\
+		\Leftrightarrow \quad &\langle f(x+y),x+y \rangle = 0\text{,}
+	\end{align*}
+	also gilt die Behauptung.
+	\item Sei \( y \in U^\perp \), dann gilt für alle \( u \in U \), dass \( 0 = \langle f(u),y \rangle = -\langle u,f(y) \rangle \), also \( f(y) \in U^\perp \).
+	\item Sei \( 0 \neq x \in \eig(f,\lambda) \). Dann
+	\begin{equation*}
+	 	0 = \langle f(x),x \rangle = \langle \lambda x,x \rangle = \lambda \langle x,x \rangle\text{,}
+	 \end{equation*} 
+	 also muss \( \lambda = 0 \) sein und damit \( \kr(f) = \eig(f,0) \neq \{ 0 \} \), also ist \( f \) nicht injektiv und damit insbesondere nicht invertierbar.
+	\item Seien \( x,y \in V \). Dann
+	\begin{equation*}
+		\langle f^2(x),y \rangle = \langle f(f(x)),y \rangle = - \langle f(x),f(y) \rangle = (-1)^2\langle x,f(f(y)) \rangle = \langle x,f^2(y) \rangle
+	\end{equation*}
+	und somit ist \( f \) selbstadjungiert.
+	\item \( f^2 \) ist selbadjungiert, also existiert eine ONB \( B = (b_1, \dots, b_n) \) aus \( f^2 \)-Eigenvektoren. Für die zugehörigen Eigenwerte gilt
+	\begin{equation*}
+		\mu_i = \langle \mu_ib_i,b_i \rangle = \langle f^2(b_i),b_i \rangle - \langle f(b_i),f(b_i) \rangle \leq 0\text{.}
+	\end{equation*}
+\end{enumerate}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	FRÜHJAHR 2015
+%----------------------------------------------------------------------------------------
+\section{Frühjahr 2015}
+
+\subsection{Aufgabe}
+Es sei \( (V,\langle \cdot,\cdot \rangle) \) ein endlichdimensionaler euklidischer Vektorraum. Weiter seien \( \Phi,\Psi \in \text{End}(V) \) selbstadjungiert.
+\begin{enumerate}
+	\item Geben Sie die Definition von ``selbstadjungiert'' an.
+	\item Zeigen Sie, dass sowohl \( \Phi + \Psi \) als auch \( \Phi - \Psi \) selbstadjungiert sind.
+	\item Zeigen Sie: \( \Phi \circ \Psi \) ist selbstadjungiert \( \Leftrightarrow \Phi \circ \Psi = \Psi \circ \Phi \).
+\end{enumerate}
+
+\subsection{Ansatz}
+\begin{enumerate}
+	\item Gib die Definition an. 
+	\item Zeige, durch Umformungen, dass \( \langle (\Phi + a\Psi)(v),w \rangle = \langle v,(\Phi + a\Psi)w \rangle \), \( a \in \R \), gilt.
+	\item Zeige beide Richtungen einzeln jeweils durch Umformen.
+\end{enumerate}
+
+\subsection{Lösung}
+\begin{enumerate}
+	\item Ein Endomorphismus \( \Phi \) eines endlichdimensionalen euklidischen Vektorraums \( V, \langle \cdot,\cdot \rangle \) heißt selbstadjungiert, falls für alle \( v,w \in V \) gilt: \( \langle \Phi(v),w \rangle = \langle v,\Phi(w) \rangle \).
+	\item Wir zeigen, dass \( \Phi + a\Psi \) mit \( a \in \R \) selbstadjungiert ist:
+	\begin{align*}
+		\langle (\Phi + a\Psi)(v),w \rangle &= \langle \Phi(v),w \rangle + a\langle \Psi(v),w \rangle \\
+		&= \langle v,\Phi(w) \rangle + a\langle v,\Psi(w) \rangle \\
+		&= \langle v,(\Psi + a\Psi)(w) \rangle\text{.}
+	\end{align*}
+	\item \( \Rightarrow \): Es ist
+	\begin{align*}
+		\quad &\langle \Phi(\Psi(v)),w \rangle - \langle \Phi(\Psi(v)),w \rangle = 0 \\
+		\Leftrightarrow \quad &\langle \Phi(\Psi(v)),w \rangle - \langle \Phi(v),\Psi(w) \rangle = 0 \\
+		\Leftrightarrow \quad &\langle \Phi(\Psi(v)),w \rangle - \langle \Psi(\Phi(v)),w \rangle = 0 \\
+		\Leftrightarrow \quad &\langle \Phi(\Psi(v))-\Psi(\Phi(v)),w \rangle = 0
+	\end{align*}
+	Also muss \( \Phi(\Psi(v)) =\Psi(\Phi(v)) \) sein.
+	\\*
+	\( \Leftarrow \): Es ist
+	\begin{align*}
+		\quad &\langle \Phi(\Psi(v)),w \rangle = \langle \Psi(\Phi(v),w) \rangle \\
+		\Leftrightarrow \quad &\langle \Phi(\Psi(v)),w \rangle = \langle \Phi(v),\Psi(w) \rangle \\
+		\Leftrightarrow \quad &\langle \Phi(\Psi(v)),w \rangle = \langle v,\Phi(\Psi(w)) \rangle
+	\end{align*}
+	Alsi ist \( \Phi \circ \Psi \) selbstadjungiert.
+\end{enumerate}
